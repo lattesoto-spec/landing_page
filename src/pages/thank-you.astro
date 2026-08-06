@@ -1,0 +1,25 @@
+---
+import { site } from "../config/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Walkthrough request received | CareMin"
+  description="Your CareMin walkthrough request has been received."
+  noindex={true}
+>
+  <section class="error-page">
+    <div class="container error-page-inner">
+      <p class="error-code">REQUEST RECEIVED</p>
+      <h1>Thanks for getting in touch.</h1>
+      <p>
+        Your walkthrough request has been sent to CareMin. We will reply to the work email you
+        provided.
+      </p>
+      <div class="hero-actions" style="justify-content: center; margin-top: 2rem;">
+        <a class="button" href="/">Return to CareMin</a>
+        <a class="text-link" href={`mailto:${site.contactEmail}`}>Email CareMin directly</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

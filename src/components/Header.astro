@@ -1,0 +1,75 @@
+---
+import { site } from "../config/site";
+import BrandLogo from "./BrandLogo.astro";
+---
+
+<header class="site-header" data-site-header>
+  <div class="container header-inner">
+    <a class="brand-link" href="/" aria-label="CareMin home">
+      <BrandLogo />
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      data-menu-toggle
+    >
+      <span class="sr-only">Open navigation</span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+
+    <nav id="primary-navigation" class="primary-nav" aria-label="Primary" data-primary-nav>
+      <a href="/#how-it-works">How it works</a>
+      <a href="/#capabilities">Capabilities</a>
+      <a href="/#reporting">Reporting context</a>
+      <a href="/#faq">FAQ</a>
+      <div class="mobile-actions">
+        <a class="sign-in-link" href={site.appUrl}>Sign in</a>
+        <a class="button button--small" href="/#contact">Request a walkthrough</a>
+      </div>
+    </nav>
+
+    <div class="desktop-actions">
+      <a class="sign-in-link" href={site.appUrl}>Sign in</a>
+      <a class="button button--small" href="/#contact">Request a walkthrough</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>("[data-site-header]");
+  const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const navigation = document.querySelector<HTMLElement>("[data-primary-nav]");
+
+  function closeMenu() {
+    if (!toggle || !navigation) return;
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.querySelector(".sr-only")!.textContent = "Open navigation";
+    navigation.removeAttribute("data-open");
+  }
+
+  toggle?.addEventListener("click", () => {
+    if (!navigation) return;
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+    toggle.querySelector(".sr-only")!.textContent = isOpen ? "Open navigation" : "Close navigation";
+    navigation.toggleAttribute("data-open", !isOpen);
+  });
+
+  navigation?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+      toggle?.focus();
+    }
+  });
+
+  const updateHeader = () => header?.toggleAttribute("data-scrolled", window.scrollY > 12);
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
+</script>

@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import careminLogo from "../assets/caremin-full.png";
+
+interface Props {
+  variant?: "header" | "footer";
+}
+
+const { variant = "header" } = Astro.props;
+---
+
+<span class:list={["brand-logo", `brand-logo--${variant}`]}>
+  <Image
+    src={careminLogo}
+    alt="CareMin"
+    width={496}
+    format="webp"
+    quality={86}
+    loading={variant === "footer" ? "lazy" : "eager"}
+    decoding="async"
+  />
+</span>
+
+<style>
+  .brand-logo {
+    position: relative;
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 9.75rem;
+    height: 2.75rem;
+    overflow: visible;
+  }
+
+  .brand-logo img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15.5rem;
+    max-width: none;
+    height: auto;
+    transform: translate(-50%, -50%);
+  }
+
+  .brand-logo :global(picture) {
+    display: contents;
+  }
+
+  .brand-logo--footer {
+    width: 10.75rem;
+    height: 3.25rem;
+  }
+
+  .brand-logo--footer img {
+    width: 17rem;
+  }
+
+  @media (max-width: 360px) {
+    .brand-logo--header {
+      width: 8.6rem;
+    }
+
+    .brand-logo--header img {
+      width: 13.75rem;
+    }
+  }
+</style>

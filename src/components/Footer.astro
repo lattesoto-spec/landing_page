@@ -1,0 +1,39 @@
+---
+import { site } from "../config/site";
+import BrandLogo from "./BrandLogo.astro";
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand-link brand-link--footer" href="/" aria-label="CareMin home">
+        <BrandLogo variant="footer" />
+      </a>
+      <p>Care-minute monitoring and evidence for Australian residential aged care.</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer">
+      <div>
+        <p class="footer-label">Product</p>
+        <a href="/#how-it-works">How it works</a>
+        <a href="/#capabilities">Capabilities</a>
+        <a href={site.appUrl}>Sign in</a>
+      </div>
+      <div>
+        <p class="footer-label">Company</p>
+        <a href="/#contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>
+      CareMin is a monitoring and evidence-management tool. It does not provide legal, accounting,
+      audit, or regulatory advice. Providers are responsible for verifying their data, targets,
+      calculations, and submissions against current requirements.
+    </p>
+    <p>&copy; {site.buildYear} CareMin. All rights reserved.</p>
+  </div>
+</footer>

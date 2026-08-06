@@ -1,0 +1,69 @@
+---
+import { site } from "../config/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Privacy notice | CareMin"
+  description="CareMin marketing website privacy notice."
+  noindex={true}
+>
+  <header class="page-hero">
+    <div class="container page-hero-inner">
+      <p class="eyebrow">Legal</p>
+      <h1>Privacy notice</h1>
+      <p>How information submitted through the CareMin marketing website is handled.</p>
+      <div class="review-notice" role="note">
+        <strong>Pre-launch placeholder:</strong> This notice requires review by an Australian privacy
+        professional and confirmation of the operating legal entity before publication.
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container prose">
+      <p><strong>Last updated:</strong> 5 August 2026</p>
+
+      <h2>Scope</h2>
+      <p>
+        This draft notice applies to the public CareMin marketing website. It does not cover the
+        separate CareMin application or provider data stored in that product.
+      </p>
+
+      <h2>Information collected</h2>
+      <p>
+        If you request a walkthrough, the form asks for your name, work email, organisation, number
+        of homes, message, and consent to be contacted. Do not submit resident names, health
+        information, payroll data, or other sensitive operational information through this website.
+      </p>
+
+      <h2>How enquiry information is used</h2>
+      <p>
+        Enquiry information is used to understand and respond to your request, arrange a product
+        walkthrough, and keep a record of the conversation. It is not used to create a CareMin
+        product account automatically.
+      </p>
+
+      <h2>Form delivery</h2>
+      <p>
+        The enquiry form uses FormSubmit to deliver the submitted fields to the CareMin contact
+        email. This means the form provider processes the information on CareMin's behalf. Its
+        documentation states that submissions may be retained in a submission archive for 30 days.
+        This arrangement must be confirmed as part of the legal review before launch.
+      </p>
+
+      <h2>Analytics</h2>
+      <p>
+        Analytics are disabled by default. Privacy-friendly analytics may be enabled later through
+        the site's public configuration. This notice must be updated before that occurs.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For privacy questions, email <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a
+        >. The legal entity name and any required Australian contact details will be added after
+        legal review.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

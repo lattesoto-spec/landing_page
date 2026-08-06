@@ -1,0 +1,9 @@
+dist
+node_modules
+playwright-report
+test-results
+screenshots
+reports
+public/brand
+public/favicon.png
+LANDING_PAGE_CODEX_BRIEF.md

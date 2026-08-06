@@ -1,0 +1,70 @@
+---
+import { site } from "../config/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Website terms | CareMin"
+  description="CareMin marketing website terms of use."
+  noindex={true}
+>
+  <header class="page-hero">
+    <div class="container page-hero-inner">
+      <p class="eyebrow">Legal</p>
+      <h1>Website terms</h1>
+      <p>Terms for use of the public CareMin marketing website.</p>
+      <div class="review-notice" role="note">
+        <strong>Pre-launch placeholder:</strong> These terms require professional legal review and confirmation
+        of the operating legal entity before publication.
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container prose">
+      <p><strong>Last updated:</strong> 5 August 2026</p>
+
+      <h2>General information only</h2>
+      <p>
+        This website provides general information about CareMin. It does not provide legal,
+        accounting, audit, clinical, or regulatory advice. You should obtain advice appropriate to
+        your circumstances.
+      </p>
+
+      <h2>No compliance guarantee</h2>
+      <p>
+        CareMin is a monitoring and evidence-management tool. Providers remain responsible for
+        verifying their data, facility targets, calculations, and submissions against current
+        requirements. Use of CareMin does not guarantee compliance with any law, rule, guidance, or
+        assurance standard.
+      </p>
+
+      <h2>Product availability</h2>
+      <p>
+        Descriptions on this site explain the current intended product scope. A walkthrough does not
+        create an account, subscription, or obligation to provide service. Any use of the separate
+        CareMin application will be subject to a separate written agreement.
+      </p>
+
+      <h2>Government systems and endorsement</h2>
+      <p>
+        CareMin does not submit reports directly to the Government Provider Management System. It is
+        not approved, certified, endorsed, or operated by the Australian Government.
+      </p>
+
+      <h2>External links</h2>
+      <p>
+        Links to Australian Government guidance are provided for convenience and may change. Always
+        check the current official source before making reporting decisions.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about these draft terms can be sent to
+        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>. The legal entity name,
+        governing law, liability terms, and other required provisions will be added after legal
+        review.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
