@@ -42,16 +42,20 @@ test("mobile navigation opens, closes, and exposes its destinations", async ({ p
 test("walkthrough form has accessible controls and required consent", async ({ page }) => {
   await page.goto("/#contact");
 
+  const form = page.locator("form.contact-form");
+
   await expect(page.getByLabel("Name")).toBeVisible();
   await expect(page.getByLabel("Work email")).toHaveAttribute("type", "email");
   await expect(page.getByLabel("Organisation")).toBeVisible();
   await expect(page.getByLabel("Number of homes")).toBeVisible();
-  await expect(page.getByLabel("What would you like to review?")).toHaveAttribute(
+  await expect(page.getByLabel("What would you like to see?")).toHaveAttribute(
     "aria-describedby",
     "message-hint",
   );
   await expect(page.getByLabel(/I agree that CareMin/)).toHaveAttribute("required", "");
   await expect(page.getByRole("button", { name: "Request walkthrough" })).toBeVisible();
+  await expect(form).toHaveAttribute("action", "/api/contact");
+  await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0);
 });
 
 test("landing page does not overflow at 320 pixels", async ({ page }) => {

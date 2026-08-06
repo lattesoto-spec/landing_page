@@ -1,5 +1,4 @@
 ---
-import { site } from "../config/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
@@ -10,7 +9,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 >
   <header class="page-hero">
     <div class="container page-hero-inner">
-      <p class="eyebrow">Legal</p>
       <h1>Privacy notice</h1>
       <p>How information submitted through the CareMin marketing website is handled.</p>
       <div class="review-notice" role="note">
@@ -46,10 +44,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
       <h2>Form delivery</h2>
       <p>
-        The enquiry form uses FormSubmit to deliver the submitted fields to the CareMin contact
-        email. This means the form provider processes the information on CareMin's behalf. Its
-        documentation states that submissions may be retained in a submission archive for 30 days.
-        This arrangement must be confirmed as part of the legal review before launch.
+        The enquiry form sends information to a same-origin CareMin endpoint, which relays it to
+        FormSubmit for email delivery. The destination address is kept in server-only configuration
+        and is not published in the website. FormSubmit's documentation states that submissions may
+        be retained in a submission archive for 30 days. This arrangement must be confirmed as part
+        of the legal review before launch.
       </p>
 
       <h2>Analytics</h2>
@@ -60,9 +59,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
       <h2>Contact</h2>
       <p>
-        For privacy questions, email <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a
-        >. The legal entity name and any required Australian contact details will be added after
-        legal review.
+        Privacy questions can be sent through the <a href="/#contact">CareMin contact form</a>. The
+        legal entity name and any required Australian contact details will be added after legal
+        review.
       </p>
     </div>
   </section>

@@ -1,5 +1,4 @@
 ---
-import { site } from "../config/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
@@ -10,7 +9,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 >
   <header class="page-hero">
     <div class="container page-hero-inner">
-      <p class="eyebrow">Legal</p>
       <h1>Website terms</h1>
       <p>Terms for use of the public CareMin marketing website.</p>
       <div class="review-notice" role="note">
@@ -60,10 +58,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
       <h2>Contact</h2>
       <p>
-        Questions about these draft terms can be sent to
-        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>. The legal entity name,
-        governing law, liability terms, and other required provisions will be added after legal
-        review.
+        Questions about these draft terms can be sent through the
+        <a href="/#contact">CareMin contact form</a>. The legal entity name, governing law,
+        liability terms, and other required provisions will be added after legal review.
       </p>
     </div>
   </section>

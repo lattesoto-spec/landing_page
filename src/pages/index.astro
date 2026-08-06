@@ -1,28 +1,31 @@
 ---
+import { Image } from "astro:assets";
 import Icon from "../components/Icon.astro";
 import { primarySources, site } from "../config/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import importComplete from "../assets/product/import-complete.png";
+import importUpload from "../assets/product/import-upload.png";
 
-const problemCards = [
+const benefits = [
   {
     icon: "database" as const,
-    title: "Data spread across systems",
-    body: "Worked hours, agency shifts, resident data, and reporting inputs often arrive from separate systems and owners.",
+    title: "All inputs in one workspace",
+    body: "Bring worked hours, agency shifts, occupied bed days, and reporting inputs together by facility and period.",
   },
   {
     icon: "roles" as const,
-    title: "Eligibility needs review",
-    body: "Role titles and activities need consistent decisions before time is included in a care-minute result.",
+    title: "Consistent role classifications",
+    body: "Apply repeatable eligibility decisions across imports and keep each decision connected to its source.",
   },
   {
     icon: "trend" as const,
-    title: "Shortfalls discovered late",
-    body: "Quarterly totals can conceal a developing gap until there is limited time to investigate or respond.",
+    title: "Progress visible every day",
+    body: "Follow daily and quarter-to-date performance early enough to plan staffing with confidence.",
   },
   {
     icon: "evidence" as const,
-    title: "Evidence assembled later",
-    body: "A final figure is difficult to explain when source files, corrections, and calculation records are kept separately.",
+    title: "Evidence built in",
+    body: "Every import, change, and calculation stays connected, so supporting records are ready when needed.",
   },
 ];
 
@@ -34,8 +37,8 @@ const steps = [
   },
   {
     icon: "review" as const,
-    title: "Review",
-    body: "Resolve file-quality warnings and ambiguous role classifications before relying on results.",
+    title: "Classify",
+    body: "Map roles once and apply consistent eligibility decisions across your imports.",
   },
   {
     icon: "monitor" as const,
@@ -44,8 +47,8 @@ const steps = [
   },
   {
     icon: "evidence" as const,
-    title: "Evidence",
-    body: "Keep source files, import records, row references, and calculation versions together.",
+    title: "Share",
+    body: "Create PDF, Excel, and CSV outputs with the supporting record already connected.",
   },
 ];
 
@@ -58,30 +61,30 @@ const capabilities = [
       "Daily and quarter-to-date results",
       "Total, RN, and EN contribution views",
       "Home-specific targets",
-      "Data-age and shortfall warnings",
+      "Performance and data-freshness indicators",
     ],
   },
   {
     icon: "coverage" as const,
     title: "RN coverage",
-    body: "Review continuous RN coverage alongside care-minute performance.",
-    items: ["Continuous coverage checks", "Gaps of 30 minutes or more", "Monthly review support"],
+    body: "See the continuous RN coverage timeline alongside care-minute performance.",
+    items: ["Daily coverage timeline", "Coverage continuity view", "Monthly reporting summaries"],
   },
   {
     icon: "review" as const,
-    title: "Data review",
-    body: "Keep uncertain data visible and outside results until it is reviewed.",
+    title: "Smart imports",
+    body: "Turn existing exports into a structured, consistent care-minute record.",
     items: [
-      "Structured file imports",
-      "Role eligibility queue",
-      "Excluded and unresolved rows shown separately",
-      "Import quality warnings",
+      "Staffing, roster, and occupied bed-day imports",
+      "Reusable role classifications",
+      "Clear import summaries",
+      "Source-to-result links",
     ],
   },
   {
     icon: "shield" as const,
     title: "Evidence and outputs",
-    body: "Retain the information needed to retrace a figure and prepare review material.",
+    body: "Move from a reported figure to its source record without leaving CareMin.",
     items: [
       "Retained source files",
       "Import and calculation records",
@@ -92,7 +95,7 @@ const capabilities = [
   {
     icon: "scenario" as const,
     title: "Operational planning",
-    body: "Test basic staffing and occupancy changes without altering the underlying record.",
+    body: "Model staffing and occupancy changes in dedicated planning scenarios.",
     items: [
       "Staffing scenarios",
       "Occupancy changes",
@@ -104,33 +107,34 @@ const capabilities = [
 
 const faqItems = [
   {
-    question: "Does CareMin submit reports to GPMS?",
+    question: "Can CareMin use our existing exports?",
     answer:
-      "No. CareMin supports monitoring, review, and evidence preparation. The provider remains responsible for checking and submitting information through the required government channels.",
+      "Yes. CareMin works with common structured exports for staffing, rosters, and occupied bed days, bringing them together in one facility workspace.",
   },
   {
-    question: "Does every home use a target of 215 minutes and 44 RN minutes?",
+    question: "Does CareMin support multiple homes?",
     answer:
-      "No. Those are sector-wide averages. Each home has targets that reflect its resident case mix.",
+      "Yes. Provider teams can manage multiple facilities, view each home separately, and compare performance across the organisation.",
   },
   {
-    question: "Which staff can contribute to care minutes?",
+    question: "How does CareMin handle facility targets?",
     answer:
-      "Eligible direct care may be delivered by registered nurses, enrolled nurses, and personal care workers or assistants in nursing, subject to the applicable rules and reporting guidance. CareMin keeps unresolved roles out of calculated results until reviewed.",
+      "Each home's own care-minute and RN targets are stored in CareMin and applied throughout its daily and quarter-to-date views.",
   },
   {
-    question: "Can we use our existing exports?",
+    question: "What can we export from CareMin?",
     answer:
-      "CareMin accepts common structured file formats and is designed to work with exports from existing systems. File quality and field availability still determine what can be calculated reliably.",
+      "Teams can create CSV, Excel, and PDF outputs for operational reviews, leadership reporting, and evidence preparation.",
   },
   {
-    question: "Does CareMin replace our auditor?",
+    question: "Which teams use CareMin?",
     answer:
-      "No. CareMin helps maintain a reviewable record. It does not provide an audit opinion or replace a registered company auditor.",
+      "Facility managers, Directors of Nursing, compliance teams, operations leaders, and finance teams can all work from the same care-minute record.",
   },
   {
-    question: "Is CareMin a rostering or payroll system?",
-    answer: "No. It works alongside existing operational systems.",
+    question: "Where does GPMS fit?",
+    answer:
+      "CareMin gives your team a connected workspace for monitoring and evidence preparation, ready to support your existing government reporting workflow.",
   },
 ];
 ---
@@ -139,12 +143,12 @@ const faqItems = [
   <section class="hero" aria-labelledby="hero-title">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Care minutes for residential aged care</p>
+        <p class="hero-kicker">Care-minute monitoring for residential aged care</p>
         <h1 id="hero-title">See where your care minutes stand before the quarter closes.</h1>
         <p>
           CareMin brings worked hours, occupied bed days, role eligibility, and source evidence into
-          one place. Monitor facility performance, investigate gaps, and prepare a clearer reporting
-          record.
+          one place. Track facility performance, follow trends, and prepare reporting with a clear,
+          connected record.
         </p>
         <div class="hero-actions">
           <a class="button" href="#contact">Request a walkthrough</a>
@@ -153,118 +157,24 @@ const faqItems = [
         <p class="hero-note">Built for Australian residential aged care providers</p>
       </div>
 
-      <div class="product-preview-wrap" aria-label="CareMin sample dashboard preview">
-        <div class="preview-glow" aria-hidden="true"></div>
-        <div class="product-preview">
-          <div class="browser-bar" aria-hidden="true">
-            <div class="browser-dots"><span></span><span></span><span></span></div>
-            <span class="sample-label">Sample data</span>
-          </div>
-          <div class="dashboard">
-            <aside class="dashboard-sidebar" aria-hidden="true">
-              <div class="mini-brand">
-                <img src="/favicon.png" alt="" width="1024" height="1024" />
-                <span>CareMin</span>
-              </div>
-              <div class="sidebar-item is-active">Overview</div>
-              <div class="sidebar-item">Care minutes</div>
-              <div class="sidebar-item">RN coverage</div>
-              <div class="sidebar-item">Eligibility</div>
-              <div class="sidebar-item">Evidence</div>
-            </aside>
-
-            <div class="dashboard-main">
-              <div class="dashboard-heading">
-                <div>
-                  <p>Sample facility</p>
-                  <h2>Quarter-to-date position</h2>
-                </div>
-                <span class="date-chip">Updated 4 Aug 2026</span>
-              </div>
-
-              <div class="metric-grid">
-                <div class="metric-card">
-                  <p class="metric-label">Total care minutes</p>
-                  <p class="metric-value">211.8 <span>min / OBD</span></p>
-                  <p class="metric-meta"><span class="status-dot is-amber"></span> Target 213.2</p>
-                </div>
-                <div class="metric-card">
-                  <p class="metric-label">RN care minutes</p>
-                  <p class="metric-value">45.1 <span>min / OBD</span></p>
-                  <p class="metric-meta"><span class="status-dot"></span> Target 43.7</p>
-                </div>
-                <div class="metric-card">
-                  <p class="metric-label">Occupied bed days</p>
-                  <p class="metric-value">5,984 <span>QTD</span></p>
-                  <p class="metric-meta"><span class="status-dot"></span> Complete to 3 Aug</p>
-                </div>
-              </div>
-
-              <div class="dashboard-lower">
-                <div class="chart-card">
-                  <div class="card-title-row">
-                    <h3>Daily care-minute trend</h3>
-                    <div class="chart-legend" aria-hidden="true">
-                      <span class="legend-item">Actual</span>
-                      <span class="legend-item is-target">Target</span>
-                    </div>
-                  </div>
-                  <svg
-                    class="trend-chart"
-                    viewBox="0 0 360 126"
-                    role="img"
-                    aria-label="Sample daily care minutes fluctuating around the facility target"
-                  >
-                    <defs>
-                      <linearGradient id="chartArea" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#13b9bb" stop-opacity="0.22"></stop>
-                        <stop offset="100%" stop-color="#13b9bb" stop-opacity="0"></stop>
-                      </linearGradient>
-                    </defs>
-                    <g stroke="#e4eaed" stroke-width="1">
-                      <line x1="0" y1="20" x2="360" y2="20"></line>
-                      <line x1="0" y1="59" x2="360" y2="59"></line>
-                      <line x1="0" y1="98" x2="360" y2="98"></line>
-                    </g>
-                    <line
-                      x1="0"
-                      y1="55"
-                      x2="360"
-                      y2="55"
-                      stroke="#91a2ac"
-                      stroke-width="1.5"
-                      stroke-dasharray="5 5"></line>
-                    <path
-                      d="M0 82 C20 72 32 43 52 50 S81 77 102 68 S131 38 153 47 S182 72 204 61 S235 40 257 50 S283 82 306 66 S337 43 360 48 L360 116 L0 116 Z"
-                      fill="url(#chartArea)"></path>
-                    <path
-                      d="M0 82 C20 72 32 43 52 50 S81 77 102 68 S131 38 153 47 S182 72 204 61 S235 40 257 50 S283 82 306 66 S337 43 360 48"
-                      fill="none"
-                      stroke="#07979b"
-                      stroke-width="3"
-                      stroke-linecap="round"></path>
-                    <circle cx="360" cy="48" r="4" fill="#07979b" stroke="#fff" stroke-width="2"
-                    ></circle>
-                  </svg>
-                </div>
-
-                <div class="evidence-card">
-                  <div class="card-title-row">
-                    <h3>Evidence status</h3>
-                    <span class="review-badge">2 to review</span>
-                  </div>
-                  <ul class="evidence-list">
-                    <li>Worked-hours imports current</li>
-                    <li>Occupied bed days current</li>
-                    <li class="is-review">Two unresolved role labels</li>
-                    <li>Calculation record retained</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+      <figure class="product-preview-wrap">
+        <div class="product-preview-bar" aria-hidden="true">
+          <span class="window-controls"><span></span><span></span><span></span></span>
+          <span>CareMin import workspace</span>
         </div>
-      </div>
+        <div class="product-preview-image">
+          <Image
+            src={importComplete}
+            alt="CareMin import results screen showing accepted files, completed checks, and an import summary"
+            width={1500}
+            format="webp"
+            quality={86}
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+        <figcaption>Real product screen using demonstration data</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -287,30 +197,28 @@ const faqItems = [
       <div class="context-item context-item--note">
         <span class="context-icon" aria-hidden="true">i</span>
         <p>
-          <strong>Targets vary by home.</strong> Providers remain responsible for confirming the facility-specific
-          targets and occupied bed-day source data used in their submissions.
+          <strong>Targets are tailored by home.</strong> CareMin keeps facility-specific targets and occupied
+          bed-day sources alongside daily and quarter-to-date results.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="section section--soft" aria-labelledby="problem-title">
+  <section class="section section--soft" aria-labelledby="benefits-title">
     <div class="container">
       <div class="section-heading">
-        <p class="eyebrow">The reporting challenge</p>
-        <h2 id="problem-title">The final number is only part of the work.</h2>
+        <h2 id="benefits-title">Bring the whole care-minute picture into focus.</h2>
         <p>
-          Care-minute reporting depends on the right worked hours, eligible occupations, reporting
-          period, and occupied bed days. When those inputs live in separate exports and
-          spreadsheets, it becomes difficult to see the current position or explain how a result was
-          produced.
+          CareMin connects worked hours, role classifications, reporting periods, occupied bed days,
+          and supporting evidence. Your team gets a shared view from the first import through to the
+          final output.
         </p>
       </div>
 
-      <div class="problem-grid">
+      <div class="benefit-grid">
         {
-          problemCards.map((card, index) => (
-            <article class="problem-card">
+          benefits.map((card, index) => (
+            <article class="benefit-item">
               <p class="card-number">0{index + 1}</p>
               <span class="icon-box">
                 <Icon name={card.icon} />
@@ -327,12 +235,8 @@ const faqItems = [
   <section id="how-it-works" class="section" aria-labelledby="how-title">
     <div class="container">
       <div class="section-heading section-heading--centred">
-        <p class="eyebrow">How it works</p>
-        <h2 id="how-title">From source files to a reviewable care-minute position.</h2>
-        <p>
-          CareMin provides a controlled path from operational exports to a result your team can
-          inspect and explain.
-        </p>
+        <h2 id="how-title">From source files to an always-current care-minute position.</h2>
+        <p>CareMin turns operational exports into a clear workflow your team can use every day.</p>
       </div>
 
       <div class="steps">
@@ -351,14 +255,56 @@ const faqItems = [
     </div>
   </section>
 
+  <section class="section product-tour" aria-labelledby="product-tour-title">
+    <div class="container product-tour-layout">
+      <figure class="product-shot">
+        <div class="product-preview-bar" aria-hidden="true">
+          <span class="window-controls"><span></span><span></span><span></span></span>
+          <span>Universal import</span>
+        </div>
+        <div class="product-shot-image">
+          <Image
+            src={importUpload}
+            alt="CareMin upload workspace for adding staffing, occupied bed day, and roster exports"
+            width={1500}
+            format="webp"
+            quality={86}
+            loading="lazy"
+          />
+        </div>
+        <figcaption>Upload workspace shown with demonstration data</figcaption>
+      </figure>
+
+      <div class="product-tour-copy">
+        <h2 id="product-tour-title">Bring your existing exports straight into CareMin.</h2>
+        <p>
+          Each facility, reporting period, and source file has a clear place in the import
+          workspace. CareMin guides your team from upload to a complete, structured record.
+        </p>
+        <dl class="product-points">
+          <div>
+            <dt>Guided import</dt>
+            <dd>Add staffing, roster, and occupied bed-day files in one simple workflow.</dd>
+          </div>
+          <div>
+            <dt>Consistent classification</dt>
+            <dd>Turn role labels into reusable eligibility decisions across future imports.</dd>
+          </div>
+          <div>
+            <dt>Connected records</dt>
+            <dd>Carry source files and import receipts through to every later output.</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
   <section id="capabilities" class="section section--soft" aria-labelledby="capabilities-title">
     <div class="container">
       <div class="section-heading">
-        <p class="eyebrow">Product capabilities</p>
-        <h2 id="capabilities-title">One workspace for monitoring, review, and evidence.</h2>
+        <h2 id="capabilities-title">Everything your team needs to stay on top of care minutes.</h2>
         <p>
-          Follow the current care-minute position while keeping unresolved inputs and source records
-          visible.
+          Move easily between current performance, RN coverage, imports, evidence, and planning.
         </p>
       </div>
 
@@ -386,18 +332,17 @@ const faqItems = [
   <section class="section section--navy" aria-labelledby="evidence-title">
     <div class="container evidence-layout">
       <div class="evidence-copy">
-        <p class="eyebrow">Calculation lineage</p>
-        <h2 id="evidence-title">Keep the calculation and its source record together.</h2>
+        <h2 id="evidence-title">Every figure comes with its full story.</h2>
         <p>
-          A care-minute result should be explainable. CareMin records the file, import, original
-          row, eligibility decision, and calculation version behind the figures so teams can review
-          changes and prepare supporting information.
+          CareMin links every figure to its source file, import receipt, original row, eligibility
+          decision, and calculation version. The supporting record grows naturally as your team
+          works.
         </p>
         <div class="evidence-detail">
           <span class="icon-box"><Icon name="file" /></span>
           <p>
-            <strong>Trace a result back to the input.</strong><br />Retain source references without
-            hiding corrections or unresolved decisions.
+            <strong>Move from output to source in a few steps.</strong><br />See the records and
+            decisions connected to every result.
           </p>
         </div>
       </div>
@@ -436,20 +381,18 @@ const faqItems = [
   <section id="reporting" class="section" aria-labelledby="reporting-title">
     <div class="container reporting-layout">
       <div class="reporting-copy">
-        <p class="eyebrow">Reporting context</p>
         <h2 id="reporting-title">Built around the way care minutes are reviewed and reported.</h2>
         <p>
-          Australian residential aged care providers have care-minute responsibilities under the
-          Aged Care Act 2024 and Aged Care Rules 2025. Providers continue to report labour hours and
-          costs through the Quarterly Financial Report and RN coverage through monthly reporting.
+          CareMin is shaped around Australian residential aged care reporting. It brings care-minute
+          monitoring, relevant Quarterly Financial Report inputs, and monthly RN coverage into a
+          connected operating view.
         </p>
         <p>
-          From the 2025-26 Aged Care Financial Report, providers must also submit an externally
-          audited Care Minutes Performance Statement. The first statement is due on 31 October 2026.
+          The 2025-26 Aged Care Financial Report introduces the externally audited Care Minutes
+          Performance Statement, with the first statement due on 31 October 2026.
         </p>
         <div class="reporting-note">
-          CareMin helps organise and review care-minute inputs and evidence. It does not submit
-          reports to government systems or replace professional assurance.
+          CareMin brings imports, monitoring, evidence, and outputs into one continuous workflow.
         </div>
       </div>
 
@@ -536,36 +479,35 @@ const faqItems = [
   <section class="section section--soft" aria-labelledby="audience-title">
     <div class="container">
       <div class="section-heading section-heading--centred">
-        <p class="eyebrow">For provider teams</p>
-        <h2 id="audience-title">Designed for the people responsible for the result.</h2>
-        <p>Give each team a clearer view of the same controlled care-minute record.</p>
+        <h2 id="audience-title">One shared picture for every team.</h2>
+        <p>Give everyone a clear view of the same connected care-minute record.</p>
       </div>
 
       <div class="audience-grid">
         <article class="audience-card">
           <span class="role-mark">FM</span>
           <h3>Facility managers</h3>
-          <p>Monitor daily performance and investigate developing gaps.</p>
+          <p>Stay across daily performance and plan staffing with confidence.</p>
         </article>
         <article class="audience-card">
           <span class="role-mark">DN</span>
           <h3>Directors of Nursing</h3>
-          <p>Review RN coverage and staffing risk.</p>
+          <p>See RN coverage and care-minute performance together.</p>
         </article>
         <article class="audience-card">
           <span class="role-mark">CT</span>
           <h3>Compliance teams</h3>
-          <p>Prepare source records and calculation evidence.</p>
+          <p>Build reporting evidence as the work happens.</p>
         </article>
         <article class="audience-card">
           <span class="role-mark">OL</span>
           <h3>Operations leaders</h3>
-          <p>Compare facility positions and data quality.</p>
+          <p>Compare homes and coordinate support across the organisation.</p>
         </article>
         <article class="audience-card">
           <span class="role-mark">FT</span>
           <h3>Finance teams</h3>
-          <p>Review and reconcile reporting inputs.</p>
+          <p>Reconcile hours, costs, and reporting inputs in one place.</p>
         </article>
       </div>
     </div>
@@ -574,12 +516,8 @@ const faqItems = [
   <section id="faq" class="section" aria-labelledby="faq-title">
     <div class="container faq-layout">
       <div class="faq-intro">
-        <p class="eyebrow">FAQ</p>
-        <h2 id="faq-title">Clear boundaries, clearly stated.</h2>
-        <p>
-          CareMin supports your reporting process. Provider review and professional assurance remain
-          essential.
-        </p>
+        <h2 id="faq-title">Questions teams ask before a walkthrough.</h2>
+        <p>A quick look at how CareMin fits into your current reporting workflow.</p>
       </div>
 
       <div class="faq-list">
@@ -600,22 +538,14 @@ const faqItems = [
   <section id="contact" class="contact-section" aria-labelledby="contact-title">
     <div class="container contact-layout">
       <div class="contact-copy">
-        <p class="eyebrow">Request a walkthrough</p>
-        <h2 id="contact-title">Review your care-minute process with CareMin.</h2>
+        <h2 id="contact-title">See CareMin working with your care-minute data flow.</h2>
         <p>
-          See how CareMin imports facility data, surfaces unresolved items, calculates the current
-          position, and keeps the supporting record together.
+          Walk through imports, facility performance, RN coverage, evidence, and reporting outputs
+          in one connected workspace.
         </p>
-        <a class="contact-email" href={`mailto:${site.contactEmail}`}>
-          <Icon name="mail" size={20} />
-          {site.contactEmail}
-        </a>
       </div>
 
-      <form class="contact-form" action={site.contactFormEndpoint} method="POST">
-        <input type="hidden" name="_subject" value="New CareMin walkthrough request" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_next" value={`${site.siteUrl}/thank-you`} />
+      <form class="contact-form" action="/api/contact" method="POST">
         <div class="honeypot" aria-hidden="true">
           <label for="website">Leave this field empty</label>
           <input id="website" type="text" name="_honey" tabindex="-1" autocomplete="off" />
@@ -650,16 +580,16 @@ const faqItems = [
           </select>
         </div>
         <div class="form-field form-field--full">
-          <label for="message">What would you like to review?</label>
+          <label for="message">What would you like to see?</label>
           <textarea
             id="message"
             name="message"
             aria-describedby="message-hint"
-            placeholder="For example, current care-minute monitoring, RN coverage, or evidence preparation."
+            placeholder="For example, care-minute monitoring, RN coverage, or reporting outputs."
             required></textarea>
           <span id="message-hint" class="form-hint">
-            Do not include resident names, health information, payroll data, or other sensitive
-            data.
+            Use business contact information here; operational data can be discussed during the
+            walkthrough.
           </span>
         </div>
         <label class="form-consent">
@@ -670,10 +600,7 @@ const faqItems = [
           </span>
         </label>
         <div class="form-footer">
-          <p>
-            Protected by a honeypot and the form provider's anti-spam controls. No account or trial
-            is created.
-          </p>
+          <p>We’ll reply to arrange a walkthrough tailored to your organisation.</p>
           <button class="button" type="submit">Request walkthrough</button>
         </div>
       </form>
