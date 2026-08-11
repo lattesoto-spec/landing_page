@@ -1,0 +1,283 @@
+---
+import ResourcePage from "../components/ResourcePage.astro";
+import { resourceByPath } from "../config/resources";
+import { primarySources } from "../config/site";
+
+const resource = resourceByPath["/24-7-rn-coverage"];
+const contents = [
+  { href: "#requirement", label: "Monthly reporting requirement" },
+  { href: "#what-to-report", label: "What to report" },
+  { href: "#coverage-v-minutes", label: "Coverage versus RN minutes" },
+  { href: "#evidence", label: "Records to retain" },
+  { href: "#workflow", label: "A practical monthly workflow" },
+  { href: "#caremin-role", label: "How CareMin supports monitoring" },
+  { href: "#sources", label: "Primary sources" },
+];
+const sources = [
+  {
+    title: "24/7 registered nurse reporting",
+    url: primarySources.rnReporting,
+    note: "Monthly reporting scope, absence information and due date",
+  },
+  {
+    title: "24/7 registered nurse requirement",
+    url: "https://www.health.gov.au/our-work/care-minutes-registered-nurses-aged-care/24-7-rns",
+    note: "Requirement, exemptions and provider responsibilities",
+  },
+  {
+    title: "Care Minutes Performance Statement",
+    url: primarySources.performanceStatement,
+    note: "Annual statement requirement for monthly RN coverage percentages",
+  },
+  {
+    title: "Aged Care Rules 2025",
+    url: primarySources.agedCareRules,
+    note: "Current legislative text",
+  },
+];
+---
+
+<ResourcePage
+  resource={resource}
+  eyebrow="Reporting guide"
+  intro="Registered residential aged care providers report RN coverage for every approved home each calendar month. A reliable process must identify coverage gaps, preserve the underlying timeline, and keep coverage separate from the calculation of RN care minutes."
+  contents={contents}
+  sources={sources}
+  relatedPaths={[
+    "/care-minutes-performance-statement",
+    "/qfr-care-minutes-reporting",
+    "/care-minutes-audit-preparation",
+  ]}
+>
+  <section id="requirement" class="resource-section" aria-labelledby="requirement-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">01</p>
+      <h2 id="requirement-title">The monthly reporting requirement</h2>
+    </div>
+    <div class="key-facts" aria-label="RN reporting key facts">
+      <div>
+        <span>Reporting cycle</span><strong>Every calendar month</strong><p>
+          Report separately for each approved residential care home.
+        </p>
+      </div>
+      <div>
+        <span>Due</span><strong>7th day of the next month</strong><p>
+          By 11:59 pm AEST under current department guidance.
+        </p>
+      </div>
+      <div>
+        <span>Submission</span><strong>GPMS</strong><p>
+          Manual entry and business-to-government submission options are available.
+        </p>
+      </div>
+    </div>
+    <p>
+      Every registered provider must report, including a provider whose home has an exemption from
+      the 24/7 RN requirement. The reporting obligation is therefore broader than simply recording
+      whether a home believes it met the requirement.
+    </p>
+  </section>
+
+  <section id="what-to-report" class="resource-section" aria-labelledby="what-to-report-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">02</p>
+      <h2 id="what-to-report-title">What to report when an RN was not onsite and on duty</h2>
+    </div>
+    <p>
+      Current department guidance requires each period of 30 minutes or more without an RN onsite
+      and on duty to be reported. Periods shorter than 30 minutes are not reported as a gap.
+    </p>
+    <div
+      class="responsive-table"
+      tabindex="0"
+      role="region"
+      aria-label="RN absence reporting fields"
+    >
+      <table>
+        <thead><tr><th>Record</th><th>Why it matters</th></tr></thead>
+        <tbody>
+          <tr
+            ><th scope="row">Start and end of each absence</th><td
+              >Establishes the duration and affected calendar day.</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Planned or unplanned</th><td
+              >Explains whether the gap was anticipated.</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Delegated nursing responsibility</th><td
+              >Records who held responsibility while an RN was absent.</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">On-call support and clinical-record access</th><td
+              >Documents support available during the absence.</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Resident transfer option</th><td
+              >Required information when the home had one or more reportable absences.</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Recruitment processes</th><td
+              >Required information when the home had one or more reportable absences.</td
+            ></tr
+          >
+        </tbody>
+      </table>
+    </div>
+    <div class="regulatory-note">
+      <strong>Use the government reporting channel.</strong>
+      <p>
+        The department’s Excel RN coverage tool can help providers calculate coverage, but the
+        department states that it is not an approved reporting form and is not mandatory.
+      </p>
+    </div>
+  </section>
+
+  <section
+    id="coverage-v-minutes"
+    class="resource-section"
+    aria-labelledby="coverage-v-minutes-title"
+  >
+    <div class="resource-section-heading">
+      <p class="resource-section-number">03</p>
+      <h2 id="coverage-v-minutes-title">RN coverage is not the same measure as RN care minutes</h2>
+    </div>
+    <div
+      class="comparison-table"
+      role="group"
+      aria-label="RN coverage and RN care minutes comparison"
+    >
+      <div class="comparison-head">
+        <span>Measure</span><span>24/7 RN coverage</span><span>RN care minutes</span>
+      </div>
+      <div>
+        <strong>Question answered</strong><p>
+          Was an RN onsite and on duty throughout the period?
+        </p><p>How many eligible RN worked minutes were delivered per occupied bed day?</p>
+      </div>
+      <div>
+        <strong>Time basis</strong><p>Continuous clock coverage</p><p>
+          Eligible worked hours divided by occupied bed days
+        </p>
+      </div>
+      <div>
+        <strong>Primary reporting</strong><p>Monthly RN coverage report</p><p>
+          Quarterly labour-hours and care-minute reporting
+        </p>
+      </div>
+      <div>
+        <strong>Common risk</strong><p>Small gaps hidden by a monthly percentage</p><p>
+          Ineligible or non-worked hours included in the numerator
+        </p>
+      </div>
+    </div>
+    <p>
+      A home can meet an RN care-minute target and still have a reportable coverage gap. It can also
+      maintain continuous RN coverage while falling short of its RN care-minute target. Both views
+      need their own source records and review controls.
+    </p>
+  </section>
+
+  <section id="evidence" class="resource-section" aria-labelledby="evidence-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">04</p>
+      <h2 id="evidence-title">Records to retain behind the monthly percentage</h2>
+    </div>
+    <ul class="audit-checklist">
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Planned RN roster</strong><p>
+            The expected coverage by date, start time, end time, and person.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Actual attendance</strong><p>
+            Worked-time, leave, replacement, call-out, and agency records used to establish what
+            occurred.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Coverage-gap register</strong><p>
+            Exact gap duration, planned or unplanned status, and affected home.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Response record</strong><p>
+            Delegation, on-call arrangements, access to clinical records, transfers, recruitment,
+            and corrective action.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Review and submission record</strong><p>
+            Calculation method, reviewer, approval, submitted value, submission date, and later
+            corrections.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="workflow" class="resource-section" aria-labelledby="workflow-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">05</p>
+      <h2 id="workflow-title">A practical monthly workflow</h2>
+    </div>
+    <ol class="process-ledger" aria-label="Monthly RN coverage workflow">
+      <li>
+        <span>01</span><strong>Bring planned and actual records together</strong><p>
+          Use the latest roster, attendance, leave, agency, and replacement information.
+        </p>
+      </li>
+      <li>
+        <span>02</span><strong>Construct the coverage timeline</strong><p>
+          Resolve overlaps, missing end times, cross-midnight shifts, and duplicated records.
+        </p>
+      </li>
+      <li>
+        <span>03</span><strong>Investigate every break in continuity</strong><p>
+          Confirm whether the apparent break is a real absence or a data-quality issue.
+        </p>
+      </li>
+      <li>
+        <span>04</span><strong>Document reportable absences</strong><p>
+          Record each gap of 30 minutes or more and the required contextual information.
+        </p>
+      </li>
+      <li>
+        <span>05</span><strong>Review, approve, and submit</strong><p>
+          Retain the reviewed calculation and use GPMS or the available business-to-government
+          channel.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="caremin-role" class="resource-section" aria-labelledby="caremin-role-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">06</p>
+      <h2 id="caremin-role-title">How CareMin supports RN coverage monitoring</h2>
+    </div>
+    <p>
+      CareMin presents a daily coverage timeline and monthly summary alongside care-minute
+      performance. Teams can investigate apparent gaps using the underlying source record, keep the
+      coverage calculation separate from care-minute calculations, and export a reviewable summary.
+    </p>
+    <p>
+      CareMin supports preparation and monitoring; providers still submit required RN information
+      through the government reporting channel.
+    </p>
+  </section>
+</ResourcePage>

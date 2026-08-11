@@ -1,7 +1,18 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
-const publicPages = ["/", "/privacy", "/terms"];
+const publicPages = [
+  "/",
+  "/resources",
+  "/care-minutes-software",
+  "/care-minutes-performance-statement",
+  "/24-7-rn-coverage",
+  "/qfr-care-minutes-reporting",
+  "/care-minutes-audit-preparation",
+  "/care-minutes-calculator",
+  "/privacy",
+  "/terms",
+];
 
 for (const path of publicPages) {
   test(`${path} has no serious or critical accessibility violations`, async ({ page }) => {
@@ -68,4 +79,41 @@ test("landing page does not overflow at 320 pixels", async ({ page }) => {
   }));
 
   expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.clientWidth);
+});
+
+test("resource pages do not overflow at 320 pixels", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 640 });
+
+  for (const path of [
+    "/resources",
+    "/care-minutes-performance-statement",
+    "/care-minutes-calculator",
+  ]) {
+    await page.goto(path);
+    const dimensions = await page.evaluate(() => ({
+      clientWidth: document.documentElement.clientWidth,
+      scrollWidth: document.documentElement.scrollWidth,
+    }));
+    expect(dimensions.scrollWidth, path).toBeLessThanOrEqual(dimensions.clientWidth);
+  }
+});
+
+test("calculator produces a labelled estimate and can be reset", async ({ page }) => {
+  await page.goto("/care-minutes-calculator");
+
+  await page.getByLabel("Total eligible direct-care worked hours").fill("15420");
+  await page.getByLabel("RN worked hours").fill("3200");
+  await page.getByLabel("EN worked hours").fill("680");
+  await page.getByLabel("Occupied bed days").fill("4380");
+  await page.getByLabel("Home total care-minute target").fill("215");
+  await page.getByLabel("Home RN care-minute target").fill("44");
+  await page.getByRole("button", { name: "Calculate position" }).click();
+
+  await expect(page.locator('[data-result="totalMinutes"]')).toHaveText("211.2");
+  await expect(page.locator('[data-result="rnMinutes"]')).toHaveText("43.8");
+  await expect(page.locator('[data-result="rnEnMinutes"]')).toHaveText("53.2");
+  await expect(page.locator("[data-copy-results]")).toBeEnabled();
+
+  await page.getByRole("button", { name: "Clear" }).click();
+  await expect(page.locator('[data-result="totalMinutes"]')).toHaveText("—");
 });

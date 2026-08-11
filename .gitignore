@@ -8,4 +8,5 @@ playwright-report/
 test-results/
 .DS_Store
 .idea/
+need_to_know/
 *.log

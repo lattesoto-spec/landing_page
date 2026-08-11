@@ -5,6 +5,7 @@ interface ImportMetaEnv {
   readonly PUBLIC_APP_URL?: string;
   readonly PUBLIC_PLAUSIBLE_DOMAIN?: string;
   readonly PUBLIC_PLAUSIBLE_SCRIPT_URL?: string;
+  readonly PUBLIC_GOOGLE_SITE_VERIFICATION?: string;
   readonly PUBLIC_LEGAL_NAME?: string;
   readonly PUBLIC_ABN?: string;
 }

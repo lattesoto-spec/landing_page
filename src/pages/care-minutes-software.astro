@@ -1,0 +1,254 @@
+---
+import ResourcePage from "../components/ResourcePage.astro";
+import { resourceByPath } from "../config/resources";
+import { primarySources } from "../config/site";
+
+const resource = resourceByPath["/care-minutes-software"];
+const contents = [
+  { href: "#what-it-does", label: "What the software controls" },
+  { href: "#workflow", label: "Source-to-output workflow" },
+  { href: "#records", label: "Inputs, checks and outputs" },
+  { href: "#boundaries", label: "System boundaries" },
+  { href: "#selection", label: "What to assess" },
+  { href: "#sources", label: "Primary sources" },
+];
+const sources = [
+  {
+    title: "Care minutes and 24/7 registered nurses in residential aged care",
+    url: primarySources.careMinutes,
+    note: "Australian Government Department of Health, Disability and Ageing",
+  },
+  {
+    title: "Quarterly Financial Report",
+    url: primarySources.quarterlyFinancialReport,
+    note: "Current residential care cost and hours reporting requirements",
+  },
+  {
+    title: "Care Minutes Performance Statement",
+    url: primarySources.performanceStatement,
+    note: "Current annual statement and external audit requirements",
+  },
+];
+---
+
+<ResourcePage
+  resource={resource}
+  eyebrow="Product guide"
+  intro="CareMin is a controlled workspace for monitoring care minutes and RN coverage, reviewing classifications, and retaining the record behind each result. It is designed for Australian residential aged care providers working across one or more homes."
+  contents={contents}
+  sources={sources}
+  relatedPaths={[
+    "/care-minutes-calculator",
+    "/care-minutes-audit-preparation",
+    "/care-minutes-performance-statement",
+  ]}
+  type="website"
+>
+  <section id="what-it-does" class="resource-section" aria-labelledby="what-it-does-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">01</p>
+      <h2 id="what-it-does-title">What care minutes software should control</h2>
+    </div>
+    <p>
+      A care-minute result is only useful when the team can explain the inputs, the role treatment,
+      the calculation, and any data excluded from it. CareMin keeps those parts within the same
+      facility and reporting-period record.
+    </p>
+    <dl class="control-register">
+      <div>
+        <dt>Worked and rostered time</dt>
+        <dd>
+          Worked, rostered, and unverified records remain distinguishable instead of being combined
+          into one unqualified total.
+        </dd>
+      </div>
+      <div>
+        <dt>Role eligibility</dt>
+        <dd>
+          RN, EN, and eligible personal-care classifications are reviewable. Unresolved roles are
+          held out until a person makes a decision.
+        </dd>
+      </div>
+      <div>
+        <dt>Occupied bed days</dt>
+        <dd>
+          The denominator is retained with its reporting period and used to calculate minutes per
+          occupied bed day.
+        </dd>
+      </div>
+      <div>
+        <dt>Facility targets</dt>
+        <dd>
+          Each home is monitored against the target that applies to it, rather than a generic
+          sector-wide figure.
+        </dd>
+      </div>
+      <div>
+        <dt>RN coverage</dt>
+        <dd>
+          Coverage continuity is monitored separately from RN care-minute contribution, with a daily
+          timeline and monthly summary.
+        </dd>
+      </div>
+      <div>
+        <dt>Evidence lineage</dt>
+        <dd>
+          Source files, import receipts, original rows, classification decisions, and calculation
+          versions remain connected to exported results.
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <section id="workflow" class="resource-section" aria-labelledby="workflow-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">02</p>
+      <h2 id="workflow-title">A source-to-output workflow</h2>
+    </div>
+    <p>
+      The workflow starts with operational exports and ends with a result that can be traced back
+      through the decisions and records used to produce it.
+    </p>
+    <ol class="process-ledger" aria-label="CareMin source-to-output workflow">
+      <li>
+        <span>01</span><strong>Import source records</strong><p>
+          Worked hours, rosters, agency records, and occupied bed-day data.
+        </p>
+      </li>
+      <li>
+        <span>02</span><strong>Review file quality</strong><p>
+          Confirm facility, period, mapping, accepted rows, and records needing attention.
+        </p>
+      </li>
+      <li>
+        <span>03</span><strong>Resolve classifications</strong><p>
+          Apply repeatable eligibility decisions without silently including unclear roles.
+        </p>
+      </li>
+      <li>
+        <span>04</span><strong>Calculate the position</strong><p>
+          Measure daily and quarter-to-date results against the home-specific targets.
+        </p>
+      </li>
+      <li>
+        <span>05</span><strong>Investigate variance</strong><p>
+          Move from a result to the underlying staff, date, source row, and decision.
+        </p>
+      </li>
+      <li>
+        <span>06</span><strong>Export a review record</strong><p>
+          Create PDF, Excel, or CSV outputs while retaining the supporting lineage.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="records" class="resource-section" aria-labelledby="records-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">03</p>
+      <h2 id="records-title">Inputs, checks and outputs</h2>
+    </div>
+    <div class="responsive-table" tabindex="0" role="region" aria-label="CareMin record types">
+      <table>
+        <thead><tr><th>Stage</th><th>Examples</th><th>Retained record</th></tr></thead>
+        <tbody>
+          <tr
+            ><th scope="row">Inputs</th><td
+              >Staffing, roster, agency, occupied bed-day and target data</td
+            ><td>Original source file and import receipt</td></tr
+          >
+          <tr
+            ><th scope="row">Checks</th><td
+              >Mapping, missing values, duplicate rows, role eligibility and evidence status</td
+            ><td>Warnings, decisions and original row references</td></tr
+          >
+          <tr
+            ><th scope="row">Monitoring</th><td
+              >Total, RN and EN contribution; RN coverage; daily and quarter position</td
+            ><td>Calculation version, period and target used</td></tr
+          >
+          <tr
+            ><th scope="row">Planning</th><td>Staffing, agency and occupancy scenarios</td><td
+              >Scenario assumptions kept separate from actual results</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Outputs</th><td
+              >Daily CSV, 90-day Excel summary, board PDF and statement-style PDF</td
+            ><td>Export linked to the underlying calculation record</td></tr
+          >
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="boundaries" class="resource-section" aria-labelledby="boundaries-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">04</p>
+      <h2 id="boundaries-title">Where CareMin fits—and where it does not</h2>
+    </div>
+    <div class="boundary-grid">
+      <div>
+        <h3>CareMin supports</h3>
+        <ul class="square-list">
+          <li>Operational monitoring before the end of a reporting period</li>
+          <li>Classification review and source-to-result traceability</li>
+          <li>QFR, RN coverage, and year-end evidence preparation</li>
+          <li>Exports for management review and work with external advisers</li>
+        </ul>
+      </div>
+      <div>
+        <h3>CareMin does not replace</h3>
+        <ul class="square-list">
+          <li>Your provider responsibility for complete and accurate reporting</li>
+          <li>Submission through government reporting systems</li>
+          <li>The registered company auditor engaged for the performance statement</li>
+          <li>Legal, accounting, or independent assurance advice</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="selection" class="resource-section" aria-labelledby="selection-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">05</p>
+      <h2 id="selection-title">What to assess when selecting care minutes software</h2>
+    </div>
+    <p>
+      Ask a vendor to demonstrate the full path from an original row to a reported result. A useful
+      evaluation should include rejected data, unresolved roles, a changed source file, and a
+      recalculation—not only a clean dashboard.
+    </p>
+    <ul class="audit-checklist">
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Can the system distinguish worked, rostered, and unverified time?</strong><p>
+            The basis of a result should be visible without reading a hidden implementation note.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Can a role decision be reviewed and reused?</strong><p>
+            Classification changes should be deliberate, attributable, and consistently applied.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Can every calculation be reproduced?</strong><p>
+            The period, target, occupied bed days, included rows, and calculation version should be
+            identifiable.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Can evidence be exported without losing its context?</strong><p>
+            A summary number should remain connected to the records that support it.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
+</ResourcePage>

@@ -1,0 +1,317 @@
+---
+import ResourcePage from "../components/ResourcePage.astro";
+import { resourceByPath } from "../config/resources";
+import { primarySources } from "../config/site";
+
+const resource = resourceByPath["/care-minutes-performance-statement"];
+const contents = [
+  { href: "#requirement", label: "The 2025–26 requirement" },
+  { href: "#statement-data", label: "What the statement contains" },
+  { href: "#evidence-flow", label: "Evidence flow" },
+  { href: "#reconciliation", label: "QFR reconciliation" },
+  { href: "#preparation", label: "Preparation checklist" },
+  { href: "#caremin-role", label: "How CareMin supports preparation" },
+  { href: "#sources", label: "Primary sources" },
+];
+const sources = [
+  {
+    title: "Care Minutes Performance Statement",
+    url: primarySources.performanceStatement,
+    note: "Current requirement, scope, reporting periods and submission guidance",
+  },
+  {
+    title: "Care Minutes Performance Statement guidance",
+    url: primarySources.performanceStatementGuidance,
+    note: "Provider guidance, auditor guidance, templates and supporting material",
+  },
+  {
+    title: "Aged Care Rules 2025",
+    url: primarySources.agedCareRules,
+    note: "Current legislative text on the Federal Register of Legislation",
+  },
+  {
+    title:
+      "ASAE 3000 Assurance Engagements Other than Audits or Reviews of Historical Financial Information",
+    url: "https://www.auasb.gov.au/standards-guidance/auasb-standards/other-assurance/",
+    note: "Auditing and Assurance Standards Board",
+  },
+];
+---
+
+<ResourcePage
+  resource={resource}
+  eyebrow="Regulatory guide"
+  intro="All registered residential aged care providers must prepare an externally audited Care Minutes Performance Statement as part of the 2025–26 Aged Care Financial Report. The statement brings finalised care-minute, labour, RN coverage, and occupancy information into one annual view."
+  contents={contents}
+  sources={sources}
+  relatedPaths={[
+    "/care-minutes-audit-preparation",
+    "/qfr-care-minutes-reporting",
+    "/24-7-rn-coverage",
+  ]}
+>
+  <section id="requirement" class="resource-section" aria-labelledby="requirement-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">01</p>
+      <h2 id="requirement-title">The 2025–26 requirement</h2>
+    </div>
+    <div class="key-facts" aria-label="Performance statement key dates and scope">
+      <div>
+        <span>First ACFR</span><strong>2025–26</strong><p>
+          For providers reporting on a financial-year cycle, the ACFR is due by 31 October.
+        </p>
+      </div>
+      <div>
+        <span>Care-minute period</span><strong>1 Jan–30 Jun 2026</strong><p>
+          The first statement covers quarter 3 and quarter 4 care-minute performance.
+        </p>
+      </div>
+      <div>
+        <span>RN coverage period</span><strong>From 1 Nov 2025</strong><p>
+          Monthly RN coverage begins from commencement of the Aged Care Act 2024.
+        </p>
+      </div>
+    </div>
+    <p>
+      The requirement applies to all registered providers of residential care and all residential
+      care homes, including specialised and non-specialised services in every location. The provider
+      prepares one statement containing information for each home it operates.
+    </p>
+    <div class="regulatory-note">
+      <strong>The audit is a reasonable-assurance engagement.</strong>
+      <p>
+        A registered company auditor audits the statement under ASAE 3000. The provider remains
+        responsible for the statement, its records, and meeting the reporting deadline.
+      </p>
+    </div>
+  </section>
+
+  <section id="statement-data" class="resource-section" aria-labelledby="statement-data-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">02</p>
+      <h2 id="statement-data-title">What the statement contains</h2>
+    </div>
+    <p>The department identifies five groups of information for each residential care home.</p>
+    <div
+      class="responsive-table"
+      tabindex="0"
+      role="region"
+      aria-label="Performance statement data"
+    >
+      <table>
+        <thead
+          ><tr
+            ><th>Statement field</th><th>Reporting frequency</th><th
+              >Operational records commonly involved</th
+            ></tr
+          ></thead
+        >
+        <tbody>
+          <tr
+            ><th scope="row">Direct-care labour costs</th><td>Quarterly</td><td
+              >Payroll, general ledger, agency invoices and adjustments</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Direct-care worked hours</th><td>Quarterly</td><td
+              >Payroll, timesheets, rosters and agency records</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">RN coverage percentage</th><td>Monthly</td><td
+              >RN rosters, attendance, leave, replacement and absence records</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Occupied bed days</th><td>Quarterly</td><td
+              >Resident census, admissions, discharges and occupancy records</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Worked care minutes per occupied bed day</th><td>Quarterly</td><td
+              >Eligible worked hours, role classifications, occupied bed days and calculation papers</td
+            ></tr
+          >
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="evidence-flow" class="resource-section" aria-labelledby="evidence-flow-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">03</p>
+      <h2 id="evidence-flow-title">From operational records to auditor</h2>
+    </div>
+    <p>
+      The strongest preparation process does not begin with the statement template. It begins with
+      the original staffing and occupancy records, then preserves the decisions and calculations
+      used to turn them into reported values.
+    </p>
+    <ol class="evidence-pipeline" aria-label="Performance statement evidence flow">
+      <li>
+        <span>01</span><strong>Payroll and rosters</strong><p>Employee and agency source records</p>
+      </li>
+      <li>
+        <span>02</span><strong>Classifications</strong><p>
+          Role and direct-care eligibility decisions
+        </p>
+      </li>
+      <li>
+        <span>03</span><strong>Worked hours</strong><p>
+          Included time by staff category and quarter
+        </p>
+      </li>
+      <li>
+        <span>04</span><strong>Occupied bed days</strong><p>
+          Quarterly denominator with source support
+        </p>
+      </li>
+      <li>
+        <span>05</span><strong>Care minutes</strong><p>Worked minutes per occupied bed day</p>
+      </li>
+      <li>
+        <span>06</span><strong>Reconciliation</strong><p>
+          QFR, RN reporting, adjustments and explanations
+        </p>
+      </li>
+      <li>
+        <span>07</span><strong>Supporting evidence</strong><p>
+          Working papers, controls and original records
+        </p>
+      </li>
+      <li>
+        <span>08</span><strong>External auditor</strong><p>
+          Independent reasonable-assurance engagement
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="reconciliation" class="resource-section" aria-labelledby="reconciliation-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">04</p>
+      <h2 id="reconciliation-title">Reconcile the final statement to earlier reporting</h2>
+    </div>
+    <p>
+      The performance statement reflects actual labour costs and hours for each quarter. It is not
+      simply a copy of previous QFR submissions. Late invoices, payroll corrections, resolved role
+      classifications, and other timing differences can produce legitimate variances.
+    </p>
+    <div class="decision-ledger">
+      <div>
+        <span>QFR or RN report</span><p>
+          Record what was submitted, when, and from which source version.
+        </p>
+      </div>
+      <div>
+        <span>Final actual value</span><p>
+          Recalculate from the completed records available for the performance statement.
+        </p>
+      </div>
+      <div>
+        <span>Variance</span><p>
+          Identify the amount, affected home, quarter or month, and reason.
+        </p>
+      </div>
+      <div>
+        <span>Explanation</span><p>
+          Retain the evidence supporting each difference for submission and audit review.
+        </p>
+      </div>
+    </div>
+    <div class="regulatory-note">
+      <strong>Do not revise a past QFR solely to make it match the statement.</strong>
+      <p>
+        Current department guidance says to report actual values in the performance statement and
+        explain differences through the Forms Administration online portal.
+      </p>
+    </div>
+  </section>
+
+  <section id="preparation" class="resource-section" aria-labelledby="preparation-title">
+    <div class="resource-section-heading resource-section-heading--with-action">
+      <div>
+        <p class="resource-section-number">05</p>
+        <h2 id="preparation-title">Provider preparation checklist</h2>
+      </div>
+      <button class="button button--quiet print-button" type="button" data-print-page
+        >Print checklist</button
+      >
+    </div>
+    <p>
+      The auditor determines the nature and extent of testing. The department’s provider guidance
+      identifies the following records as examples of information an auditor may request.
+    </p>
+    <ul class="audit-checklist">
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Confirm the responsible people and homes</strong><p>
+            Assign a provider contact who understands the data and compile the full list of homes in
+            scope.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Engage the auditor early</strong><p>
+            Confirm registration, independence, timing, access requirements, and the planned
+            evidence process.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Retain workforce support</strong><p>
+            AHPRA identification, position descriptions, duty statements, staff rosters, payroll,
+            timesheets, and agency records.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Retain calculation support</strong><p>
+            Role classifications, included and excluded records, occupied bed days, formulas,
+            working papers, and version history.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Document processes and controls</strong><p>
+            Record how data is captured, reviewed, approved, corrected, secured, and submitted.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Prepare prior-report reconciliations</strong><p>
+            Connect the ACFR, QFR, GPMS details, 24/7 RN reports, final values, and explanations for
+            differences.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="caremin-role" class="resource-section" aria-labelledby="caremin-role-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">06</p>
+      <h2 id="caremin-role-title">How CareMin supports preparation</h2>
+    </div>
+    <p>
+      CareMin retains source files, import receipts, original row references, classification
+      decisions, calculation versions, and export records within the same facility workflow. It can
+      also separate worked, rostered, unverified, and withheld records so limitations are visible
+      before a result is used.
+    </p>
+    <p>
+      CareMin is not an audit firm and does not issue an audit opinion. Its role is to help the
+      provider maintain a more controlled, reviewable record for operational monitoring and work
+      with the provider’s independent auditor.
+    </p>
+  </section>
+
+  <script>
+    document.querySelector("[data-print-page]")?.addEventListener("click", () => window.print());
+  </script>
+</ResourcePage>

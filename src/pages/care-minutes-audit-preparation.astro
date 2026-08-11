@@ -1,0 +1,332 @@
+---
+import ResourcePage from "../components/ResourcePage.astro";
+import { resourceByPath } from "../config/resources";
+import { primarySources } from "../config/site";
+
+const resource = resourceByPath["/care-minutes-audit-preparation"];
+const contents = [
+  { href: "#start", label: "Start with the audit objective" },
+  { href: "#evidence-register", label: "Evidence register" },
+  { href: "#controls", label: "Controls to test before audit" },
+  { href: "#timeline", label: "90-day preparation plan" },
+  { href: "#auditor-questions", label: "Questions for the auditor" },
+  { href: "#caremin-role", label: "How CareMin supports preparation" },
+  { href: "#sources", label: "Primary sources" },
+];
+const sources = [
+  {
+    title: "Care Minutes Performance Statement – guidance for providers",
+    url: "https://www.health.gov.au/resources/publications/care-minutes-performance-statement-guidance-for-providers",
+    note: "Provider responsibilities and examples of supporting information",
+  },
+  {
+    title: "Audit requirements for Care Minutes Performance Statement – guidance for auditors",
+    url: "https://www.health.gov.au/resources/publications/audit-requirements-for-care-minutes-performance-statement-guidance-for-auditors",
+    note: "Reasonable-assurance objective, planning, evidence and reporting guidance",
+  },
+  {
+    title: "Care Minutes Performance Statement – template",
+    url: "https://www.health.gov.au/resources/publications/care-minutes-performance-statement-template",
+    note: "Current department template for the provider statement",
+  },
+  {
+    title: "Aged Care Rules 2025",
+    url: primarySources.agedCareRules,
+    note: "Current legislative text",
+  },
+];
+---
+
+<ResourcePage
+  resource={resource}
+  eyebrow="Audit preparation guide"
+  intro="Care-minute audit preparation is the work of making a reported value reproducible from original records. The provider should be able to show what was included, what was excluded, who reviewed it, what changed, and why the final statement differs from earlier reports."
+  contents={contents}
+  sources={sources}
+  relatedPaths={[
+    "/care-minutes-performance-statement",
+    "/qfr-care-minutes-reporting",
+    "/care-minutes-software",
+  ]}
+>
+  <section id="start" class="resource-section" aria-labelledby="start-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">01</p>
+      <h2 id="start-title">Start with the audit objective</h2>
+    </div>
+    <p>
+      The auditor expresses an opinion on whether the Care Minutes Performance Statement is
+      prepared, in all material respects, in accordance with the Aged Care Rules 2025. The required
+      level is reasonable assurance under ASAE 3000.
+    </p>
+    <p>
+      That does not mean the auditor checks only the arithmetic in the final template. The auditor
+      uses professional judgement to assess risk, understand the provider’s systems and controls,
+      gather evidence, test the reported information, and form an opinion.
+    </p>
+    <div class="regulatory-note">
+      <strong>The provider owns the preparation process.</strong>
+      <p>
+        The provider remains responsible for maintaining sufficient records, preparing accurate
+        information, explaining differences, and engaging an eligible external auditor in time.
+      </p>
+    </div>
+  </section>
+
+  <section
+    id="evidence-register"
+    class="resource-section"
+    aria-labelledby="evidence-register-title"
+  >
+    <div class="resource-section-heading resource-section-heading--with-action">
+      <div>
+        <p class="resource-section-number">02</p>
+        <h2 id="evidence-register-title">Build an evidence register by assertion</h2>
+      </div>
+      <button class="button button--quiet print-button" type="button" data-print-page
+        >Print checklist</button
+      >
+    </div>
+    <p>
+      A folder of exports is not yet an audit trail. Organise records around the information the
+      statement is asserting: completeness, occurrence, accuracy, classification, cut-off, and
+      reconciliation.
+    </p>
+    <div
+      class="responsive-table"
+      tabindex="0"
+      role="region"
+      aria-label="Care-minute audit evidence register"
+    >
+      <table>
+        <thead
+          ><tr><th>Statement area</th><th>Source evidence</th><th>Control or working paper</th></tr
+          ></thead
+        >
+        <tbody>
+          <tr
+            ><th scope="row">Employee labour hours and costs</th><td
+              >Payroll, timesheets, rosters, leave, employment records and general ledger</td
+            ><td
+              >Home and role mapping, worked-hour exclusions, pay-cycle completeness and cost
+              reconciliation</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Agency labour hours and costs</th><td
+              >Agency invoices, shift details, rosters and approvals</td
+            ><td
+              >Invoice-to-shift matching, duplicate checks, accruals and late-invoice treatment</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Role eligibility</th><td
+              >AHPRA identification, position descriptions and duty statements</td
+            ><td
+              >Classification register, decision owner, effective dates and unresolved-role
+              treatment</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Occupied bed days</th><td
+              >Resident census, admissions, discharges and leave records</td
+            ><td>Daily ledger completeness, system reconciliation and exception review</td></tr
+          >
+          <tr
+            ><th scope="row">RN coverage</th><td
+              >RN roster, attendance, replacement, leave and agency records</td
+            ><td>Continuous timeline, gap register, monthly calculation and submission record</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Reported results</th><td
+              >QFRs, 24/7 RN reports, ACFR data and GPMS records</td
+            ><td>Calculation versions, approvals, QFR-to-CMPS bridge and variance explanations</td
+            ></tr
+          >
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="controls" class="resource-section" aria-labelledby="controls-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">03</p>
+      <h2 id="controls-title">Test the controls before the auditor does</h2>
+    </div>
+    <ul class="audit-checklist">
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Population completeness</strong><p>
+            Can every home, calendar day, pay cycle, agency source, and reporting period be
+            accounted for?
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Worked-time treatment</strong><p>
+            Are leave, training, voluntary time, duplicates, and unsupported hours excluded
+            consistently?
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Role decisions</strong><p>
+            Are new, ambiguous, changed, and ineligible roles reviewed by an appropriate person and
+            supported?
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Cut-off and adjustments</strong><p>
+            Are cross-quarter pay cycles, late invoices, reversals, and corrections recorded in the
+            correct period?
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Occupied bed-day integrity</strong><p>
+            Does the daily resident ledger reconcile to the quarterly denominator used in the
+            calculation?
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>RN coverage continuity</strong><p>
+            Can the monthly percentage be reproduced from an actual timeline, including every
+            reportable gap?
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Change control</strong><p>
+            When a source or decision changes, is the recalculation attributable and is the previous
+            version retained?
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Management review</strong><p>
+            Is there evidence that a suitable reviewer challenged unusual values, missing data, and
+            unexplained variances?
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="timeline" class="resource-section" aria-labelledby="timeline-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">04</p>
+      <h2 id="timeline-title">A 90-day preparation plan</h2>
+    </div>
+    <div class="timeline-ledger">
+      <section>
+        <span>90 days before fieldwork</span>
+        <h3>Establish scope and ownership</h3>
+        <ul class="square-list">
+          <li>Confirm homes, periods, systems, source owners, and key reporting contacts.</li>
+          <li>
+            Engage the auditor and agree timing, access, milestones, and information requests.
+          </li>
+          <li>Freeze the evidence index structure and identify known data limitations.</li>
+        </ul>
+      </section>
+      <section>
+        <span>60 days before fieldwork</span>
+        <h3>Reconcile and test</h3>
+        <ul class="square-list">
+          <li>Complete source completeness, role, occupied bed-day, and RN coverage checks.</li>
+          <li>Reperform calculations for selected homes and periods from original records.</li>
+          <li>Prepare the bridge between QFR, monthly RN reports, and final actual values.</li>
+        </ul>
+      </section>
+      <section>
+        <span>30 days before fieldwork</span>
+        <h3>Close exceptions and prepare access</h3>
+        <ul class="square-list">
+          <li>Resolve open classifications and document every remaining limitation.</li>
+          <li>Complete management review and retain approval evidence.</li>
+          <li>Test that indexed evidence can be retrieved and read by the audit team.</li>
+        </ul>
+      </section>
+      <section>
+        <span>During and after fieldwork</span>
+        <h3>Control the query record</h3>
+        <ul class="square-list">
+          <li>Log requests, owners, due dates, responses, and evidence supplied.</li>
+          <li>
+            Do not overwrite source records to answer a query; add an attributable correction.
+          </li>
+          <li>Record findings, remediation, final adjustments, and the signed audit report.</li>
+        </ul>
+      </section>
+    </div>
+  </section>
+
+  <section
+    id="auditor-questions"
+    class="resource-section"
+    aria-labelledby="auditor-questions-title"
+  >
+    <div class="resource-section-heading">
+      <p class="resource-section-number">05</p>
+      <h2 id="auditor-questions-title">Questions to settle with the auditor early</h2>
+    </div>
+    <ul class="question-register">
+      <li>
+        <span>01</span><p>
+          Which provider entities, homes, periods, and statement fields are in scope?
+        </p>
+      </li>
+      <li>
+        <span>02</span><p>
+          What system access, exports, walkthroughs, and control evidence will the audit team need?
+        </p>
+      </li>
+      <li>
+        <span>03</span><p>
+          How should AHPRA status, position descriptions, and direct-care duties be supported?
+        </p>
+      </li>
+      <li>
+        <span>04</span><p>
+          How will employee, agency, occupancy, and RN coverage populations be tested?
+        </p>
+      </li>
+      <li><span>05</span><p>What form should QFR and RN-report variance explanations take?</p></li>
+      <li>
+        <span>06</span><p>
+          What are the request, escalation, clearance, representation, and report-signing dates?
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="caremin-role" class="resource-section" aria-labelledby="caremin-role-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">06</p>
+      <h2 id="caremin-role-title">How CareMin supports audit preparation</h2>
+    </div>
+    <p>
+      CareMin keeps source files, import receipts, original row references, evidence status, role
+      decisions, calculation versions, and exported outputs in a connected record. Unverified and
+      withheld data remains visible rather than being absorbed silently into a result.
+    </p>
+    <p>
+      The external auditor decides what evidence and testing is sufficient. CareMin supports the
+      provider’s preparation process; it does not conduct the audit or provide an assurance opinion.
+    </p>
+  </section>
+
+  <script>
+    document.querySelector("[data-print-page]")?.addEventListener("click", () => window.print());
+  </script>
+</ResourcePage>

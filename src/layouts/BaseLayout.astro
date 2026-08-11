@@ -8,24 +8,55 @@ interface Props {
   title?: string;
   description?: string;
   noindex?: boolean;
+  ogType?: "website" | "article";
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title = site.title, description = site.description, noindex = false } = Astro.props;
+const {
+  title = site.title,
+  description = site.description,
+  noindex = false,
+  ogType = "website",
+  structuredData: pageStructuredData = [],
+} = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, site.siteUrl).toString();
 const socialImage = new URL("/brand/caremin-full.png", site.siteUrl).toString();
+const pageGraph = Array.isArray(pageStructuredData) ? pageStructuredData : [pageStructuredData];
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "CareMin",
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Web",
-  description: site.description,
-  areaServed: {
-    "@type": "Country",
-    name: "Australia",
-  },
-  url: site.siteUrl,
-  sameAs: [site.linkedInUrl],
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${site.siteUrl}#organisation`,
+      name: "CareMin",
+      url: site.siteUrl,
+      logo: new URL("/brand/caremin-icon.png", site.siteUrl).toString(),
+      sameAs: [site.linkedInUrl],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site.siteUrl}#website`,
+      name: "CareMin",
+      url: site.siteUrl,
+      inLanguage: "en-AU",
+      publisher: { "@id": `${site.siteUrl}#organisation` },
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${site.siteUrl}#software`,
+      name: "CareMin",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      description: site.description,
+      areaServed: {
+        "@type": "Country",
+        name: "Australia",
+      },
+      url: site.siteUrl,
+      publisher: { "@id": `${site.siteUrl}#organisation` },
+    },
+    ...pageGraph,
+  ],
 };
 ---
 
@@ -44,8 +75,13 @@ const structuredData = {
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {
+      site.searchConsoleVerification && (
+        <meta name="google-site-verification" content={site.searchConsoleVerification} />
+      )
+    }
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="en_AU" />
     <meta property="og:site_name" content="CareMin" />
     <meta property="og:title" content={title} />

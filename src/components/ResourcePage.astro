@@ -1,0 +1,206 @@
+---
+import { resourceByPath, type ResourceEntry } from "../config/resources";
+import { site } from "../config/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+type ContentsItem = {
+  href: string;
+  label: string;
+};
+
+type SourceItem = {
+  title: string;
+  url: string;
+  note?: string;
+};
+
+interface Props {
+  resource: ResourceEntry;
+  eyebrow: string;
+  intro: string;
+  contents: ContentsItem[];
+  sources: SourceItem[];
+  relatedPaths: string[];
+  type?: "article" | "website";
+}
+
+const { resource, eyebrow, intro, contents, sources, relatedPaths, type = "article" } = Astro.props;
+const canonicalUrl = new URL(resource.path, site.siteUrl).toString();
+const related = relatedPaths
+  .map((path) => resourceByPath[path])
+  .filter((entry): entry is ResourceEntry => Boolean(entry));
+
+const pageStructuredData = [
+  {
+    "@type": type === "article" ? "TechArticle" : "WebPage",
+    "@id": `${canonicalUrl}#page`,
+    headline: resource.title,
+    name: resource.title,
+    description: resource.description,
+    url: canonicalUrl,
+    inLanguage: "en-AU",
+    dateModified: "2026-08-11",
+    author: {
+      "@type": "Organization",
+      "@id": `${site.siteUrl}#organisation`,
+      name: "CareMin",
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": `${site.siteUrl}#organisation`,
+      name: "CareMin",
+    },
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${site.siteUrl}#website`,
+      name: "CareMin",
+      url: site.siteUrl,
+    },
+  },
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: site.siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Resources",
+        item: new URL("/resources", site.siteUrl).toString(),
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: resource.shortTitle,
+        item: canonicalUrl,
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={`${resource.title} | CareMin`}
+  description={resource.description}
+  ogType={type}
+  structuredData={pageStructuredData}
+>
+  <article class="resource-page">
+    <header class="resource-hero">
+      <div class="container resource-hero-inner">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li aria-current="page">{resource.shortTitle}</li>
+          </ol>
+        </nav>
+        <p class="resource-eyebrow">{eyebrow}</p>
+        <h1>{resource.title}</h1>
+        <p class="resource-lead">{intro}</p>
+        <dl class="resource-meta">
+          <div>
+            <dt>Published by</dt>
+            <dd>CareMin</dd>
+          </div>
+          <div>
+            <dt>Last reviewed</dt>
+            <dd>{resource.updated}</dd>
+          </div>
+          <div>
+            <dt>Source basis</dt>
+            <dd>Australian Government guidance</dd>
+          </div>
+        </dl>
+      </div>
+    </header>
+
+    <div class="container resource-shell">
+      <aside class="resource-sidebar" aria-label="Page contents">
+        <nav>
+          <p>On this page</p>
+          <ol>
+            {
+              contents.map((item) => (
+                <li>
+                  <a href={item.href}>{item.label}</a>
+                </li>
+              ))
+            }
+          </ol>
+        </nav>
+        <div class="resource-caution">
+          <strong>Important</strong>
+          <p>
+            This is operational information, not legal or audit advice. Check the current government
+            guidance and confirm requirements with your auditor.
+          </p>
+        </div>
+      </aside>
+
+      <div class="resource-body">
+        <slot />
+
+        <section id="sources" class="resource-sources" aria-labelledby="sources-title">
+          <div class="resource-section-heading">
+            <p class="resource-section-number">Sources</p>
+            <h2 id="sources-title">Primary sources used for this page</h2>
+          </div>
+          <ol>
+            {
+              sources.map((source) => (
+                <li>
+                  <a href={source.url} target="_blank" rel="noopener noreferrer">
+                    {source.title}
+                  </a>
+                  {source.note && <span>{source.note}</span>}
+                </li>
+              ))
+            }
+          </ol>
+          <p class="source-review-note">
+            Source links and page content were checked on {resource.updated}. Government guidance
+            can change; follow the linked source for the current position.
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <section class="related-resources" aria-labelledby="related-title">
+      <div class="container">
+        <div class="resource-section-heading">
+          <p class="resource-section-number">Continue</p>
+          <h2 id="related-title">Related CareMin resources</h2>
+        </div>
+        <div class="related-list">
+          {
+            related.map((entry, index) => (
+              <a href={entry.path}>
+                <span>0{index + 1}</span>
+                <div>
+                  <strong>{entry.shortTitle}</strong>
+                  <p>{entry.description}</p>
+                </div>
+                <span aria-hidden="true">→</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-cta" aria-labelledby="resource-cta-title">
+      <div class="container resource-cta-inner">
+        <div>
+          <h2 id="resource-cta-title">Review CareMin against your current process.</h2>
+          <p>See how source records, calculations, monitoring, and evidence remain connected.</p>
+        </div>
+        <a class="button" href="/#contact">Arrange a walkthrough</a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>

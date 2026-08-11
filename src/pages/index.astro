@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Icon from "../components/Icon.astro";
+import { resources } from "../config/resources";
 import { primarySources, site } from "../config/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import importComplete from "../assets/product/import-complete.png";
@@ -471,6 +472,35 @@ const faqItems = [
           >
         </li>
       </ol>
+    </div>
+  </section>
+
+  <section class="section section--soft" aria-labelledby="resources-title">
+    <div class="container">
+      <div class="section-heading">
+        <h2 id="resources-title">Care-minute reporting guides and tools.</h2>
+        <p>
+          Source-linked guidance for the reporting tasks behind CareMin, including the first audited
+          Care Minutes Performance Statement.
+        </p>
+      </div>
+      <div class="resource-index home-resource-index">
+        {
+          resources.map((resource, index) => (
+            <a href={resource.path}>
+              <span class="resource-index-number">0{index + 1}</span>
+              <div>
+                <h3>{resource.shortTitle}</h3>
+                <p>{resource.description}</p>
+              </div>
+              <span aria-hidden="true">→</span>
+            </a>
+          ))
+        }
+      </div>
+      <p class="home-resource-more">
+        <a class="text-link" href="/resources">View all resources →</a>
+      </p>
     </div>
   </section>
 

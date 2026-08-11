@@ -27,15 +27,16 @@ The site is available at `http://localhost:4321` by default.
 
 Public destinations and server-only launch details live in `.env`. Start with `.env.example`.
 
-| Variable                      | Status                  | Purpose                                                                 |
-| ----------------------------- | ----------------------- | ----------------------------------------------------------------------- |
-| `PUBLIC_SITE_URL`             | Required for production | Final marketing origin used by canonical links and sitemap              |
-| `PUBLIC_APP_URL`              | Configured              | Product Sign in destination, currently `https://caremin-six.vercel.app` |
-| `CONTACT_EMAIL`               | Required for the form   | Server-only delivery address; never exposed in browser HTML             |
-| `PUBLIC_PLAUSIBLE_DOMAIN`     | Optional                | Enables Plausible only when explicitly set                              |
-| `PUBLIC_PLAUSIBLE_SCRIPT_URL` | Optional                | Plausible script location                                               |
-| `PUBLIC_LEGAL_NAME`           | Required before launch  | Legal entity displayed in the privacy policy and terms                  |
-| `PUBLIC_ABN`                  | Optional                | ABN if the owner decides to publish it                                  |
+| Variable                          | Status                  | Purpose                                                                 |
+| --------------------------------- | ----------------------- | ----------------------------------------------------------------------- |
+| `PUBLIC_SITE_URL`                 | Required for production | Final marketing origin used by canonical links and sitemap              |
+| `PUBLIC_APP_URL`                  | Configured              | Product Sign in destination, currently `https://caremin-six.vercel.app` |
+| `CONTACT_EMAIL`                   | Required for the form   | Server-only delivery address; never exposed in browser HTML             |
+| `PUBLIC_PLAUSIBLE_DOMAIN`         | Optional                | Enables Plausible only when explicitly set                              |
+| `PUBLIC_PLAUSIBLE_SCRIPT_URL`     | Optional                | Plausible script location                                               |
+| `PUBLIC_GOOGLE_SITE_VERIFICATION` | Optional                | HTML token for Search Console URL-prefix verification                   |
+| `PUBLIC_LEGAL_NAME`               | Required before launch  | Legal entity displayed in the privacy policy and terms                  |
+| `PUBLIC_ABN`                      | Optional                | ABN if the owner decides to publish it                                  |
 
 A Vercel production build fails when `PUBLIC_SITE_URL` is missing. This prevents localhost or a
 preview URL from being published as the canonical marketing domain.
@@ -109,10 +110,10 @@ No DNS changes or production deployment are included in this repository handoff.
 api/contact.ts        server-only contact form relay
 public/brand/          approved local CareMin assets
 src/assets/product/    genuine product screenshots, optimized during builds
-src/components/       header, footer, icons, and brand component
+src/components/       shared page, header, footer, icons, and brand components
 src/config/site.ts    central destinations and public configuration
 src/layouts/          metadata and page shell
-src/pages/            landing, legal pages, 404, robots, and sitemap
+src/pages/            landing, regulatory resources, legal pages, 404, robots, and sitemap
 src/styles/           responsive design system
 tests/                accessibility and screenshot checks
 screenshots/          generated visual review images
@@ -127,3 +128,4 @@ reports/              saved Lighthouse production audit
 - FormSubmit activation or replacement form provider
 - Optional analytics decision
 - Final review of dated regulatory content against the linked government sources
+- Google Search Console property verification and submission of `/sitemap.xml`

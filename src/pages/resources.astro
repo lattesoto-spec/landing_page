@@ -1,0 +1,149 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { resources } from "../config/resources";
+import { site } from "../config/site";
+
+const categories = ["Reporting guide", "Audit guide", "Product", "Free tool"] as const;
+const canonicalUrl = new URL("/resources", site.siteUrl).toString();
+const structuredData = [
+  {
+    "@type": "CollectionPage",
+    "@id": `${canonicalUrl}#page`,
+    name: "Australian Aged Care Care-Minute Resources",
+    description:
+      "CareMin guides and tools for care-minute reporting, RN coverage, QFR preparation, and the Care Minutes Performance Statement audit.",
+    url: canonicalUrl,
+    inLanguage: "en-AU",
+    dateModified: "2026-08-11",
+  },
+  {
+    "@type": "ItemList",
+    itemListElement: resources.map((resource, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: resource.title,
+      url: new URL(resource.path, site.siteUrl).toString(),
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title="Australian Aged Care Care-Minute Resources | CareMin"
+  description="Practical guides and tools for care-minute reporting, 24/7 RN coverage, QFR preparation, audit evidence, and the Care Minutes Performance Statement."
+  structuredData={structuredData}
+>
+  <header class="resource-hub-hero">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol><li><a href="/">Home</a></li><li aria-current="page">Resources</li></ol>
+      </nav>
+      <p class="resource-eyebrow">CareMin regulatory library</p>
+      <h1>Australian aged care care-minute resources</h1>
+      <p>
+        Practical, source-linked guidance for teams responsible for care minutes, RN coverage,
+        Quarterly Financial Reports, and the externally audited Care Minutes Performance Statement.
+      </p>
+    </div>
+  </header>
+
+  <section class="resource-hub-intro" aria-labelledby="resource-principles-title">
+    <div class="container resource-hub-intro-grid">
+      <div>
+        <p class="resource-section-number">How these resources are maintained</p>
+        <h2 id="resource-principles-title">
+          Written for the reporting work, not only the search result.
+        </h2>
+      </div>
+      <div>
+        <p>
+          Each guide links to the primary Australian Government sources used, records the date it
+          was reviewed, and separates provider obligations from CareMin product capability.
+        </p>
+        <p>
+          The guides are operational information, not legal or audit advice. Government guidance can
+          change, so use the source links to confirm the current position.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="resource-library" aria-labelledby="library-title">
+    <div class="container">
+      <div class="resource-section-heading">
+        <p class="resource-section-number">Library</p>
+        <h2 id="library-title">Guides and tools</h2>
+      </div>
+      {
+        categories.map((category) => {
+          const entries = resources.filter((resource) => resource.category === category);
+          if (!entries.length) return null;
+          return (
+            <section
+              class="resource-category"
+              aria-labelledby={`category-${category.toLowerCase().replaceAll(" ", "-")}`}
+            >
+              <h3 id={`category-${category.toLowerCase().replaceAll(" ", "-")}`}>{category}</h3>
+              <div class="resource-index">
+                {entries.map((resource, index) => (
+                  <a href={resource.path}>
+                    <span class="resource-index-number">0{index + 1}</span>
+                    <div>
+                      <h4>{resource.title}</h4>
+                      <p>{resource.description}</p>
+                      <small>Reviewed {resource.updated}</small>
+                    </div>
+                    <span aria-hidden="true">→</span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          );
+        })
+      }
+    </div>
+  </section>
+
+  <section class="resource-hub-paths" aria-labelledby="paths-title">
+    <div class="container">
+      <div class="resource-section-heading">
+        <p class="resource-section-number">Start with the task</p>
+        <h2 id="paths-title">Choose the record you need to prepare</h2>
+      </div>
+      <div class="task-paths">
+        <a href="/qfr-care-minutes-reporting"
+          ><span>Quarterly</span><strong>Prepare or review QFR care-minute inputs</strong><p>
+            Worked hours, roles, occupied bed days, controls, and submission dates.
+          </p></a
+        >
+        <a href="/24-7-rn-coverage"
+          ><span>Monthly</span><strong>Review 24/7 RN coverage</strong><p>
+            Coverage timelines, reportable gaps, evidence, and reporting workflow.
+          </p></a
+        >
+        <a href="/care-minutes-performance-statement"
+          ><span>Annual</span><strong>Prepare the Care Minutes Performance Statement</strong><p>
+            Statement data, first reporting periods, reconciliation, and external audit.
+          </p></a
+        >
+        <a href="/care-minutes-calculator"
+          ><span>Any period</span><strong>Estimate a care-minute position</strong><p>
+            Total, RN-only, RN-plus-EN, and approximate hours to target.
+          </p></a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="resource-cta" aria-labelledby="hub-cta-title">
+    <div class="container resource-cta-inner">
+      <div>
+        <h2 id="hub-cta-title">Review CareMin against your current process.</h2><p>
+          See how source records, classifications, calculations, monitoring, and evidence remain
+          connected.
+        </p>
+      </div>
+      <a class="button" href="/#contact">Arrange a walkthrough</a>
+    </div>
+  </section>
+</BaseLayout>

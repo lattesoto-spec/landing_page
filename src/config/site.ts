@@ -14,6 +14,7 @@ export const site = {
   analyticsDomain: import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN,
   analyticsScriptUrl:
     import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_URL ?? "https://plausible.io/js/script.js",
+  searchConsoleVerification: import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION?.trim() || undefined,
   buildYear: new Date().getFullYear(),
 } as const;
 

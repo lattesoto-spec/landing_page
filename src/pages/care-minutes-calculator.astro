@@ -1,0 +1,403 @@
+---
+import ResourcePage from "../components/ResourcePage.astro";
+import { resourceByPath } from "../config/resources";
+import { primarySources } from "../config/site";
+
+const resource = resourceByPath["/care-minutes-calculator"];
+const contents = [
+  { href: "#calculator", label: "Calculate the quarter position" },
+  { href: "#method", label: "Calculation method" },
+  { href: "#inputs", label: "What to include" },
+  { href: "#interpret", label: "How to interpret the result" },
+  { href: "#sources", label: "Primary sources" },
+];
+const sources = [
+  {
+    title: "Care minutes in residential aged care",
+    url: primarySources.careMinutes,
+    note: "Care-minute responsibilities and home-specific targets",
+  },
+  {
+    title: "QFR residential care labour costs and hours reporting guidance video",
+    url: "https://www.health.gov.au/resources/videos/quarterly-financial-report-qfr-residential-care-labour-costs-hours-reporting-guidance-video",
+    note: "Official care-minute formula and worked-hour guidance",
+  },
+  {
+    title: "Care minutes and 24/7 registered nurse resources",
+    url: "https://www.health.gov.au/resources/collections/care-minutes-and-247-registered-nurse-resources",
+    note: "Current government target datasets, calculators, guides and dashboards",
+  },
+];
+---
+
+<ResourcePage
+  resource={resource}
+  eyebrow="Free browser-based tool"
+  intro="Estimate a home’s total, RN-only, and RN-plus-EN worked minutes per occupied bed day. The calculator also translates a gap to target into the approximate additional worked hours required across the same occupied bed days."
+  contents={contents}
+  sources={sources}
+  relatedPaths={[
+    "/qfr-care-minutes-reporting",
+    "/care-minutes-software",
+    "/care-minutes-audit-preparation",
+  ]}
+  type="website"
+>
+  <section
+    id="calculator"
+    class="resource-section calculator-section"
+    aria-labelledby="calculator-title"
+  >
+    <div class="resource-section-heading">
+      <p class="resource-section-number">Calculator</p>
+      <h2 id="calculator-title">Calculate the reporting-period position</h2>
+    </div>
+    <div class="privacy-inline">
+      <strong>Runs in your browser.</strong> The values entered below are not sent to CareMin.
+    </div>
+    <form class="calculator" data-calculator novalidate>
+      <fieldset>
+        <legend>Reporting-period inputs</legend>
+        <div class="calculator-fields">
+          <label>
+            <span>Total eligible direct-care worked hours</span>
+            <input
+              name="totalHours"
+              type="number"
+              min="0"
+              step="0.01"
+              inputmode="decimal"
+              placeholder="For example, 15420"
+              required
+            />
+            <small>Include eligible RN, EN, and PCW/AIN worked hours for the period.</small>
+          </label>
+          <label>
+            <span>RN worked hours</span>
+            <input
+              name="rnHours"
+              type="number"
+              min="0"
+              step="0.01"
+              inputmode="decimal"
+              placeholder="For example, 3200"
+              required
+            />
+            <small>This is a subset of total eligible direct-care hours.</small>
+          </label>
+          <label>
+            <span>EN worked hours</span>
+            <input
+              name="enHours"
+              type="number"
+              min="0"
+              step="0.01"
+              inputmode="decimal"
+              placeholder="For example, 680"
+              required
+            />
+            <small>This is a subset of total eligible direct-care hours.</small>
+          </label>
+          <label>
+            <span>Occupied bed days</span>
+            <input
+              name="occupiedBedDays"
+              type="number"
+              min="0.01"
+              step="0.01"
+              inputmode="decimal"
+              placeholder="For example, 4380"
+              required
+            />
+            <small>Use the occupied bed days for the same home and period.</small>
+          </label>
+          <label>
+            <span>Home total care-minute target</span>
+            <input
+              name="totalTarget"
+              type="number"
+              min="0.01"
+              step="0.01"
+              inputmode="decimal"
+              placeholder="For example, 215"
+              required
+            />
+            <small>Use the target that applies to the home and quarter.</small>
+          </label>
+          <label>
+            <span>Home RN care-minute target</span>
+            <input
+              name="rnTarget"
+              type="number"
+              min="0.01"
+              step="0.01"
+              inputmode="decimal"
+              placeholder="For example, 44"
+              required
+            />
+            <small>Use the target that applies to the home and quarter.</small>
+          </label>
+        </div>
+      </fieldset>
+      <p class="calculator-error" data-calculator-error role="alert" hidden></p>
+      <div class="calculator-actions">
+        <button class="button" type="submit">Calculate position</button>
+        <button class="button button--quiet" type="reset">Clear</button>
+      </div>
+    </form>
+
+    <section
+      class="calculator-results"
+      data-calculator-results
+      aria-labelledby="results-title"
+      aria-live="polite"
+    >
+      <div class="calculator-results-header">
+        <div><p>Estimated result</p><h3 id="results-title">Reporting-period position</h3></div>
+        <button class="text-button" type="button" data-copy-results disabled>Copy result</button>
+      </div>
+      <dl class="result-grid">
+        <div>
+          <dt>Total care minutes</dt>
+          <dd>
+            <strong data-result="totalMinutes">—</strong><span>per occupied bed day</span>
+          </dd>
+        </div>
+        <div>
+          <dt>RN-only minutes</dt>
+          <dd><strong data-result="rnMinutes">—</strong><span>per occupied bed day</span></dd>
+        </div>
+        <div>
+          <dt>RN plus EN minutes</dt>
+          <dd><strong data-result="rnEnMinutes">—</strong><span>per occupied bed day</span></dd>
+        </div>
+        <div>
+          <dt>Total target gap</dt>
+          <dd>
+            <strong data-result="totalGap">—</strong><span>minutes per occupied bed day</span>
+          </dd>
+        </div>
+        <div>
+          <dt>Hours to close total gap</dt>
+          <dd>
+            <strong data-result="hoursToTarget">—</strong><span>across these occupied bed days</span
+            >
+          </dd>
+        </div>
+      </dl>
+      <div class="result-tests">
+        <div>
+          <span>RN-only position against 90% of RN target</span><strong data-result="rnNinety"
+            >Not calculated</strong
+          >
+        </div>
+        <div>
+          <span>RN plus EN position against full RN target</span><strong data-result="rnEnTarget"
+            >Not calculated</strong
+          >
+        </div>
+      </div>
+      <p class="calculator-status" data-calculator-status>
+        Enter the six inputs and select “Calculate position”.
+      </p>
+    </section>
+  </section>
+
+  <section id="method" class="resource-section" aria-labelledby="method-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">01</p>
+      <h2 id="method-title">Calculation method</h2>
+    </div>
+    <div class="formula-block" role="figure" aria-label="Care minutes calculation formula">
+      <span>Eligible worked hours</span><span aria-hidden="true">×</span><span>60</span><span
+        aria-hidden="true">÷</span
+      ><span>Occupied bed days</span><span aria-hidden="true">=</span><strong
+        >Minutes per occupied bed day</strong
+      >
+    </div>
+    <p>
+      The hours-to-target estimate applies the difference between the entered target and calculated
+      result across the same occupied bed days. It is a mathematical estimate, not a staffing plan:
+      it does not allocate shifts, assess skill mix, predict occupancy, or determine whether a
+      particular hour is eligible.
+    </p>
+  </section>
+
+  <section id="inputs" class="resource-section" aria-labelledby="inputs-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">02</p>
+      <h2 id="inputs-title">Use controlled inputs</h2>
+    </div>
+    <ul class="audit-checklist">
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Use worked hours</strong><p>
+            Exclude leave, training, voluntary hours, and other time that does not meet the current
+            reporting definition.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Resolve role eligibility first</strong><p>
+            Do not use an unresolved job title as evidence that time is eligible direct care.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Align the period</strong><p>
+            Hours, occupied bed days, and targets must relate to the same home and reporting period.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span aria-hidden="true"></span><div>
+          <strong>Use the home-specific target</strong><p>
+            Do not substitute the sector-wide average for the published target that applies to the
+            home.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="interpret" class="resource-section" aria-labelledby="interpret-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">03</p>
+      <h2 id="interpret-title">How to interpret the result</h2>
+    </div>
+    <p>
+      The three views are deliberately separate. Total minutes tests the overall eligible
+      direct-care result. RN-only minutes show the registered-nurse contribution. RN-plus-EN minutes
+      provide the combined nursing view relevant to the current allowance for EN contribution to the
+      RN target.
+    </p>
+    <p>
+      This calculator does not determine legal compliance, calculate 24/7 RN coverage, or replace
+      the department’s tools, QFR definitions, GPMS reporting, professional advice, or independent
+      audit work. Confirm source eligibility and current requirements before using any result in a
+      return or decision.
+    </p>
+  </section>
+
+  <script>
+    const calculator = document.querySelector<HTMLFormElement>("[data-calculator]");
+    const error = document.querySelector<HTMLElement>("[data-calculator-error]");
+    const status = document.querySelector<HTMLElement>("[data-calculator-status]");
+    const copyButton = document.querySelector<HTMLButtonElement>("[data-copy-results]");
+    let summary = "";
+
+    const setResult = (name: string, value: string) => {
+      const target = document.querySelector<HTMLElement>(`[data-result="${name}"]`);
+      if (target) target.textContent = value;
+    };
+
+    const format = (value: number, digits = 1) =>
+      new Intl.NumberFormat("en-AU", {
+        maximumFractionDigits: digits,
+        minimumFractionDigits: digits,
+      }).format(value);
+
+    const clearResults = () => {
+      ["totalMinutes", "rnMinutes", "rnEnMinutes", "totalGap", "hoursToTarget"].forEach((name) =>
+        setResult(name, "—"),
+      );
+      setResult("rnNinety", "Not calculated");
+      setResult("rnEnTarget", "Not calculated");
+      if (status) status.textContent = "Enter the six inputs and select “Calculate position”.";
+      if (copyButton) copyButton.disabled = true;
+      if (error) error.hidden = true;
+      summary = "";
+    };
+
+    calculator?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(calculator);
+      const values = [
+        "totalHours",
+        "rnHours",
+        "enHours",
+        "occupiedBedDays",
+        "totalTarget",
+        "rnTarget",
+      ].map((key) => Number(formData.get(key)));
+      const [totalHours, rnHours, enHours, occupiedBedDays, totalTarget, rnTarget] = values;
+
+      if (
+        values.some((value) => !Number.isFinite(value)) ||
+        occupiedBedDays <= 0 ||
+        totalTarget <= 0 ||
+        rnTarget <= 0 ||
+        totalHours < 0 ||
+        rnHours < 0 ||
+        enHours < 0
+      ) {
+        if (error) {
+          error.textContent =
+            "Enter a valid number in every field. Occupied bed days and targets must be greater than zero.";
+          error.hidden = false;
+        }
+        return;
+      }
+      if (rnHours + enHours > totalHours) {
+        if (error) {
+          error.textContent =
+            "RN and EN hours are subsets of total eligible hours, so their combined value cannot exceed the total.";
+          error.hidden = false;
+        }
+        return;
+      }
+      if (error) error.hidden = true;
+
+      const perObd = (hours: number) => (hours * 60) / occupiedBedDays;
+      const totalMinutes = perObd(totalHours);
+      const rnMinutes = perObd(rnHours);
+      const rnEnMinutes = perObd(rnHours + enHours);
+      const totalGap = totalTarget - totalMinutes;
+      const hoursToTarget = Math.max((totalGap * occupiedBedDays) / 60, 0);
+      const rnNinetyTarget = rnTarget * 0.9;
+      const rnNinetyGap = rnNinetyTarget - rnMinutes;
+      const rnEnGap = rnTarget - rnEnMinutes;
+
+      const totalGapText =
+        totalGap > 0
+          ? `${format(totalGap)} below`
+          : totalGap < 0
+            ? `${format(Math.abs(totalGap))} above`
+            : "At target";
+      const rnNinetyText =
+        rnNinetyGap > 0
+          ? `${format(rnNinetyGap)} minutes below`
+          : `${format(Math.abs(rnNinetyGap))} minutes at or above`;
+      const rnEnText =
+        rnEnGap > 0
+          ? `${format(rnEnGap)} minutes below`
+          : `${format(Math.abs(rnEnGap))} minutes at or above`;
+
+      setResult("totalMinutes", format(totalMinutes));
+      setResult("rnMinutes", format(rnMinutes));
+      setResult("rnEnMinutes", format(rnEnMinutes));
+      setResult("totalGap", totalGapText);
+      setResult("hoursToTarget", format(hoursToTarget));
+      setResult("rnNinety", rnNinetyText);
+      setResult("rnEnTarget", rnEnText);
+      if (status)
+        status.textContent =
+          "Estimate complete. Check input eligibility and current government guidance before relying on the result.";
+
+      summary = `CareMin care minutes estimate\nTotal: ${format(totalMinutes)} minutes/OBD (target ${format(totalTarget)})\nRN only: ${format(rnMinutes)} minutes/OBD\nRN + EN: ${format(rnEnMinutes)} minutes/OBD\nTotal target position: ${totalGapText}\nApproximate hours to close total gap: ${format(hoursToTarget)}\nRN only against 90% of RN target: ${rnNinetyText}\nRN + EN against full RN target: ${rnEnText}\nEstimate only — verify inputs and current requirements.`;
+      if (copyButton) copyButton.disabled = false;
+    });
+
+    calculator?.addEventListener("reset", () => window.setTimeout(clearResults, 0));
+    copyButton?.addEventListener("click", async () => {
+      if (!summary) return;
+      await navigator.clipboard.writeText(summary);
+      copyButton.textContent = "Copied";
+      window.setTimeout(() => {
+        copyButton.textContent = "Copy result";
+      }, 1800);
+    });
+  </script>
+</ResourcePage>

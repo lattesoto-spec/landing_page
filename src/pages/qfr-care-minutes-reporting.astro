@@ -1,0 +1,257 @@
+---
+import ResourcePage from "../components/ResourcePage.astro";
+import { resourceByPath } from "../config/resources";
+import { primarySources } from "../config/site";
+
+const resource = resourceByPath["/qfr-care-minutes-reporting"];
+const contents = [
+  { href: "#qfr-scope", label: "QFR scope and due dates" },
+  { href: "#calculation", label: "Care-minute calculation" },
+  { href: "#roles", label: "Roles and worked hours" },
+  { href: "#controls", label: "Quarter-end controls" },
+  { href: "#reconciliation", label: "QFR to year-end statement" },
+  { href: "#caremin-role", label: "How CareMin supports QFR work" },
+  { href: "#sources", label: "Primary sources" },
+];
+const sources = [
+  {
+    title: "Quarterly Financial Report",
+    url: primarySources.quarterlyFinancialReport,
+    note: "Current scope, due dates and residential care cost and hours categories",
+  },
+  {
+    title: "Quarterly Financial Report resources",
+    url: "https://www.health.gov.au/resources/collections/quarterly-financial-report-resources",
+    note: "Data definitions, templates, guidance and system resources",
+  },
+  {
+    title: "QFR residential care labour costs and hours reporting guidance video",
+    url: "https://www.health.gov.au/resources/videos/quarterly-financial-report-qfr-residential-care-labour-costs-hours-reporting-guidance-video",
+    note: "Official explanation of worked hours, care-minute roles and the calculation",
+  },
+  {
+    title: "Care Minutes Performance Statement",
+    url: primarySources.performanceStatement,
+    note: "Final actual values and explanations for differences from QFR submissions",
+  },
+];
+---
+
+<ResourcePage
+  resource={resource}
+  eyebrow="Reporting guide"
+  intro="Residential aged care providers report labour costs and hours for each home through the Quarterly Financial Report. Those worked-hour records feed care-minute calculations, Star Ratings, funding analysis, and the final audited Care Minutes Performance Statement."
+  contents={contents}
+  sources={sources}
+  relatedPaths={[
+    "/care-minutes-calculator",
+    "/care-minutes-performance-statement",
+    "/care-minutes-software",
+  ]}
+>
+  <section id="qfr-scope" class="resource-section" aria-labelledby="qfr-scope-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">01</p>
+      <h2 id="qfr-scope-title">QFR scope and due dates</h2>
+    </div>
+    <p>
+      Registered providers submit a QFR four times each financial year. Residential providers
+      complete facility-level quarterly cost and hours reporting in addition to the provider-level
+      financial and prudential information that applies to them.
+    </p>
+    <div class="responsive-table" tabindex="0" role="region" aria-label="QFR due dates">
+      <table>
+        <thead><tr><th>Quarter</th><th>Reporting period</th><th>Legislated due date</th></tr></thead
+        >
+        <tbody>
+          <tr><th scope="row">Quarter 1</th><td>1 July–30 September</td><td>4 November</td></tr>
+          <tr><th scope="row">Quarter 2</th><td>1 October–31 December</td><td>14 February</td></tr>
+          <tr><th scope="row">Quarter 3</th><td>1 January–31 March</td><td>5 May</td></tr>
+          <tr><th scope="row">Quarter 4</th><td>1 April–30 June</td><td>4 August</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">
+      The department states that these dates are legislated and extensions are not available. QFRs
+      are submitted using the Government Provider Management System.
+    </p>
+  </section>
+
+  <section id="calculation" class="resource-section" aria-labelledby="calculation-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">02</p>
+      <h2 id="calculation-title">How worked hours become care minutes</h2>
+    </div>
+    <div class="formula-block" role="figure" aria-label="Care minutes calculation formula">
+      <span>Eligible direct-care worked hours</span>
+      <span aria-hidden="true">×</span>
+      <span>60</span>
+      <span aria-hidden="true">÷</span>
+      <span>Occupied bed days</span>
+      <span aria-hidden="true">=</span>
+      <strong>Minutes per occupied bed day</strong>
+    </div>
+    <p>
+      The reported care-minute position depends on both sides of the calculation. A complete
+      worked-hours file with an incorrect occupancy denominator—or complete occupancy data with
+      ineligible hours in the numerator—can still produce an incorrect result.
+    </p>
+    <p>
+      Each home has a target based on its resident case mix. Sector-wide averages are useful context
+      but should not be substituted for the target that applies to the individual home and quarter.
+    </p>
+  </section>
+
+  <section id="roles" class="resource-section" aria-labelledby="roles-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">03</p>
+      <h2 id="roles-title">Separate QFR labour categories from care-minute eligibility</h2>
+    </div>
+    <div
+      class="responsive-table"
+      tabindex="0"
+      role="region"
+      aria-label="QFR roles and care-minute treatment"
+    >
+      <table>
+        <thead
+          ><tr
+            ><th>QFR category</th><th>Reported in residential labour costs and hours</th><th
+              >Care-minute treatment</th
+            ></tr
+          ></thead
+        >
+        <tbody>
+          <tr
+            ><th scope="row">Registered nurses</th><td>Yes</td><td
+              >Eligible direct-care worked time contributes to total and RN minutes.</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Enrolled nurses</th><td>Yes</td><td
+              >Eligible direct-care worked time contributes to total minutes; up to 10% of the RN
+              target may be met by EN time under current guidance.</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Personal care workers / assistants in nursing</th><td>Yes</td><td
+              >Eligible direct-care worked time contributes to total minutes.</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Care management</th><td>Yes</td><td
+              >Reported as a labour category but does not automatically count toward the care-minute
+              result.</td
+            ></tr
+          >
+          <tr
+            ><th scope="row">Allied health</th><td>Yes</td><td
+              >Reported as a labour category but does not count toward the care-minute
+              responsibility.</td
+            ></tr
+          >
+        </tbody>
+      </table>
+    </div>
+    <div class="regulatory-note">
+      <strong>Use worked time, not paid time without qualification.</strong>
+      <p>
+        Official QFR guidance excludes non-worked hours such as leave, training, and voluntary
+        hours. Telehealth time does not count toward care minutes. Apply the current data
+        definitions to the actual duties and records involved.
+      </p>
+    </div>
+  </section>
+
+  <section id="controls" class="resource-section" aria-labelledby="controls-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">04</p>
+      <h2 id="controls-title">Quarter-end controls that catch material errors early</h2>
+    </div>
+    <ol class="process-ledger" aria-label="Quarter-end care-minute controls">
+      <li>
+        <span>01</span><strong>Reconcile source completeness</strong><p>
+          Confirm every home, pay cycle, agency source, and occupancy day is present.
+        </p>
+      </li>
+      <li>
+        <span>02</span><strong>Resolve roles and duties</strong><p>
+          Review new titles, changed duties, ambiguous classifications, and registration status.
+        </p>
+      </li>
+      <li>
+        <span>03</span><strong>Remove non-worked and duplicate time</strong><p>
+          Check leave, training, voluntary hours, overlapping shifts, and repeated files.
+        </p>
+      </li>
+      <li>
+        <span>04</span><strong>Test the denominator</strong><p>
+          Reconcile occupied bed days to the resident ledger and investigate missing dates or
+          unexplained movements.
+        </p>
+      </li>
+      <li>
+        <span>05</span><strong>Compare independent views</strong><p>
+          Review total, RN-only, and RN-plus-EN results as well as unusual changes by home and
+          period.
+        </p>
+      </li>
+      <li>
+        <span>06</span><strong>Approve and retain</strong><p>
+          Record the reviewer, source versions, calculation version, final values, and submitted
+          return.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="reconciliation" class="resource-section" aria-labelledby="reconciliation-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">05</p>
+      <h2 id="reconciliation-title">Carry the record from QFR to the year-end statement</h2>
+    </div>
+    <p>
+      The annual performance statement uses final actual values, so it may differ from a QFR
+      prepared before late invoices, payroll corrections, or other adjustments were available. The
+      useful control is not to erase those differences; it is to explain them.
+    </p>
+    <div class="decision-ledger">
+      <div>
+        <span>Quarter submission</span><p>
+          Retain the QFR values, supporting source versions, reviewer, and submission record.
+        </p>
+      </div>
+      <div>
+        <span>Later adjustment</span><p>
+          Record the new information, date received, amount, reason, and affected categories.
+        </p>
+      </div>
+      <div>
+        <span>Final CMPS value</span><p>
+          Use the completed actual record in the annual performance statement.
+        </p>
+      </div>
+      <div>
+        <span>Variance explanation</span><p>
+          Explain the difference through the year-end submission process and support it for audit.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="caremin-role" class="resource-section" aria-labelledby="caremin-role-title">
+    <div class="resource-section-heading">
+      <p class="resource-section-number">06</p>
+      <h2 id="caremin-role-title">How CareMin supports QFR work</h2>
+    </div>
+    <p>
+      CareMin brings worked hours, agency records, role classifications, occupied bed days, and
+      home-specific targets into a repeatable quarter workflow. Import receipts and original row
+      references remain connected to calculation versions and exported summaries.
+    </p>
+    <p>
+      CareMin supports review and evidence preparation. It does not replace the QFR form or submit a
+      provider’s return to government.
+    </p>
+  </section>
+</ResourcePage>
