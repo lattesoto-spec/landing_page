@@ -2,7 +2,6 @@ const configuredSiteUrl = import.meta.env.PUBLIC_SITE_URL?.replace(/\/$/, "");
 const siteUrl = configuredSiteUrl ?? __CAREMIN_DEPLOYMENT_URL__;
 
 export const site = {
-  name: "CareMin",
   title: "CareMin | Care-minute monitoring for Australian aged care",
   description:
     "Monitor residential aged care minutes, review RN coverage and role eligibility, and keep source evidence and calculation records together.",
