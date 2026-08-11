@@ -53,7 +53,7 @@ test("walkthrough form has accessible controls and required consent", async ({ p
     "message-hint",
   );
   await expect(page.getByLabel(/I agree that CareMin/)).toHaveAttribute("required", "");
-  await expect(page.getByRole("button", { name: "Request walkthrough" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Arrange walkthrough" })).toBeVisible();
   await expect(form).toHaveAttribute("action", "/api/contact");
   await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0);
 });

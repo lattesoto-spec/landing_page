@@ -19,13 +19,13 @@ const benefits = [
   },
   {
     icon: "trend" as const,
-    title: "Progress visible every day",
-    body: "Follow daily and quarter-to-date performance early enough to plan staffing with confidence.",
+    title: "Daily and quarter-to-date monitoring",
+    body: "Review facility performance against the applicable targets throughout the reporting period.",
   },
   {
     icon: "evidence" as const,
-    title: "Evidence built in",
-    body: "Every import, change, and calculation stays connected, so supporting records are ready when needed.",
+    title: "Connected source evidence",
+    body: "Keep each import, classification decision, and calculation connected to its supporting record.",
   },
 ];
 
@@ -47,8 +47,8 @@ const steps = [
   },
   {
     icon: "evidence" as const,
-    title: "Share",
-    body: "Create PDF, Excel, and CSV outputs with the supporting record already connected.",
+    title: "Export",
+    body: "Create PDF, Excel, and CSV outputs while retaining the supporting calculation record.",
   },
 ];
 
@@ -72,7 +72,7 @@ const capabilities = [
   },
   {
     icon: "review" as const,
-    title: "Smart imports",
+    title: "Structured imports",
     body: "Turn existing exports into a structured, consistent care-minute record.",
     items: [
       "Staffing, roster, and occupied bed-day imports",
@@ -143,18 +143,18 @@ const faqItems = [
   <section class="hero" aria-labelledby="hero-title">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="hero-kicker">Care-minute monitoring for residential aged care</p>
-        <h1 id="hero-title">See where your care minutes stand before the quarter closes.</h1>
+        <p class="hero-kicker">Care-minute monitoring and evidence</p>
+        <h1 id="hero-title">Care-minute reporting with a reviewable record.</h1>
         <p>
-          CareMin brings worked hours, occupied bed days, role eligibility, and source evidence into
-          one place. Track facility performance, follow trends, and prepare reporting with a clear,
-          connected record.
+          CareMin brings worked hours, occupied bed days, role-eligibility decisions, and source
+          files into one controlled workspace. Monitor each facility against its targets and retain
+          the record behind every calculation.
         </p>
         <div class="hero-actions">
-          <a class="button" href="#contact">Request a walkthrough</a>
+          <a class="button" href="#contact">Arrange a walkthrough</a>
           <a class="button button--secondary" href={site.appUrl}>Sign in</a>
         </div>
-        <p class="hero-note">Built for Australian residential aged care providers</p>
+        <p class="hero-note">For Australian residential aged care providers</p>
       </div>
 
       <figure class="product-preview-wrap">
@@ -183,14 +183,14 @@ const faqItems = [
       <div class="context-item">
         <span class="context-value">215</span>
         <p>
-          sector-wide average care minutes
+          Sector-wide average care minutes<br />
           <a href={primarySources.careMinutes} target="_blank" rel="noopener noreferrer">Source</a>
         </p>
       </div>
       <div class="context-item">
         <span class="context-value">44</span>
         <p>
-          sector-wide average RN minutes
+          Sector-wide average RN minutes<br />
           <a href={primarySources.careMinutes} target="_blank" rel="noopener noreferrer">Source</a>
         </p>
       </div>
@@ -207,11 +207,10 @@ const faqItems = [
   <section class="section section--soft" aria-labelledby="benefits-title">
     <div class="container">
       <div class="section-heading">
-        <h2 id="benefits-title">Bring the whole care-minute picture into focus.</h2>
+        <h2 id="benefits-title">A controlled record from import to output.</h2>
         <p>
           CareMin connects worked hours, role classifications, reporting periods, occupied bed days,
-          and supporting evidence. Your team gets a shared view from the first import through to the
-          final output.
+          and supporting evidence in one consistent facility record.
         </p>
       </div>
 
@@ -235,8 +234,8 @@ const faqItems = [
   <section id="how-it-works" class="section" aria-labelledby="how-title">
     <div class="container">
       <div class="section-heading section-heading--centred">
-        <h2 id="how-title">From source files to an always-current care-minute position.</h2>
-        <p>CareMin turns operational exports into a clear workflow your team can use every day.</p>
+        <h2 id="how-title">A consistent process from source file to reported result.</h2>
+        <p>Use the same controlled workflow for each facility and reporting period.</p>
       </div>
 
       <div class="steps">
@@ -276,10 +275,10 @@ const faqItems = [
       </figure>
 
       <div class="product-tour-copy">
-        <h2 id="product-tour-title">Bring your existing exports straight into CareMin.</h2>
+        <h2 id="product-tour-title">Import existing operational exports.</h2>
         <p>
-          Each facility, reporting period, and source file has a clear place in the import
-          workspace. CareMin guides your team from upload to a complete, structured record.
+          Assign each source file to its facility and reporting period, review the imported data,
+          and retain a structured receipt of the process.
         </p>
         <dl class="product-points">
           <div>
@@ -302,7 +301,7 @@ const faqItems = [
   <section id="capabilities" class="section section--soft" aria-labelledby="capabilities-title">
     <div class="container">
       <div class="section-heading">
-        <h2 id="capabilities-title">Everything your team needs to stay on top of care minutes.</h2>
+        <h2 id="capabilities-title">Monitoring, evidence, and reporting in one system.</h2>
         <p>
           Move easily between current performance, RN coverage, imports, evidence, and planning.
         </p>
@@ -332,11 +331,10 @@ const faqItems = [
   <section class="section section--navy" aria-labelledby="evidence-title">
     <div class="container evidence-layout">
       <div class="evidence-copy">
-        <h2 id="evidence-title">Every figure comes with its full story.</h2>
+        <h2 id="evidence-title">Trace every result to its source.</h2>
         <p>
           CareMin links every figure to its source file, import receipt, original row, eligibility
-          decision, and calculation version. The supporting record grows naturally as your team
-          works.
+          decision, and calculation version. The supporting record is retained as work progresses.
         </p>
         <div class="evidence-detail">
           <span class="icon-box"><Icon name="file" /></span>
@@ -381,7 +379,7 @@ const faqItems = [
   <section id="reporting" class="section" aria-labelledby="reporting-title">
     <div class="container reporting-layout">
       <div class="reporting-copy">
-        <h2 id="reporting-title">Built around the way care minutes are reviewed and reported.</h2>
+        <h2 id="reporting-title">Aligned to care-minute reporting and review.</h2>
         <p>
           CareMin is shaped around Australian residential aged care reporting. It brings care-minute
           monitoring, relevant Quarterly Financial Report inputs, and monthly RN coverage into a
@@ -392,7 +390,8 @@ const faqItems = [
           Performance Statement, with the first statement due on 31 October 2026.
         </p>
         <div class="reporting-note">
-          CareMin brings imports, monitoring, evidence, and outputs into one continuous workflow.
+          Imports, monitoring, evidence, and outputs remain connected throughout the reporting
+          process.
         </div>
       </div>
 
@@ -479,15 +478,17 @@ const faqItems = [
   <section class="section section--soft" aria-labelledby="audience-title">
     <div class="container">
       <div class="section-heading section-heading--centred">
-        <h2 id="audience-title">One shared picture for every team.</h2>
-        <p>Give everyone a clear view of the same connected care-minute record.</p>
+        <h2 id="audience-title">A shared record across operational and assurance teams.</h2>
+        <p>
+          Each team works from the same facility data, classifications, and supporting evidence.
+        </p>
       </div>
 
       <div class="audience-grid">
         <article class="audience-card">
           <span class="role-mark">FM</span>
           <h3>Facility managers</h3>
-          <p>Stay across daily performance and plan staffing with confidence.</p>
+          <p>Review daily performance and address staffing variance.</p>
         </article>
         <article class="audience-card">
           <span class="role-mark">DN</span>
@@ -516,8 +517,8 @@ const faqItems = [
   <section id="faq" class="section" aria-labelledby="faq-title">
     <div class="container faq-layout">
       <div class="faq-intro">
-        <h2 id="faq-title">Questions teams ask before a walkthrough.</h2>
-        <p>A quick look at how CareMin fits into your current reporting workflow.</p>
+        <h2 id="faq-title">Implementation and workflow questions.</h2>
+        <p>How CareMin fits into an existing care-minute reporting process.</p>
       </div>
 
       <div class="faq-list">
@@ -538,10 +539,10 @@ const faqItems = [
   <section id="contact" class="contact-section" aria-labelledby="contact-title">
     <div class="container contact-layout">
       <div class="contact-copy">
-        <h2 id="contact-title">See CareMin working with your care-minute data flow.</h2>
+        <h2 id="contact-title">Review CareMin against your current process.</h2>
         <p>
-          Walk through imports, facility performance, RN coverage, evidence, and reporting outputs
-          in one connected workspace.
+          Review imports, facility performance, RN coverage, evidence, and reporting outputs using a
+          representative workflow.
         </p>
       </div>
 
@@ -601,7 +602,7 @@ const faqItems = [
         </label>
         <div class="form-footer">
           <p>We’ll reply to arrange a walkthrough tailored to your organisation.</p>
-          <button class="button" type="submit">Request walkthrough</button>
+          <button class="button" type="submit">Arrange walkthrough</button>
         </div>
       </form>
     </div>
