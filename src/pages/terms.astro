@@ -1,66 +1,232 @@
 ---
+import { site } from "../config/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const operatorName = site.legalName ?? "CareMin";
 ---
 
 <BaseLayout
-  title="Website terms | CareMin"
-  description="CareMin marketing website terms of use."
-  noindex={true}
+  title="Terms of use | CareMin"
+  description="Terms governing use of the CareMin website and service."
 >
   <header class="page-hero">
     <div class="container page-hero-inner">
-      <h1>Website terms</h1>
-      <p>Terms for use of the public CareMin marketing website.</p>
-      <div class="review-notice" role="note">
-        <strong>Pre-launch placeholder:</strong> These terms require professional legal review and confirmation
-        of the operating legal entity before publication.
-      </div>
+      <h1>Terms of use</h1>
+      <p>Terms governing use of the CareMin website and service.</p>
     </div>
   </header>
 
   <section class="section">
     <div class="container prose">
-      <p><strong>Last updated:</strong> 5 August 2026</p>
+      <p><strong>Last updated:</strong> 11 August 2026</p>
 
-      <h2>General information only</h2>
+      <h2>About these terms</h2>
       <p>
-        This website provides general information about CareMin. It does not provide legal,
-        accounting, audit, clinical, or regulatory advice. You should obtain advice appropriate to
-        your circumstances.
+        These terms govern access to the public CareMin website and any demonstration, trial, or
+        CareMin service made available by {operatorName} (referred to as <q>CareMin</q>, <q>we</q>,
+        <q>us</q>, or <q>our</q>). By accessing or using CareMin, you agree to these terms.
+      </p>
+      <p>
+        Paid subscriptions and customer deployments may also be governed by an order form,
+        subscription agreement, data processing agreement, or other written customer agreement. If
+        there is an inconsistency, the signed customer agreement takes priority for that service.
       </p>
 
-      <h2>No compliance guarantee</h2>
+      <h2>Who may use CareMin</h2>
       <p>
-        CareMin is a monitoring and evidence-management tool. Providers remain responsible for
-        verifying their data, facility targets, calculations, and submissions against current
-        requirements. Use of CareMin does not guarantee compliance with any law, rule, guidance, or
-        assurance standard.
+        You must be legally capable of entering into these terms. If you use CareMin for an
+        organisation, you confirm that you are authorised to act for that organisation and that the
+        organisation accepts these terms. Access may be limited to users authorised by a CareMin
+        customer or administrator.
       </p>
 
-      <h2>Product availability</h2>
+      <h2>What CareMin provides</h2>
       <p>
-        Descriptions on this site explain the current intended product scope. A walkthrough does not
-        create an account, subscription, or obligation to provide service. Any use of the separate
-        CareMin application will be subject to a separate written agreement.
+        CareMin provides software for care-minute monitoring, RN coverage review, operational data
+        imports, role classification, calculation records, evidence management, scenarios, and
+        reporting outputs. Features may depend on the agreed plan, configuration, data supplied, and
+        product version.
+      </p>
+      <p>
+        Website descriptions and demonstrations are general product information. They do not create
+        a subscription, guarantee that every feature is available to every customer, or replace a
+        signed customer agreement.
+      </p>
+
+      <h2>Accounts and access</h2>
+      <p>You and your organisation are responsible for:</p>
+      <ul>
+        <li>providing accurate account information;</li>
+        <li>keeping login details confidential and using appropriate security controls;</li>
+        <li>assigning and removing user access promptly;</li>
+        <li>all activity performed through authorised accounts; and</li>
+        <li>notifying CareMin promptly of suspected unauthorised access or security incidents.</li>
+      </ul>
+      <p>
+        Accounts are personal to the authorised user and must not be shared. CareMin may require
+        password changes, additional authentication, or other reasonable security measures.
+      </p>
+
+      <h2>Customer data</h2>
+      <p>
+        As between the customer and CareMin, the customer retains ownership of data it submits to
+        CareMin. The customer grants CareMin a limited, non-exclusive right to host, copy, process,
+        transmit, display, back up, and otherwise handle that data only as reasonably necessary to
+        provide, secure, support, and administer the service, follow authorised instructions, and
+        meet legal obligations.
+      </p>
+      <p>The customer is responsible for ensuring that:</p>
+      <ul>
+        <li>it has authority to collect, use, and provide all submitted data;</li>
+        <li>the data and instructions it provides are lawful and reasonably accurate;</li>
+        <li>only information necessary for the relevant purpose is submitted;</li>
+        <li>required notices, consents, and permissions have been obtained; and</li>
+        <li>its use of outputs and exports complies with applicable obligations.</li>
+      </ul>
+
+      <h2>No professional advice or compliance guarantee</h2>
+      <p>
+        CareMin is a monitoring, calculation, and evidence-management tool. It does not provide
+        legal, accounting, audit, clinical, financial, or regulatory advice. CareMin does not act as
+        an auditor and does not certify a provider's compliance.
+      </p>
+      <p>
+        Providers remain responsible for verifying source data, role classifications, facility
+        targets, calculations, staffing decisions, reporting periods, and submissions against the
+        requirements that apply to them. Use of CareMin does not guarantee compliance or prevent an
+        audit, investigation, finding, penalty, loss, or reporting error.
+      </p>
+
+      <h2>Acceptable use</h2>
+      <p>You must not, and must not help another person to:</p>
+      <ul>
+        <li>use CareMin unlawfully, fraudulently, or in breach of another person's rights;</li>
+        <li>upload malicious code or content intended to disrupt or compromise the service;</li>
+        <li>attempt to bypass authentication, permissions, usage limits, or security controls;</li>
+        <li>access another customer's data or account without authority;</li>
+        <li>
+          reverse engineer, decompile, scrape, copy, or probe the service except where the law does
+          not permit that restriction;
+        </li>
+        <li>resell or sublicense CareMin unless a written agreement expressly permits it; or</li>
+        <li>use the service in a way that materially disrupts it for other users.</li>
+      </ul>
+
+      <h2>Intellectual property</h2>
+      <p>
+        CareMin and its licensors retain all rights in the website, application, software, design,
+        documentation, branding, and underlying technology. These terms give you only the limited,
+        revocable, non-transferable right to access and use CareMin for its intended business
+        purpose during the authorised period.
+      </p>
+      <p>
+        Feedback may be used by CareMin without restriction or payment, provided we do not identify
+        you or disclose confidential customer information without permission.
+      </p>
+
+      <h2>Privacy and confidentiality</h2>
+      <p>
+        Our <a href="/privacy">privacy policy</a> explains how CareMin handles personal information. Additional
+        confidentiality, security, hosting, and retention obligations may be included in a customer agreement.
+        Each party must protect the other's confidential information using reasonable care and use it
+        only for the purpose for which it was provided, except where disclosure is authorised or required
+        by law.
+      </p>
+
+      <h2>Availability and changes</h2>
+      <p>
+        We aim to provide a reliable service but do not promise uninterrupted or error-free
+        availability. Maintenance, security work, provider outages, internet failures, and events
+        outside reasonable control may affect access. We may modify features where reasonably
+        necessary to improve, secure, maintain, or comply with legal requirements affecting the
+        service.
+      </p>
+      <p>
+        Service levels, support commitments, backup arrangements, and notice requirements are
+        governed by the applicable customer agreement where one exists.
+      </p>
+
+      <h2>Fees and subscriptions</h2>
+      <p>
+        Fees, billing frequency, taxes, subscription periods, renewal, cancellation, and payment
+        terms are set out in the applicable order form or customer agreement. Arranging a
+        walkthrough does not create a paid subscription or obligation to purchase CareMin.
+      </p>
+
+      <h2>Third-party services and links</h2>
+      <p>
+        CareMin may interoperate with customer systems or third-party providers and the website may
+        link to government guidance, LinkedIn, or other external resources. Third-party services are
+        governed by their own terms and policies. We are not responsible for third-party content,
+        availability, or changes, but this does not limit any obligation CareMin has regarding
+        providers it engages to deliver the CareMin service.
       </p>
 
       <h2>Government systems and endorsement</h2>
       <p>
-        CareMin does not submit reports directly to the Government Provider Management System. It is
-        not approved, certified, endorsed, or operated by the Australian Government.
+        CareMin is not operated, approved, certified, or endorsed by the Australian Government.
+        Unless expressly stated in a signed agreement, CareMin does not lodge a provider's reports
+        directly with the Government Provider Management System or another government system.
+        Official requirements and guidance may change, and users must check current authoritative
+        sources.
       </p>
 
-      <h2>External links</h2>
+      <h2>Australian Consumer Law</h2>
       <p>
-        Links to Australian Government guidance are provided for convenience and may change. Always
-        check the current official source before making reporting decisions.
+        Nothing in these terms excludes, restricts, or modifies a consumer guarantee, right, remedy,
+        or liability that cannot lawfully be excluded under the Australian Consumer Law or another
+        applicable law. Where a guarantee applies and our liability can lawfully be limited, our
+        liability is limited, at our option, to supplying the affected services again or paying the
+        cost of having them supplied again.
+      </p>
+
+      <h2>Disclaimers and liability</h2>
+      <p>
+        To the maximum extent permitted by law, the website and any free demonstration or trial are
+        provided on an <q>as available</q> basis. You are responsible for independently checking information
+        before relying on it for operational, reporting, assurance, or compliance decisions.
+      </p>
+      <p>
+        To the maximum extent permitted by law, CareMin is not liable for indirect, incidental,
+        special, exemplary, or consequential loss, or loss of profit, revenue, opportunity,
+        goodwill, anticipated savings, or data, arising from use of the public website or reliance
+        on general website content. Liability relating to a paid CareMin service is governed by the
+        applicable customer agreement. This section does not limit liability that cannot lawfully be
+        limited.
+      </p>
+
+      <h2>Suspension and termination</h2>
+      <p>
+        CareMin may suspend or restrict access where reasonably necessary to address a security
+        risk, suspected unlawful use, material breach, non-payment, or risk to the service or
+        another customer. Where practicable, we will provide notice and a reasonable opportunity to
+        remedy the issue. Customer termination rights and data return arrangements are governed by
+        the applicable customer agreement.
+      </p>
+
+      <h2>Changes to these terms</h2>
+      <p>
+        We may update these terms to reflect changes to CareMin, our providers, or applicable law.
+        The current version will be published on this page with its updated date. If a material
+        change affects an existing paid service, notice will be provided as required by the customer
+        agreement or applicable law.
+      </p>
+
+      <h2>Governing law</h2>
+      <p>
+        Unless an applicable customer agreement states otherwise, these terms are governed by the
+        laws of Victoria, Australia. The parties submit to the non-exclusive jurisdiction of the
+        courts of Victoria and courts entitled to hear appeals from them.
       </p>
 
       <h2>Contact</h2>
       <p>
-        Questions about these draft terms can be sent through the
-        <a href="/#contact">CareMin contact form</a>. The legal entity name, governing law,
-        liability terms, and other required provisions will be added after legal review.
+        Questions about these terms can be sent through the
+        <a href="/#contact">CareMin contact form</a>.
+      </p>
+      <p>
+        <strong>Operator:</strong>
+        {operatorName}{site.abn ? ` · ABN ${site.abn}` : ""}
       </p>
     </div>
   </section>

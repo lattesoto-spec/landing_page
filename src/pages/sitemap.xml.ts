@@ -3,7 +3,7 @@ import { site } from "../config/site";
 
 export const prerender = true;
 
-const publicPaths = ["/"];
+const publicPaths = ["/", "/privacy", "/terms"];
 
 export const GET: APIRoute = () => {
   const urls = publicPaths

@@ -1325,20 +1325,33 @@ h3 {
   font-size: 1.1rem;
 }
 
-.review-notice {
-  margin-top: 1.7rem;
-  padding: 1rem 1.1rem;
-  border: 1px solid #e5c780;
-  border-radius: 0.7rem;
-  background: var(--amber-100);
-  color: #72430a;
-  font-size: 0.86rem;
-}
-
 .prose {
   max-width: 48rem;
   margin-inline: auto;
   color: var(--slate-700);
+}
+
+.legal-summary {
+  margin-block: 2.25rem 3.5rem;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid var(--slate-300);
+  border-left: 3px solid var(--cyan-700);
+  border-radius: var(--radius-sm);
+  background: var(--slate-100);
+}
+
+.legal-summary h2 {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+}
+
+.legal-summary ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.legal-summary li + li {
+  margin-top: 0.55rem;
 }
 
 .prose h2 {
@@ -1349,6 +1362,15 @@ h3 {
 
 .prose h3 {
   margin-top: 2rem;
+}
+
+.prose p,
+.prose li {
+  max-width: 72ch;
+}
+
+.prose ul {
+  padding-left: 1.4rem;
 }
 
 .prose a {

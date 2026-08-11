@@ -1,67 +1,254 @@
 ---
+import { site } from "../config/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const operatorName = site.legalName ?? "CareMin";
 ---
 
 <BaseLayout
-  title="Privacy notice | CareMin"
-  description="CareMin marketing website privacy notice."
-  noindex={true}
+  title="Privacy policy | CareMin"
+  description="How CareMin collects, uses, stores, and protects personal information."
 >
   <header class="page-hero">
     <div class="container page-hero-inner">
-      <h1>Privacy notice</h1>
-      <p>How information submitted through the CareMin marketing website is handled.</p>
-      <div class="review-notice" role="note">
-        <strong>Pre-launch placeholder:</strong> This notice requires review by an Australian privacy
-        professional and confirmation of the operating legal entity before publication.
-      </div>
+      <h1>Privacy policy</h1>
+      <p>How CareMin collects, uses, stores, and protects personal information.</p>
     </div>
   </header>
 
   <section class="section">
     <div class="container prose">
-      <p><strong>Last updated:</strong> 5 August 2026</p>
+      <p><strong>Last updated:</strong> 11 August 2026</p>
 
-      <h2>Scope</h2>
+      <aside class="legal-summary" aria-labelledby="privacy-summary-title">
+        <h2 id="privacy-summary-title">Our privacy commitments</h2>
+        <ul>
+          <li>
+            Customer operational data stored by the CareMin application is hosted in Australia.
+          </li>
+          <li>We do not sell personal information or share it for advertising.</li>
+          <li>
+            Customer operational data is not shared with other CareMin customers, data brokers, or
+            unrelated third parties.
+          </li>
+          <li>
+            Information is used only to provide, secure, support, and administer CareMin, follow
+            customer instructions, or meet legal obligations.
+          </li>
+        </ul>
+      </aside>
+
+      <h2>About this policy</h2>
       <p>
-        This draft notice applies to the public CareMin marketing website. It does not cover the
-        separate CareMin application or provider data stored in that product.
+        This policy explains how {operatorName} (referred to as <q>CareMin</q>, <q>we</q>, <q>us</q
+        >, or <q>our</q>) handles personal information through the public CareMin website, the
+        CareMin application, product demonstrations, support, and related business activities. We
+        handle personal information in accordance with applicable Australian privacy law, including
+        the Privacy Act 1988 (Cth) and the Australian Privacy Principles where they apply.
+      </p>
+      <p>
+        A customer agreement may contain additional privacy, confidentiality, retention, and data
+        handling commitments. If a customer agreement provides stronger protections, those
+        protections continue to apply.
       </p>
 
-      <h2>Information collected</h2>
+      <h2>Information we collect</h2>
+
+      <h3>Website enquiries and business contact information</h3>
       <p>
-        If you request a walkthrough, the form asks for your name, work email, organisation, number
-        of homes, message, and consent to be contacted. Do not submit resident names, health
-        information, payroll data, or other sensitive operational information through this website.
+        When you arrange a walkthrough or contact us, we may collect your name, work email address,
+        organisation, number of homes, message, consent to be contacted, and subsequent
+        correspondence. The public form is intended for business contact information only. Do not
+        submit resident information, health information, payroll records, or other sensitive
+        operational data through the website form.
       </p>
 
-      <h2>How enquiry information is used</h2>
+      <h3>Account and user information</h3>
       <p>
-        Enquiry information is used to understand and respond to your request, arrange a product
-        walkthrough, and keep a record of the conversation. It is not used to create a CareMin
-        product account automatically.
+        When an organisation uses CareMin, we may collect authorised users' names, work contact
+        details, organisation and facility associations, account roles, authentication records,
+        preferences, and support communications.
       </p>
 
-      <h2>Form delivery</h2>
+      <h3>Customer operational data</h3>
       <p>
-        The enquiry form sends information to a same-origin CareMin endpoint, which relays it to
-        FormSubmit for email delivery. The destination address is kept in server-only configuration
-        and is not published in the website. FormSubmit's documentation states that submissions may
-        be retained in a submission archive for 30 days. This arrangement must be confirmed as part
-        of the legal review before launch.
+        Customers may provide facility, workforce, roster, worked-hours, role-classification,
+        occupied bed-day, reporting, source-file, evidence, and calculation information. This data
+        may contain personal information about staff, contractors, residents, or other individuals.
+        The customer controls what is submitted and is responsible for ensuring it has authority to
+        collect and provide that information to CareMin.
       </p>
 
-      <h2>Analytics</h2>
+      <h3>Technical and security information</h3>
       <p>
-        Analytics are disabled by default. Privacy-friendly analytics may be enabled later through
-        the site's public configuration. This notice must be updated before that occurs.
+        We and our infrastructure providers may process IP addresses, browser and device
+        information, request timestamps, authentication events, system logs, error records, and
+        security events. We use this information to deliver the service, diagnose faults, prevent
+        misuse, and protect accounts and data.
+      </p>
+
+      <h2>How information is collected</h2>
+      <p>We collect information:</p>
+      <ul>
+        <li>directly from individuals through forms, accounts, demonstrations, and support;</li>
+        <li>from a customer's authorised administrators and uploaded source systems;</li>
+        <li>automatically when the website or application is accessed; and</li>
+        <li>from service providers where necessary to operate, secure, or support CareMin.</li>
+      </ul>
+
+      <h2>How we use information</h2>
+      <p>We use information only where reasonably necessary to:</p>
+      <ul>
+        <li>respond to enquiries and arrange product walkthroughs;</li>
+        <li>create and administer authorised accounts;</li>
+        <li>provide CareMin's import, monitoring, calculation, evidence, and export functions;</li>
+        <li>follow customer instructions and provide support;</li>
+        <li>secure the service, investigate errors, and prevent unauthorised use;</li>
+        <li>maintain business, billing, contractual, and audit records;</li>
+        <li>
+          improve reliability and usability using aggregated or de-identified information; and
+        </li>
+        <li>comply with legal obligations and resolve disputes.</li>
+      </ul>
+      <p>
+        We do not use customer operational data for advertising, data brokerage, or the benefit of
+        other CareMin customers.
+      </p>
+
+      <h2>When information is disclosed</h2>
+      <p>
+        CareMin does not sell or rent personal information. We do not disclose customer operational
+        data to advertisers, data brokers, other customers, or unrelated third parties. Information
+        may be disclosed only in the following limited circumstances:
+      </p>
+      <ul>
+        <li>
+          to authorised users and administrators of the same customer organisation, according to
+          their access permissions;
+        </li>
+        <li>
+          to contracted providers that supply hosting, infrastructure, email or form delivery,
+          security, monitoring, support, or professional services necessary to operate CareMin;
+        </li>
+        <li>when a customer instructs or authorises us to disclose it;</li>
+        <li>
+          to professional advisers who are subject to confidentiality obligations, where reasonably
+          necessary;
+        </li>
+        <li>
+          where required or authorised by law, a court or tribunal order, or a lawful government
+          request; or
+        </li>
+        <li>
+          as part of a proposed business transfer, subject to confidentiality and applicable law.
+        </li>
+      </ul>
+      <p>
+        Service providers may process information only for the contracted service or another lawful
+        purpose. Using a hosting, email, or infrastructure provider does not permit that provider to
+        use customer operational data for its own advertising.
+      </p>
+
+      <h2>Australian hosting and overseas processing</h2>
+      <p>
+        Customer operational data stored by the CareMin application is hosted in Australia. We
+        select and configure the application's primary production data stores to keep this data in
+        Australia.
+      </p>
+      <p>
+        Some limited processing connected with the public website and business administration may
+        occur outside Australia. The marketing website is delivered using Vercel's global network.
+        Walkthrough enquiries are relayed through FormSubmit and an email provider, and may be
+        processed in the United States or other countries in which those providers operate.
+        FormSubmit states that form submissions may be retained in its archive for up to 30 days.
+      </p>
+      <p>
+        We take reasonable steps when selecting and managing providers and limit the information
+        sent to them to what is necessary for their service. Provider locations and infrastructure
+        may change, and we will update this policy when a material change affects how personal
+        information is handled.
+      </p>
+
+      <h2>Cookies and analytics</h2>
+      <p>
+        We do not use advertising cookies or cross-site behavioural tracking. Analytics are disabled
+        by default on the public website. If analytics are enabled, CareMin will use a
+        privacy-focused configuration and update this policy before collecting additional
+        information.
+      </p>
+
+      <h2>Security</h2>
+      <p>
+        We take reasonable technical and organisational steps to protect information from misuse,
+        interference, loss, and unauthorised access, modification, or disclosure. Measures may
+        include access controls, authentication, logging, backups, secure network connections,
+        provider due diligence, and limiting access to people who need it for their work.
+      </p>
+      <p>
+        No internet or storage system is completely secure. Customers must protect their login
+        details, assign access appropriately, and notify us promptly of suspected unauthorised use.
+      </p>
+
+      <h2>Retention and deletion</h2>
+      <p>
+        We retain personal information only for as long as it is reasonably needed for the purpose
+        for which it was collected, to provide the service, meet contractual retention settings,
+        resolve disputes, maintain legitimate business records, or comply with law.
+      </p>
+      <p>
+        Customer operational data is retained and deleted in accordance with the applicable customer
+        agreement and authorised customer instructions. Website enquiries may remain in business
+        email records while the enquiry or commercial relationship is active. When information is no
+        longer required, we take reasonable steps to delete it, de-identify it, or place it beyond
+        use, subject to backup cycles and legal retention obligations.
+      </p>
+
+      <h2>Access and correction</h2>
+      <p>
+        You may ask to access or correct personal information we hold about you. CareMin users may
+        be able to update some account information directly or through their organisation's
+        administrator. For other requests, contact us using the process below. We may need to verify
+        your identity and may refuse a request where permitted by law, in which case we will explain
+        the reason where required.
+      </p>
+
+      <h2>Privacy complaints</h2>
+      <p>
+        If you believe CareMin has mishandled personal information, contact us and write
+        <q>Privacy complaint</q> in the message. Please describe the issue and the outcome you are seeking.
+        We will acknowledge the complaint, investigate it, and aim to respond within 30 days.
+      </p>
+      <p>
+        If you are not satisfied with our response, you may contact the
+        <a
+          href="https://www.oaic.gov.au/privacy/privacy-complaints"
+          target="_blank"
+          rel="noopener noreferrer">Office of the Australian Information Commissioner</a
+        >.
+      </p>
+
+      <h2>Third-party links</h2>
+      <p>
+        The website links to government guidance, LinkedIn, and other external sites. Their privacy
+        practices are governed by their own policies, not this policy.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        We may update this policy when our services, providers, or legal obligations change. The
+        current version will be published on this page with its updated date. We will provide
+        additional notice where a material change requires it.
       </p>
 
       <h2>Contact</h2>
       <p>
-        Privacy questions can be sent through the <a href="/#contact">CareMin contact form</a>. The
-        legal entity name and any required Australian contact details will be added after legal
-        review.
+        Direct privacy questions, access or correction requests, and complaints to the CareMin
+        Privacy Officer through the <a href="/#contact">CareMin contact form</a>. Write
+        <q>Privacy request</q> in the message so it can be directed appropriately.
+      </p>
+      <p>
+        <strong>Operator:</strong>
+        {operatorName}{site.abn ? ` · ABN ${site.abn}` : ""}
       </p>
     </div>
   </section>

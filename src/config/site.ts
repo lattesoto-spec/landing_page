@@ -8,8 +8,9 @@ export const site = {
     "Monitor residential aged care minutes, review RN coverage and role eligibility, and keep source evidence and calculation records together.",
   siteUrl,
   appUrl: import.meta.env.PUBLIC_APP_URL ?? "https://caremin-six.vercel.app",
-  legalName: import.meta.env.PUBLIC_LEGAL_NAME,
-  abn: import.meta.env.PUBLIC_ABN,
+  linkedInUrl: "https://www.linkedin.com/company/careminau/about/",
+  legalName: import.meta.env.PUBLIC_LEGAL_NAME?.trim() || undefined,
+  abn: import.meta.env.PUBLIC_ABN?.trim() || undefined,
   analyticsDomain: import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN,
   analyticsScriptUrl:
     import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_URL ?? "https://plausible.io/js/script.js",

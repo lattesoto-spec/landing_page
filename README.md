@@ -34,7 +34,7 @@ Public destinations and server-only launch details live in `.env`. Start with `.
 | `CONTACT_EMAIL`               | Required for the form   | Server-only delivery address; never exposed in browser HTML             |
 | `PUBLIC_PLAUSIBLE_DOMAIN`     | Optional                | Enables Plausible only when explicitly set                              |
 | `PUBLIC_PLAUSIBLE_SCRIPT_URL` | Optional                | Plausible script location                                               |
-| `PUBLIC_LEGAL_NAME`           | Required before launch  | Legal entity for final privacy and terms content                        |
+| `PUBLIC_LEGAL_NAME`           | Required before launch  | Legal entity displayed in the privacy policy and terms                  |
 | `PUBLIC_ABN`                  | Optional                | ABN if the owner decides to publish it                                  |
 
 A Vercel production build fails when `PUBLIC_SITE_URL` is missing. This prevents localhost or a
@@ -47,7 +47,7 @@ The walkthrough form posts to the same-origin `/api/contact` Vercel Function. Th
 not published in browser HTML. The first live submission may trigger FormSubmit's activation email;
 confirm it before announcing the form. The form requests business contact details only.
 
-If a different form provider or CRM is selected, update `api/contact.ts` and the draft privacy notice
+If a different form provider or CRM is selected, update `api/contact.ts` and the privacy policy
 before launch.
 
 ## Quality checks
@@ -95,7 +95,8 @@ or copy product secrets into it.
 2. Keep the detected framework as Astro and build command as `npm run build`.
 3. Add the public variables above and the server-only `CONTACT_EMAIL` variable for Preview and
    Production as appropriate.
-4. Review and replace the privacy and terms placeholders.
+4. Confirm the legal entity, ABN, jurisdiction, privacy commitments, and terms with an Australian
+   legal professional.
 5. Confirm the FormSubmit activation email and complete a test enquiry.
 6. Run `npm run check` and `npm run test:a11y` before promotion.
 7. Add the final domain only after the owner confirms it.
@@ -111,7 +112,7 @@ src/assets/product/    genuine product screenshots, optimized during builds
 src/components/       header, footer, icons, and brand component
 src/config/site.ts    central destinations and public configuration
 src/layouts/          metadata and page shell
-src/pages/            landing, legal placeholders, 404, robots, and sitemap
+src/pages/            landing, legal pages, 404, robots, and sitemap
 src/styles/           responsive design system
 tests/                accessibility and screenshot checks
 screenshots/          generated visual review images
@@ -122,7 +123,7 @@ reports/              saved Lighthouse production audit
 
 - Final marketing domain
 - Company legal name and any published ABN
-- Professional privacy and terms review
+- Professional review of the published privacy policy and terms
 - FormSubmit activation or replacement form provider
 - Optional analytics decision
 - Final review of dated regulatory content against the linked government sources
