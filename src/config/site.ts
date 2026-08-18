@@ -7,6 +7,7 @@ export const site = {
     "Monitor residential aged care minutes, review RN coverage and role eligibility, and keep source evidence and calculation records together.",
   siteUrl,
   appUrl: import.meta.env.PUBLIC_APP_URL ?? "https://caremin-six.vercel.app",
+  contactFormUrl: "https://formsubmit.co/a3c0aeb734187e944ec8f2e36c835dc0",
   linkedInUrl: "https://www.linkedin.com/company/careminau/about/",
   legalName: import.meta.env.PUBLIC_LEGAL_NAME?.trim() || undefined,
   abn: import.meta.env.PUBLIC_ABN?.trim() || undefined,

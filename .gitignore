@@ -10,3 +10,4 @@ test-results/
 .idea/
 need_to_know/
 *.log
+.vercel

@@ -31,7 +31,6 @@ Public destinations and server-only launch details live in `.env`. Start with `.
 | --------------------------------- | ----------------------- | ----------------------------------------------------------------------- |
 | `PUBLIC_SITE_URL`                 | Required for production | Final marketing origin used by canonical links and sitemap              |
 | `PUBLIC_APP_URL`                  | Configured              | Product Sign in destination, currently `https://caremin-six.vercel.app` |
-| `CONTACT_EMAIL`                   | Required for the form   | Server-only delivery address; never exposed in browser HTML             |
 | `PUBLIC_PLAUSIBLE_DOMAIN`         | Optional                | Enables Plausible only when explicitly set                              |
 | `PUBLIC_PLAUSIBLE_SCRIPT_URL`     | Optional                | Plausible script location                                               |
 | `PUBLIC_GOOGLE_SITE_VERIFICATION` | Optional                | HTML token for Search Console URL-prefix verification                   |
@@ -43,13 +42,12 @@ preview URL from being published as the canonical marketing domain.
 
 ### Enquiry form activation
 
-The walkthrough form posts to the same-origin `/api/contact` Vercel Function. That function reads
-`CONTACT_EMAIL` only on the server and relays valid enquiries to FormSubmit, so the destination is
-not published in browser HTML. The first live submission may trigger FormSubmit's activation email;
-confirm it before announcing the form. The form requests business contact details only.
+The walkthrough form posts directly to the activated FormSubmit identifier. The random identifier
+keeps the destination mailbox address out of the page source. The form requests business contact
+details only.
 
-If a different form provider or CRM is selected, update `api/contact.ts` and the privacy policy
-before launch.
+If a different form provider or CRM is selected, update the form configuration and the privacy
+policy before launch.
 
 ## Quality checks
 
@@ -94,7 +92,7 @@ or copy product secrets into it.
 
 1. Import this repository as a new Vercel project.
 2. Keep the detected framework as Astro and build command as `npm run build`.
-3. Add the public variables above and the server-only `CONTACT_EMAIL` variable for Preview and
+3. Add the public variables above and the server-only `FORMSUBMIT_FORM_ID` variable for Preview and
    Production as appropriate.
 4. Confirm the legal entity, ABN, jurisdiction, privacy commitments, and terms with an Australian
    legal professional.
@@ -107,7 +105,6 @@ No DNS changes or production deployment are included in this repository handoff.
 ## Project structure
 
 ```text
-api/contact.ts        server-only contact form relay
 public/brand/          approved local CareMin assets
 src/assets/product/    genuine product screenshots, optimized during builds
 src/components/       shared page, header, footer, icons, and brand components
