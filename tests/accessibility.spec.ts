@@ -79,8 +79,10 @@ test("sign in displays a loading transition before leaving the site", async ({ p
 
   const transition = page.locator("[data-app-transition]");
   await expect(transition).toBeVisible();
-  await expect(transition.getByText("Opening your workspace…")).toBeVisible();
+  await expect(transition.getByRole("heading", { name: "Opening CareMin" })).toBeVisible();
+  await expect(transition.getByText("Your workspace will be ready shortly.")).toBeVisible();
   await expect(page.locator("body")).toHaveAttribute("data-app-transitioning", "");
+  await expect(page.locator("body")).toHaveAttribute("aria-busy", "true");
 });
 
 test("landing page does not overflow at 320 pixels", async ({ page }) => {

@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import BrandLogo from "../components/BrandLogo.astro";
 import { site } from "../config/site";
 import "../styles/global.css";
 
@@ -112,19 +113,10 @@ const structuredData = {
 
     <div class="app-transition" data-app-transition hidden>
       <div class="app-transition-panel" role="status" aria-live="polite" aria-atomic="true">
-        <div class="app-transition-brand">
-          <span class="app-transition-mark" aria-hidden="true">✓</span>
-          <strong>CareMin</strong>
-        </div>
-        <p>Opening your workspace…</p>
-        <div class="app-transition-skeleton" aria-hidden="true">
-          <span class="app-transition-sidebar"></span>
-          <span class="app-transition-content">
-            <i></i>
-            <i></i>
-            <i></i>
-          </span>
-        </div>
+        <div class="app-transition-logo"><BrandLogo /></div>
+        <h2>Opening CareMin</h2>
+        <p>Your workspace will be ready shortly.</p>
+        <span class="app-transition-progress" aria-hidden="true"><i></i></span>
       </div>
     </div>
 
@@ -137,6 +129,7 @@ const structuredData = {
         appNavigationStarted = false;
         appTransition?.setAttribute("hidden", "");
         document.body.removeAttribute("data-app-transitioning");
+        document.body.removeAttribute("aria-busy");
       }
 
       appLinks.forEach((link) => {
@@ -158,6 +151,7 @@ const structuredData = {
           appNavigationStarted = true;
           appTransition?.removeAttribute("hidden");
           document.body.setAttribute("data-app-transitioning", "");
+          document.body.setAttribute("aria-busy", "true");
 
           requestAnimationFrame(() => {
             requestAnimationFrame(() => window.location.assign(link.href));
