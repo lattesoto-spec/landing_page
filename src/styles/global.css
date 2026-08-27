@@ -1,6 +1,7 @@
 :root {
   --brand-slate: #566677;
   --brand-aqua: #5fd8d5;
+  --brand-aqua-hover: #4fc7c4;
   --brand-aqua-soft: #ecfbfa;
   --navy-950: #17232d;
   --navy-900: #22313d;
@@ -162,11 +163,11 @@ h3 {
   justify-content: center;
   min-height: 3.25rem;
   padding: 0.8rem 1.35rem;
-  border: 1px solid var(--brand-slate);
+  border: 1px solid var(--brand-aqua);
   border-radius: var(--radius-sm);
-  background: var(--brand-slate);
+  background: var(--brand-aqua);
   box-shadow: none;
-  color: #ffffff;
+  color: var(--navy-950);
   font-weight: 700;
   line-height: 1.1;
   text-align: center;
@@ -178,8 +179,9 @@ h3 {
 }
 
 .button:hover {
-  border-color: var(--navy-950);
-  background: var(--navy-950);
+  border-color: var(--brand-aqua-hover);
+  background: var(--brand-aqua-hover);
+  color: var(--navy-950);
   box-shadow: none;
 }
 
@@ -407,11 +409,15 @@ h3 {
   color: var(--navy-950);
 }
 
-.hero-copy > p:not(.hero-kicker):not(.hero-note) {
+.hero-summary {
   max-width: 41rem;
   margin-bottom: 2rem;
   color: var(--slate-700);
   font-size: clamp(1.02rem, 1.5vw, 1.14rem);
+}
+
+.hero-summary strong {
+  color: var(--navy-950);
 }
 
 .hero-kicker {
@@ -424,51 +430,11 @@ h3 {
   text-transform: uppercase;
 }
 
-.hero-value-proposition {
-  max-width: 41rem;
-  margin-bottom: 1.5rem;
-  padding: 0.95rem 1.05rem;
-  border-left: 3px solid var(--brand-aqua);
-  background: var(--brand-aqua-soft);
-}
-
-.hero-value-proposition strong {
-  display: block;
-  margin-bottom: 0.25rem;
-  color: var(--navy-950);
-  font-size: 0.91rem;
-}
-
-.hero-value-proposition p {
-  margin: 0;
-  color: var(--slate-600);
-  font-size: 0.86rem;
-  line-height: 1.55;
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
-  margin-bottom: 1.35rem;
-}
-
-.hero-note {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
   margin-bottom: 0;
-  color: var(--slate-600);
-  font-size: 0.8rem;
-}
-
-.hero-note::before {
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 50%;
-  background: var(--brand-aqua);
-  box-shadow: none;
-  content: "";
 }
 
 .product-preview-wrap {
@@ -582,7 +548,7 @@ h3 {
 }
 
 .backing-logo--monash img {
-  width: 11.875rem;
+  width: 7.5rem;
 }
 
 .backing-logo--fastrack img {
@@ -2734,7 +2700,7 @@ h3 {
   }
 
   .backing-logo--monash img {
-    width: min(10.5rem, 42vw);
+    width: min(7.5rem, 32vw);
   }
 
   .backing-logo--fastrack img {
