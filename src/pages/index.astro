@@ -4,6 +4,8 @@ import Icon from "../components/Icon.astro";
 import { resources } from "../config/resources";
 import { primarySources, site } from "../config/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import fastrackLogo from "../assets/partners/fastrack.svg";
+import monashLogo from "../assets/partners/monash.png";
 import importComplete from "../assets/product/import-complete.png";
 import importUpload from "../assets/product/import-upload.png";
 
@@ -150,6 +152,13 @@ const faqItems = [
           CareMin helps aged-care providers identify compliance risks early, fix them before they
           become costly, and keep the evidence to prove it.
         </p>
+        <div class="hero-value-proposition">
+          <strong>Keep the systems and exports you already use.</strong>
+          <p>
+            CareMin turns common roster, worked-hours, agency, and resident files into care-minute
+            results, RN coverage findings, and a traceable evidence record.
+          </p>
+        </div>
         <div class="hero-actions">
           <a class="button" href="#contact">Arrange a walkthrough</a>
           <a class="button button--secondary" href={site.appUrl}>Sign in</a>
@@ -174,6 +183,23 @@ const faqItems = [
         </div>
         <figcaption>Real product screen using demonstration data</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section class="backing-strip" aria-labelledby="backing-title">
+    <div class="container backing-inner">
+      <p id="backing-title" class="backing-statement">
+        Backed by <strong>Monash University</strong> and <strong>Fastrack</strong>, its startup
+        accelerator program.
+      </p>
+      <ul class="backing-logos" aria-label="CareMin supporters">
+        <li class="backing-logo backing-logo--monash">
+          <Image src={monashLogo} alt="Monash University" width={190} quality={90} />
+        </li>
+        <li class="backing-logo backing-logo--fastrack">
+          <Image src={fastrackLogo} alt="Fastrack — Entrepreneurship at Monash" width={180} />
+        </li>
+      </ul>
     </div>
   </section>
 

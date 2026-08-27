@@ -1,9 +1,12 @@
 :root {
+  --brand-slate: #566677;
+  --brand-aqua: #5fd8d5;
+  --brand-aqua-soft: #ecfbfa;
   --navy-950: #17232d;
   --navy-900: #22313d;
   --navy-800: #374a57;
   --slate-700: #465660;
-  --slate-600: #5d6b73;
+  --slate-600: var(--brand-slate);
   --slate-500: #5f6d75;
   --slate-300: #bcc5c9;
   --slate-200: #dce1e3;
@@ -12,7 +15,7 @@
   --canvas: #f4f5f5;
   --cyan-700: #1c6b6e;
   --cyan-800: #15595c;
-  --cyan-300: #9ccac8;
+  --cyan-300: var(--brand-aqua);
   --red-700: #a23b3b;
   --red-100: #fce9e9;
   --shadow-lg: 0 12px 32px rgba(23, 35, 45, 0.11);
@@ -78,8 +81,9 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid #18bfc3;
-  outline-offset: 3px;
+  outline: 2px solid var(--brand-slate);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--brand-aqua);
 }
 
 ::selection {
@@ -158,9 +162,9 @@ h3 {
   justify-content: center;
   min-height: 3.25rem;
   padding: 0.8rem 1.35rem;
-  border: 1px solid var(--navy-900);
+  border: 1px solid var(--brand-slate);
   border-radius: var(--radius-sm);
-  background: var(--navy-900);
+  background: var(--brand-slate);
   box-shadow: none;
   color: #ffffff;
   font-weight: 700;
@@ -177,6 +181,10 @@ h3 {
   border-color: var(--navy-950);
   background: var(--navy-950);
   box-shadow: none;
+}
+
+.button:focus-visible {
+  box-shadow: 0 0 0 4px var(--brand-aqua);
 }
 
 .button--secondary {
@@ -287,6 +295,8 @@ h3 {
 .sign-in-link:hover {
   color: var(--navy-950);
   text-decoration: underline;
+  text-decoration-color: var(--brand-aqua);
+  text-decoration-thickness: 2px;
 }
 
 .desktop-actions {
@@ -414,6 +424,28 @@ h3 {
   text-transform: uppercase;
 }
 
+.hero-value-proposition {
+  max-width: 41rem;
+  margin-bottom: 1.5rem;
+  padding: 0.95rem 1.05rem;
+  border-left: 3px solid var(--brand-aqua);
+  background: var(--brand-aqua-soft);
+}
+
+.hero-value-proposition strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--navy-950);
+  font-size: 0.91rem;
+}
+
+.hero-value-proposition p {
+  margin: 0;
+  color: var(--slate-600);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -434,7 +466,7 @@ h3 {
   width: 0.45rem;
   height: 0.45rem;
   border-radius: 50%;
-  background: var(--cyan-700);
+  background: var(--brand-aqua);
   box-shadow: none;
   content: "";
 }
@@ -500,6 +532,63 @@ h3 {
   color: var(--navy-950);
 }
 
+/* Institutional backing */
+.backing-strip {
+  border-bottom: 1px solid var(--slate-200);
+  background: #ffffff;
+}
+
+.backing-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  min-height: 7rem;
+  padding-block: 1.4rem;
+}
+
+.backing-statement {
+  max-width: 29rem;
+  margin: 0;
+  color: var(--slate-600);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.backing-statement strong {
+  color: var(--navy-900);
+  font-weight: 700;
+}
+
+.backing-logos {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.backing-logo {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+.backing-logo img {
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+.backing-logo--monash img {
+  width: 11.875rem;
+}
+
+.backing-logo--fastrack img {
+  width: 11.25rem;
+}
+
 /* Context strip */
 .context-strip {
   border-bottom: 1px solid var(--slate-200);
@@ -552,9 +641,9 @@ h3 {
   width: 1.75rem;
   height: 1.75rem;
   place-items: center;
-  border: 1px solid var(--slate-300);
+  border: 1px solid var(--brand-aqua);
   border-radius: 50%;
-  background: #ffffff;
+  background: var(--brand-aqua-soft);
   color: var(--cyan-700);
   font-size: 0.8rem;
   font-weight: 800;
@@ -616,7 +705,7 @@ h3 {
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: var(--cyan-800);
+  color: var(--brand-slate);
 }
 
 .benefit-item p,
@@ -663,7 +752,7 @@ h3 {
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: var(--cyan-800);
+  color: var(--brand-slate);
 }
 
 .step-card h3::before {
@@ -722,7 +811,7 @@ h3 {
   width: 0.38rem;
   height: 0.38rem;
   border-radius: 0;
-  background: var(--slate-500);
+  background: var(--brand-aqua);
   content: "";
 }
 
@@ -852,7 +941,7 @@ h3 {
   width: 0.45rem;
   height: 0.45rem;
   border-radius: 50%;
-  background: var(--cyan-700);
+  background: var(--brand-aqua);
   content: "";
 }
 
@@ -905,8 +994,8 @@ h3 {
 }
 
 .lineage-node.is-current {
-  box-shadow: inset 3px 0 var(--cyan-700);
-  background: #f2f7f7;
+  box-shadow: inset 3px 0 var(--brand-aqua);
+  background: var(--brand-aqua-soft);
 }
 
 /* Reporting */
@@ -924,7 +1013,7 @@ h3 {
 .reporting-note {
   margin-top: 1.8rem;
   padding: 1rem 1.1rem;
-  border-left: 3px solid var(--navy-800);
+  border-left: 3px solid var(--brand-slate);
   background: var(--slate-100);
   color: var(--slate-700);
   font-size: 0.85rem;
@@ -1015,10 +1104,10 @@ h3 {
   height: 2.5rem;
   margin: 0;
   place-items: center;
-  border: 1px solid var(--slate-300);
+  border: 1px solid var(--brand-aqua);
   border-radius: var(--radius-sm);
-  background: #ffffff;
-  color: var(--slate-700);
+  background: var(--brand-aqua-soft);
+  color: var(--brand-slate);
   font-size: 0.78rem;
   font-weight: 750;
 }
@@ -1263,7 +1352,7 @@ h3 {
   margin-block: 2.25rem 3.5rem;
   padding: 1.5rem 1.75rem;
   border: 1px solid var(--slate-300);
-  border-left: 3px solid var(--cyan-700);
+  border-left: 3px solid var(--brand-aqua);
   border-radius: var(--radius-sm);
   background: var(--slate-100);
 }
@@ -1797,8 +1886,8 @@ h3 {
 .privacy-inline {
   margin-top: 2rem;
   padding: 1.15rem 1.25rem;
-  border-left: 3px solid var(--cyan-700);
-  background: var(--slate-100);
+  border-left: 3px solid var(--brand-aqua);
+  background: var(--brand-aqua-soft);
 }
 
 .regulatory-note strong,
@@ -2629,6 +2718,27 @@ h3 {
 
   .hero-actions .button {
     width: 100%;
+  }
+
+  .backing-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-block: 1.75rem;
+  }
+
+  .backing-logos {
+    width: 100%;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .backing-logo--monash img {
+    width: min(10.5rem, 42vw);
+  }
+
+  .backing-logo--fastrack img {
+    width: min(10rem, 40vw);
   }
 
   .context-grid,
