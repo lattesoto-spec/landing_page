@@ -18,7 +18,7 @@ const operatorName = site.legalName ?? "CareMin";
 
   <section class="section">
     <div class="container prose">
-      <p><strong>Last updated:</strong> 11 August 2026</p>
+      <p><strong>Last updated:</strong> 28 August 2026</p>
 
       <h2>About these terms</h2>
       <p>
@@ -152,6 +152,10 @@ const operatorName = site.legalName ?? "CareMin";
         terms are set out in the applicable order form or customer agreement. Arranging a
         walkthrough does not create a paid subscription or obligation to purchase CareMin.
       </p>
+      <p>
+        Billing enquiries can be sent to
+        <a href={`mailto:${site.email.billing}`}>{site.email.billing}</a>.
+      </p>
 
       <h2>Third-party services and links</h2>
       <p>
@@ -221,8 +225,8 @@ const operatorName = site.legalName ?? "CareMin";
 
       <h2>Contact</h2>
       <p>
-        Questions about these terms can be sent through the
-        <a href="/#contact">CareMin contact form</a>.
+        Questions about these terms can be sent to
+        <a href={`mailto:${site.email.support}`}>{site.email.support}</a>.
       </p>
       <p>
         <strong>Operator:</strong>

@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { site } from "../config/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import errorScreen from "../assets/status/error-screen.png";
 ---
@@ -33,7 +34,7 @@ import errorScreen from "../assets/status/error-screen.png";
           <a class="button button--quiet" href="/resources">Browse resources</a>
         </div>
         <p class="error-support">
-          Think something is broken? <a href="/#contact">Let us know.</a>
+          Think something is broken? <a href={`mailto:${site.email.support}`}>Let us know.</a>
         </p>
       </div>
     </div>

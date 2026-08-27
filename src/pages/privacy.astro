@@ -18,7 +18,7 @@ const operatorName = site.legalName ?? "CareMin";
 
   <section class="section">
     <div class="container prose">
-      <p><strong>Last updated:</strong> 11 August 2026</p>
+      <p><strong>Last updated:</strong> 28 August 2026</p>
 
       <aside class="legal-summary" aria-labelledby="privacy-summary-title">
         <h2 id="privacy-summary-title">Our privacy commitments</h2>
@@ -188,6 +188,10 @@ const operatorName = site.legalName ?? "CareMin";
         No internet or storage system is completely secure. Customers must protect their login
         details, assign access appropriately, and notify us promptly of suspected unauthorised use.
       </p>
+      <p>
+        Report a suspected security issue to
+        <a href={`mailto:${site.email.security}`}>{site.email.security}</a>.
+      </p>
 
       <h2>Retention and deletion</h2>
       <p>
@@ -243,8 +247,9 @@ const operatorName = site.legalName ?? "CareMin";
       <h2>Contact</h2>
       <p>
         Direct privacy questions, access or correction requests, and complaints to the CareMin
-        Privacy Officer through the <a href="/#contact">CareMin contact form</a>. Write
-        <q>Privacy request</q> in the message so it can be directed appropriately.
+        Privacy Officer at
+        <a href={`mailto:${site.email.privacy}`}>{site.email.privacy}</a>. Include
+        <q>Privacy request</q> in the subject line so it can be directed appropriately.
       </p>
       <p>
         <strong>Operator:</strong>

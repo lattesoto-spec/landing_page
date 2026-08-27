@@ -44,7 +44,8 @@ preview URL from being published as the canonical marketing domain.
 
 The walkthrough form posts directly to the activated FormSubmit identifier. The random identifier
 keeps the destination mailbox address out of the page source. The form requests business contact
-details only.
+details only. Public role-based addresses are defined centrally in `src/config/site.ts`; personal
+and administrative accounts are intentionally not published on the website.
 
 If a different form provider or CRM is selected, update the form configuration and the privacy
 policy before launch.

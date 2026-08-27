@@ -68,7 +68,10 @@ test("walkthrough form has accessible controls and required consent", async ({ p
   await expect(page.getByRole("button", { name: "Arrange walkthrough" })).toBeVisible();
   await expect(form).toHaveAttribute("action", /^https:\/\/formsubmit\.co\/[a-f0-9]{32}$/);
   await expect(form.locator('input[name="_next"]')).toHaveAttribute("value", /\/thank-you$/);
-  await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "demo@caremin.care" })).toHaveAttribute(
+    "href",
+    "mailto:demo@caremin.care",
+  );
 });
 
 test("sign in displays a loading transition before leaving the site", async ({ page }) => {
@@ -95,6 +98,10 @@ test("error page provides recovery actions without duplicating site chrome", asy
   await expect(page.getByRole("link", { name: "Browse resources" })).toHaveAttribute(
     "href",
     "/resources",
+  );
+  await expect(page.getByRole("link", { name: "Let us know." })).toHaveAttribute(
+    "href",
+    "mailto:support@caremin.care",
   );
   await expect(page.locator(".site-header, .site-footer")).toHaveCount(0);
 
