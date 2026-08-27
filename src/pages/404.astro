@@ -1,18 +1,41 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import errorScreen from "../assets/status/error-screen.png";
 ---
 
 <BaseLayout
   title="Page not found | CareMin"
   description="The requested CareMin page could not be found."
   noindex={true}
+  hideChrome={true}
 >
-  <section class="error-page">
-    <div class="container error-page-inner">
-      <p class="error-code">404</p>
-      <h1>This page could not be found.</h1>
-      <p>The address may have changed, or the page may no longer be available.</p>
-      <a class="button" href="/">Return to CareMin</a>
+  <section class="error-page error-page--illustrated" aria-labelledby="error-title">
+    <Image
+      class="error-page-artwork"
+      src={errorScreen}
+      alt=""
+      width={1672}
+      format="webp"
+      quality={88}
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="container error-page-layout">
+      <div class="error-page-copy">
+        <p class="error-code">Error 404</p>
+        <h1 id="error-title">We couldn’t find that page.</h1>
+        <p class="error-message">
+          The link may be out of date, or the address may have been entered incorrectly.
+        </p>
+        <div class="error-actions">
+          <a class="button" href="/">Go to the homepage</a>
+          <a class="button button--quiet" href="/resources">Browse resources</a>
+        </div>
+        <p class="error-support">
+          Think something is broken? <a href="/#contact">Let us know.</a>
+        </p>
+      </div>
     </div>
   </section>
 </BaseLayout>

@@ -11,6 +11,7 @@ interface Props {
   noindex?: boolean;
   ogType?: "website" | "article";
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  hideChrome?: boolean;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   noindex = false,
   ogType = "website",
   structuredData: pageStructuredData = [],
+  hideChrome = false,
 } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, site.siteUrl).toString();
 const socialImage = new URL("/brand/caremin-full.png", site.siteUrl).toString();
@@ -105,11 +107,11 @@ const structuredData = {
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
-    <Header />
+    {!hideChrome && <Header />}
     <main id="main-content">
       <slot />
     </main>
-    <Footer />
+    {!hideChrome && <Footer />}
 
     <div class="app-transition" data-app-transition hidden>
       <div class="app-transition-panel" role="status" aria-live="polite" aria-atomic="true">

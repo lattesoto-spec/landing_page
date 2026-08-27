@@ -12,6 +12,7 @@ const publicPages = [
   "/care-minutes-calculator",
   "/privacy",
   "/terms",
+  "/404",
 ];
 
 for (const path of publicPages) {
@@ -83,6 +84,25 @@ test("sign in displays a loading transition before leaving the site", async ({ p
   await expect(transition.getByText("Your workspace will be ready shortly.")).toBeVisible();
   await expect(page.locator("body")).toHaveAttribute("data-app-transitioning", "");
   await expect(page.locator("body")).toHaveAttribute("aria-busy", "true");
+});
+
+test("error page provides recovery actions without duplicating site chrome", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 700 });
+  await page.goto("/404");
+
+  await expect(page.getByRole("heading", { name: "We couldn’t find that page." })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Go to the homepage" })).toHaveAttribute("href", "/");
+  await expect(page.getByRole("link", { name: "Browse resources" })).toHaveAttribute(
+    "href",
+    "/resources",
+  );
+  await expect(page.locator(".site-header, .site-footer")).toHaveCount(0);
+
+  const dimensions = await page.evaluate(() => ({
+    clientWidth: document.documentElement.clientWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+  }));
+  expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.clientWidth);
 });
 
 test("landing page does not overflow at 320 pixels", async ({ page }) => {
