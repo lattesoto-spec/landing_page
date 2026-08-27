@@ -70,6 +70,19 @@ test("walkthrough form has accessible controls and required consent", async ({ p
   await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0);
 });
 
+test("sign in displays a loading transition before leaving the site", async ({ page }) => {
+  await page.goto("/");
+
+  const signIn = page.locator(".hero [data-app-link]");
+  await signIn.evaluate((link) => link.setAttribute("href", "#test-app-loading"));
+  await signIn.click();
+
+  const transition = page.locator("[data-app-transition]");
+  await expect(transition).toBeVisible();
+  await expect(transition.getByText("Opening your workspace…")).toBeVisible();
+  await expect(page.locator("body")).toHaveAttribute("data-app-transitioning", "");
+});
+
 test("landing page does not overflow at 320 pixels", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 640 });
   await page.goto("/");

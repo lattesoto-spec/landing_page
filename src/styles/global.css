@@ -246,6 +246,114 @@ h3 {
   transform: translateY(0);
 }
 
+/* App hand-off */
+body[data-app-transitioning] {
+  overflow: hidden;
+  cursor: wait;
+}
+
+.app-transition {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  padding: 1rem;
+  place-items: center;
+  background: rgba(244, 245, 245, 0.96);
+}
+
+.app-transition[hidden] {
+  display: none;
+}
+
+.app-transition-panel {
+  width: min(100%, 23rem);
+  padding: 1.4rem;
+  border: 1px solid var(--slate-300);
+  border-top: 3px solid var(--brand-aqua);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  box-shadow: var(--shadow-lg);
+}
+
+.app-transition-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--navy-950);
+}
+
+.app-transition-mark {
+  display: grid;
+  width: 1.65rem;
+  height: 1.65rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--brand-aqua);
+  color: var(--navy-950);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.app-transition-panel > p {
+  margin: 0.65rem 0 1rem;
+  color: var(--slate-600);
+  font-size: 0.88rem;
+}
+
+.app-transition-skeleton {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  min-height: 7rem;
+  overflow: hidden;
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  background: var(--canvas);
+}
+
+.app-transition-sidebar {
+  background: var(--navy-900);
+}
+
+.app-transition-content {
+  display: grid;
+  align-content: center;
+  gap: 0.7rem;
+  padding: 1rem;
+}
+
+.app-transition-content i {
+  display: block;
+  height: 0.65rem;
+  border-radius: 0.15rem;
+  background: var(--slate-200);
+  animation: app-skeleton-pulse 900ms ease-in-out infinite alternate;
+}
+
+.app-transition-content i:nth-child(1) {
+  width: 58%;
+}
+
+.app-transition-content i:nth-child(2) {
+  width: 100%;
+  animation-delay: 120ms;
+}
+
+.app-transition-content i:nth-child(3) {
+  width: 82%;
+  animation-delay: 240ms;
+}
+
+@keyframes app-skeleton-pulse {
+  from {
+    background: var(--slate-200);
+  }
+
+  to {
+    background: var(--brand-aqua);
+  }
+}
+
 /* Header */
 .site-header {
   position: sticky;

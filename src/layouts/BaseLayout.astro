@@ -109,5 +109,63 @@ const structuredData = {
       <slot />
     </main>
     <Footer />
+
+    <div class="app-transition" data-app-transition hidden>
+      <div class="app-transition-panel" role="status" aria-live="polite" aria-atomic="true">
+        <div class="app-transition-brand">
+          <span class="app-transition-mark" aria-hidden="true">✓</span>
+          <strong>CareMin</strong>
+        </div>
+        <p>Opening your workspace…</p>
+        <div class="app-transition-skeleton" aria-hidden="true">
+          <span class="app-transition-sidebar"></span>
+          <span class="app-transition-content">
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const appTransition = document.querySelector<HTMLElement>("[data-app-transition]");
+      const appLinks = document.querySelectorAll<HTMLAnchorElement>("[data-app-link]");
+      let appNavigationStarted = false;
+
+      function resetAppTransition() {
+        appNavigationStarted = false;
+        appTransition?.setAttribute("hidden", "");
+        document.body.removeAttribute("data-app-transitioning");
+      }
+
+      appLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          if (
+            event.defaultPrevented ||
+            event.button !== 0 ||
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey ||
+            link.target === "_blank" ||
+            appNavigationStarted
+          ) {
+            return;
+          }
+
+          event.preventDefault();
+          appNavigationStarted = true;
+          appTransition?.removeAttribute("hidden");
+          document.body.setAttribute("data-app-transitioning", "");
+
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => window.location.assign(link.href));
+          });
+        });
+      });
+
+      window.addEventListener("pageshow", resetAppTransition);
+    </script>
   </body>
 </html>
