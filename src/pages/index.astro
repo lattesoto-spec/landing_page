@@ -154,14 +154,13 @@ const faqItems = [
         </p>
         <div class="hero-actions">
           <a class="button" href="#contact">Arrange a walkthrough</a>
-          <a class="button button--secondary" href={site.appUrl} data-app-link>Sign in</a>
+          <a class="hero-sign-in" href={site.appUrl} data-app-link>
+            Sign in <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
 
       <figure class="product-preview-wrap">
-        <div class="product-preview-bar" aria-hidden="true">
-          <span>CareMin import workspace</span>
-        </div>
         <div class="product-preview-image">
           <Image
             src={importComplete}
@@ -176,9 +175,7 @@ const faqItems = [
         <figcaption>Real product screen using demonstration data</figcaption>
       </figure>
     </div>
-  </section>
 
-  <section class="backing-strip" aria-labelledby="backing-title">
     <div class="container backing-inner">
       <p id="backing-title" class="backing-statement">
         Backed by <strong>Monash University</strong> and <strong>Fastrack</strong>, its startup
