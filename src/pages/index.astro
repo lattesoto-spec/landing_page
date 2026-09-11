@@ -108,6 +108,29 @@ const capabilities = [
   },
 ];
 
+const dataCommitments = [
+  {
+    icon: "shield" as const,
+    title: "Australian data hosting",
+    body: "Customer operational data stored by the CareMin application is hosted in Australia.",
+  },
+  {
+    icon: "file" as const,
+    title: "Handled under Australian privacy law",
+    body: "Personal information is handled in accordance with the Privacy Act 1988 (Cth) and the Australian Privacy Principles where they apply.",
+  },
+  {
+    icon: "database" as const,
+    title: "Separated between customers",
+    body: "Customer operational data is not shared with other CareMin customers, data brokers, or unrelated third parties.",
+  },
+  {
+    icon: "evidence" as const,
+    title: "Never sold or used for advertising",
+    body: "We do not sell personal information or share it for advertising.",
+  },
+];
+
 const faqItems = [
   {
     question: "Can CareMin use our existing exports?",
@@ -578,6 +601,39 @@ const faqItems = [
     </div>
   </section>
 
+  <section class="section section--soft" aria-labelledby="data-title">
+    <div class="container reporting-layout">
+      <div class="reporting-copy">
+        <h2 id="data-title">Handling of the data you are trusted with.</h2>
+        <p>
+          CareMin holds staffing and resident information on behalf of your organisation. These
+          commitments are published in full, alongside our retention and overseas processing
+          practices, in the privacy notice.
+        </p>
+        <div class="reporting-note">
+          Read the <a href="/privacy">privacy notice</a> for the complete detail, or report a suspected
+          security issue to <a href={`mailto:${site.email.security}`}>{site.email.security}</a>.
+        </div>
+      </div>
+
+      <ul class="reporting-list">
+        {
+          dataCommitments.map((commitment) => (
+            <li class="reporting-item">
+              <span class="icon-box icon-box--inline">
+                <Icon name={commitment.icon} size={20} />
+              </span>
+              <div>
+                <strong>{commitment.title}</strong>
+                <p>{commitment.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
   <section id="contact" class="contact-section" aria-labelledby="contact-title">
     <div class="container contact-layout">
       <div class="contact-copy">
@@ -645,7 +701,7 @@ const faqItems = [
         <label class="form-consent">
           <input type="checkbox" name="contact_consent" value="Yes" required />
           <span>
-            I agree that CareMin may use these details to respond to this enquiry. See the
+            I agree that CareMin may use these details to respond to this enquiry. See the{" "}
             <a href="/privacy">privacy notice</a>.
           </span>
         </label>

@@ -775,6 +775,13 @@ body[data-app-transitioning] {
   color: var(--brand-slate);
 }
 
+.icon-box--inline {
+  width: auto;
+  height: auto;
+  margin-bottom: 0;
+  place-items: start;
+}
+
 .benefit-item p,
 .step-card p,
 .capability-card p {
