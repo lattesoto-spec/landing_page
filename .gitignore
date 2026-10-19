@@ -11,3 +11,8 @@ test-results/
 need_to_know/
 *.log
 .vercel
+.playwright-mcp/
+.impeccable/review/
+.impeccable/direction-payload.json
+.impeccable/hook.cache.json
+.impeccable/questions/

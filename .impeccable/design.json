@@ -1,0 +1,539 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-19T23:13:38+00:00",
+  "title": "Design System: CareMin",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Signage Ink",
+        "canonical": "#0e2b35",
+        "oklch": "oklch(27.2% 0.039 224)",
+        "tonalRamp": [
+          "#000e17",
+          "#0b2832",
+          "#28444f",
+          "#45636e",
+          "#678692",
+          "#8baab7",
+          "#b0d1de",
+          "#d4f5ff"
+        ]
+      },
+      "brand-aqua": {
+        "role": "primary",
+        "displayName": "CareMin Aqua",
+        "canonical": "#5fd8d5",
+        "oklch": "oklch(81.3% 0.108 193)",
+        "tonalRamp": [
+          "#001517",
+          "#003232",
+          "#00504f",
+          "#00706e",
+          "#009492",
+          "#3bbab7",
+          "#69e1de",
+          "#8fffff"
+        ]
+      },
+      "brand-aqua-hover": {
+        "role": "primary",
+        "displayName": "Aqua Glow",
+        "canonical": "#7fe2df",
+        "oklch": "oklch(85.2% 0.094 193)",
+        "tonalRamp": [
+          "#001416",
+          "#003030",
+          "#004e4d",
+          "#006e6c",
+          "#25928f",
+          "#53b7b5",
+          "#7bdedb",
+          "#a0ffff"
+        ]
+      },
+      "teal": {
+        "role": "secondary",
+        "displayName": "Wayfinding Teal",
+        "canonical": "#1f6f73",
+        "oklch": "oklch(49.7% 0.074 200)",
+        "tonalRamp": [
+          "#001217",
+          "#002e32",
+          "#004b4f",
+          "#186a6e",
+          "#438e92",
+          "#69b3b7",
+          "#8fdade",
+          "#b2feff"
+        ]
+      },
+      "aqua-field": {
+        "role": "secondary",
+        "displayName": "Aqua Field",
+        "canonical": "#ddf3f1",
+        "oklch": "oklch(94.7% 0.023 190)",
+        "tonalRamp": [
+          "#010e0d",
+          "#162826",
+          "#324442",
+          "#4f6260",
+          "#718583",
+          "#95aaa8",
+          "#bad0ce",
+          "#def4f2"
+        ]
+      },
+      "brand-aqua-soft": {
+        "role": "secondary",
+        "displayName": "Aqua Wash",
+        "canonical": "#e6f8f7",
+        "oklch": "oklch(96.6% 0.019 193)",
+        "tonalRamp": [
+          "#030e0d",
+          "#192726",
+          "#344342",
+          "#526160",
+          "#748483",
+          "#98a9a8",
+          "#bdcfce",
+          "#e1f3f2"
+        ]
+      },
+      "ink-raised": {
+        "role": "neutral",
+        "displayName": "Raised Ink",
+        "canonical": "#173a45",
+        "oklch": "oklch(32.8% 0.045 221)",
+        "tonalRamp": [
+          "#000f18",
+          "#042933",
+          "#234550",
+          "#416470",
+          "#638793",
+          "#86acb9",
+          "#acd2df",
+          "#cff6ff"
+        ]
+      },
+      "ink-text": {
+        "role": "neutral",
+        "displayName": "Ink Reading Text",
+        "canonical": "#c3d6d8",
+        "oklch": "oklch(86.2% 0.021 204)",
+        "tonalRamp": [
+          "#020e0f",
+          "#182729",
+          "#334345",
+          "#506163",
+          "#738486",
+          "#96a9ab",
+          "#bccfd1",
+          "#dff3f5"
+        ]
+      },
+      "footer-ink": {
+        "role": "neutral",
+        "displayName": "Footer Ink",
+        "canonical": "#0a222a",
+        "oklch": "oklch(23.7% 0.033 223)",
+        "tonalRamp": [
+          "#000e15",
+          "#102830",
+          "#2c444d",
+          "#49626b",
+          "#6b858f",
+          "#8faab4",
+          "#b4d0da",
+          "#d8f4ff"
+        ]
+      },
+      "mineral": {
+        "role": "neutral",
+        "displayName": "Mineral White",
+        "canonical": "#f2f5f4",
+        "oklch": "oklch(96.8% 0.003 174)",
+        "tonalRamp": [
+          "#0a0c0b",
+          "#222524",
+          "#3e403f",
+          "#5c5e5d",
+          "#7e8180",
+          "#a2a5a4",
+          "#c8cbca",
+          "#ecefee"
+        ]
+      },
+      "eucalyptus": {
+        "role": "neutral",
+        "displayName": "Eucalyptus",
+        "canonical": "#e3ece9",
+        "oklch": "oklch(93.5% 0.010 174)",
+        "tonalRamp": [
+          "#070d0b",
+          "#1f2624",
+          "#3a423f",
+          "#58605d",
+          "#7a8280",
+          "#9ea7a4",
+          "#c4cdca",
+          "#e8f1ee"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface White",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 90)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#808080",
+          "#a4a4a4",
+          "#cacaca",
+          "#eeeeee"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#cfdcd9",
+        "oklch": "oklch(88.4% 0.015 181)",
+        "tonalRamp": [
+          "#050d0b",
+          "#1c2624",
+          "#384240",
+          "#55605e",
+          "#778380",
+          "#9ba8a5",
+          "#c1cecb",
+          "#e5f2ef"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Strong Rule",
+        "canonical": "#a9bebb",
+        "oklch": "oklch(78.5% 0.023 186)",
+        "tonalRamp": [
+          "#010e0d",
+          "#162826",
+          "#324442",
+          "#4f6260",
+          "#718582",
+          "#95aaa7",
+          "#bad0cd",
+          "#def4f1"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Slate",
+        "canonical": "#4a5f66",
+        "oklch": "oklch(47.1% 0.028 220)",
+        "tonalRamp": [
+          "#000e13",
+          "#14272d",
+          "#2f434a",
+          "#4c6269",
+          "#6e848c",
+          "#92a9b1",
+          "#b8cfd7",
+          "#dbf3fc"
+        ]
+      },
+      "body-ink": {
+        "role": "neutral",
+        "displayName": "Body Ink",
+        "canonical": "#1c3842",
+        "oklch": "oklch(32.3% 0.038 223)",
+        "tonalRamp": [
+          "#000e17",
+          "#0b2832",
+          "#28444f",
+          "#46636e",
+          "#688691",
+          "#8baab6",
+          "#b1d1dd",
+          "#d4f5ff"
+        ]
+      },
+      "alert-red": {
+        "role": "error",
+        "displayName": "Alert Red",
+        "canonical": "#a23b3b",
+        "oklch": "oklch(49.7% 0.137 24)",
+        "tonalRamp": [
+          "#310000",
+          "#540000",
+          "#780f19",
+          "#9c3636",
+          "#c55a58",
+          "#ee7f7b",
+          "#ffa59f",
+          "#ffcfc8"
+        ]
+      },
+      "alert-red-soft": {
+        "role": "error",
+        "displayName": "Alert Red Wash",
+        "canonical": "#fce9e9",
+        "oklch": "oklch(94.9% 0.021 18)",
+        "tonalRamp": [
+          "#130808",
+          "#2d2020",
+          "#4a3b3c",
+          "#695959",
+          "#8c7c7c",
+          "#b1a0a0",
+          "#d8c5c5",
+          "#fce9e9"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only; the primary sign."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "One per section."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Sourced statistics in the context strip, tabular numerals."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Item headings; route stations 1.5rem, directory rows 1.3rem."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Section intros in Muted Slate."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, prose max 72ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Form labels, footer column labels; nav at 600."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Plaque captions stating demonstration data."
+      }
+    },
+    "shadows": [
+      {
+        "name": "plaque-mount",
+        "value": "0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 18px 40px -18px rgba(14, 43, 53, 0.32)",
+        "purpose": "Directory and FAQ plaques on light zones."
+      },
+      {
+        "name": "lift",
+        "value": "0 14px 34px -12px rgba(14, 43, 53, 0.22)",
+        "purpose": "Product plaques on light zones, guide card hover, mobile nav dropdown."
+      },
+      {
+        "name": "ink-mount",
+        "value": "0 0 0 1px rgba(255, 255, 255, 0.08), 0 30px 60px -24px rgba(0, 0, 0, 0.55)",
+        "purpose": "Plaques on ink zones."
+      },
+      {
+        "name": "ink-form",
+        "value": "0 40px 80px -40px rgba(0, 0, 0, 0.6)",
+        "purpose": "Contact form plaque on ink."
+      },
+      {
+        "name": "header-scrolled",
+        "value": "0 6px 20px -14px rgba(14, 43, 53, 0.35)",
+        "purpose": "Sticky header after scroll."
+      },
+      {
+        "name": "focus-halo",
+        "value": "0 0 0 3px rgba(31, 111, 115, 0.22)",
+        "purpose": "Form field focus with teal border."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-sign",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Button press, card lift, arrow slide, FAQ toggle, route draw."
+      },
+      {
+        "name": "state-fast",
+        "value": "160ms ease",
+        "purpose": "Link, nav, and row hover colour changes."
+      },
+      {
+        "name": "state",
+        "value": "180ms ease",
+        "purpose": "Button and card state transitions."
+      },
+      {
+        "name": "route-draw",
+        "value": "900ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Route line draws once on load; markers light at 150ms, 350ms, 550ms delays. Reduced motion shows the drawn state."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1100px"
+      },
+      {
+        "name": "tablet",
+        "value": "920px"
+      },
+      {
+        "name": "mobile",
+        "value": "680px"
+      },
+      {
+        "name": "narrow",
+        "value": "380px"
+      }
+    ],
+    "focus": {
+      "light": "2px solid #1f6f73, 3px offset",
+      "ink": "2px solid #5fd8d5",
+      "button": "2px solid #0e2b35, 3px offset"
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one aqua sign per zone, e.g. Arrange a walkthrough.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Arrange a walkthrough</a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;min-height:3.25rem;padding:0.8rem 1.5rem;border:1px solid var(--brand-aqua,#5fd8d5);border-radius:999px;background:var(--brand-aqua,#5fd8d5);color:var(--ink,#0e2b35);font-family:'Atkinson Hyperlegible Next Variable',system-ui,sans-serif;font-weight:720;line-height:1.1;text-decoration:none;transition:background-color 180ms ease,border-color 180ms ease,transform 180ms cubic-bezier(0.16,1,0.3,1)}.ds-btn-primary:hover{background:var(--brand-aqua-hover,#7fe2df);border-color:var(--brand-aqua-hover,#7fe2df)}.ds-btn-primary:active{transform:translateY(1px)}.ds-btn-primary:focus-visible{outline:2px solid var(--ink,#0e2b35);outline-offset:3px}"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Secondary action on secondary pages.",
+      "html": "<a class=\"ds-btn-quiet\" href=\"#\">Back to home</a>",
+      "css": ".ds-btn-quiet{display:inline-flex;align-items:center;justify-content:center;min-height:3.25rem;padding:0.8rem 1.5rem;border:1px solid var(--line-strong,#a9bebb);border-radius:999px;background:#fff;color:var(--navy-900,#1c3842);font-family:'Atkinson Hyperlegible Next Variable',system-ui,sans-serif;font-weight:720;text-decoration:none;transition:background-color 180ms ease,border-color 180ms ease}.ds-btn-quiet:hover{border-color:var(--navy-900,#1c3842);background:var(--eucalyptus,#e3ece9);color:var(--ink,#0e2b35)}.ds-btn-quiet:focus-visible{outline:2px solid var(--teal,#1f6f73);outline-offset:3px}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Contact form field with label above.",
+      "html": "<label class=\"ds-field\"><span>Work email</span><input type=\"email\" placeholder=\"name@provider.com.au\"></label>",
+      "css": ".ds-field{display:grid;gap:0.45rem;font-family:'Atkinson Hyperlegible Next Variable',system-ui,sans-serif}.ds-field span{color:var(--ink,#0e2b35);font-size:0.95rem;font-weight:700}.ds-field input{min-height:3.1rem;padding:0.7rem 0.9rem;border:1px solid var(--line-strong,#a9bebb);border-radius:0.5rem;background:#fff;color:var(--ink,#0e2b35);font:inherit;transition:border-color 160ms ease,box-shadow 160ms ease}.ds-field input:hover{border-color:#5b6f75}.ds-field input:focus{border-color:var(--teal,#1f6f73);outline:none;box-shadow:0 0 0 3px rgba(31,111,115,0.22)}"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header navigation pill.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">How it works</a><a href=\"#\">Capabilities</a><a href=\"#\">Resources</a></nav>",
+      "css": ".ds-nav{display:flex;gap:0.5rem;font-family:'Atkinson Hyperlegible Next Variable',system-ui,sans-serif}.ds-nav a{padding:0.5rem 0.8rem;border-radius:999px;color:#3d555c;font-size:0.95rem;font-weight:600;text-decoration:none;transition:background-color 160ms ease,color 160ms ease}.ds-nav a:hover{background:var(--mineral,#f2f5f4);color:var(--ink,#0e2b35)}.ds-nav a:focus-visible{outline:2px solid var(--teal,#1f6f73);outline-offset:3px}"
+    },
+    {
+      "name": "Product Plaque",
+      "kind": "card",
+      "refersTo": "plaque-bar",
+      "description": "A real product screen mounted as a signage plaque with ink title bar and demonstration-data caption.",
+      "html": "<figure class=\"ds-plaque\"><p class=\"ds-plaque-bar\">Care-minute monitoring and evidence</p><div class=\"ds-plaque-frame\"></div><figcaption>Real product screen using demonstration data</figcaption></figure>",
+      "css": ".ds-plaque{margin:0;padding:0.5rem;max-width:28rem;border-radius:1rem;background:linear-gradient(160deg,#fff,#e4ecea);box-shadow:0 14px 34px -12px rgba(14,43,53,0.22);font-family:'Atkinson Hyperlegible Next Variable',system-ui,sans-serif}.ds-plaque-bar{display:flex;align-items:center;gap:0.6rem;margin:0;padding:0.65rem 0.9rem;border-radius:0.6rem 0.6rem 0 0;background:var(--ink,#0e2b35);color:#fff;font-size:0.92rem;font-weight:680}.ds-plaque-bar::before{content:'';width:0.85rem;height:0.85rem;border:3px solid var(--brand-aqua,#5fd8d5);border-radius:50%;box-sizing:border-box}.ds-plaque-frame{height:9rem;border-radius:0 0 0.6rem 0.6rem;background:#f2f5f4}.ds-plaque figcaption{padding:0.6rem 0.4rem 0.15rem;color:#5b6f75;font-size:0.86rem}"
+    },
+    {
+      "name": "Guide Card",
+      "kind": "card",
+      "refersTo": "guide-card",
+      "description": "Resource destination card; lifts and turns teal on hover.",
+      "html": "<a class=\"ds-guide\" href=\"#\"><h3>24/7 RN coverage</h3><p>Check every hour of coverage against the requirement.</p><span class=\"ds-guide-go\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 8h10M9 4l4 4-4 4\"/></svg></span></a>",
+      "css": ".ds-guide{position:relative;display:flex;flex-direction:column;max-width:20rem;min-height:12.5rem;padding:1.5rem 1.5rem 3.75rem;border:1px solid var(--line,#cfdcd9);border-radius:1rem;background:#fff;color:var(--navy-900,#1c3842);font-family:'Atkinson Hyperlegible Next Variable',system-ui,sans-serif;text-decoration:none;transition:border-color 180ms ease,box-shadow 180ms ease,transform 180ms cubic-bezier(0.16,1,0.3,1)}.ds-guide h3{margin:0 0 0.5rem;color:var(--ink,#0e2b35);font-size:1.15rem;font-weight:720;letter-spacing:-0.012em}.ds-guide p{margin:0;color:var(--muted,#4a5f66);font-size:0.95rem;line-height:1.5}.ds-guide-go{position:absolute;bottom:1.25rem;left:1.5rem;display:inline-grid;width:2.25rem;height:2.25rem;place-items:center;border-radius:50%;background:var(--eucalyptus,#e3ece9);color:var(--teal,#1f6f73);transition:background-color 180ms ease,color 180ms ease}.ds-guide:hover{border-color:var(--teal,#1f6f73);box-shadow:0 14px 34px -12px rgba(14,43,53,0.22);transform:translateY(-2px)}.ds-guide:hover .ds-guide-go{background:var(--ink,#0e2b35);color:var(--brand-aqua,#5fd8d5)}.ds-guide:focus-visible{outline:2px solid var(--teal,#1f6f73);outline-offset:3px}"
+    },
+    {
+      "name": "Door Sign",
+      "kind": "custom",
+      "refersTo": "door-sign",
+      "description": "Team sign: aqua room-code tile and white team name on an ink plate.",
+      "html": "<div class=\"ds-door\"><span class=\"ds-door-code\">DN</span><h3>Directors of Nursing</h3></div>",
+      "css": ".ds-door{display:flex;align-items:center;gap:0.7rem;min-height:3.6rem;max-width:16rem;padding:0.5rem 0.9rem 0.5rem 0.5rem;border-radius:0.75rem;background:var(--ink,#0e2b35);font-family:'Atkinson Hyperlegible Next Variable',system-ui,sans-serif}.ds-door-code{display:inline-grid;width:2.3rem;height:2.3rem;place-items:center;border-radius:0.45rem;background:var(--brand-aqua,#5fd8d5);color:var(--ink,#0e2b35);font-size:0.88rem;font-weight:760}.ds-door h3{margin:0;color:#fff;font-size:1rem;font-weight:720;line-height:1.25}"
+    },
+    {
+      "name": "Route",
+      "kind": "custom",
+      "refersTo": "route-marker",
+      "description": "Signature: stations joined by a 6px teal route line with ink markers.",
+      "html": "<ol class=\"ds-route\"><li><span class=\"ds-mk\">1</span><b>Import</b></li><li><span class=\"ds-mk\">2</span><b>Classify</b></li><li><span class=\"ds-mk\">3</span><b>Monitor</b></li><li><span class=\"ds-mk\">4</span><b>Export</b></li></ol>",
+      "css": ".ds-route{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:0;padding:1rem;list-style:none;background:var(--aqua-field,#ddf3f1);font-family:'Atkinson Hyperlegible Next Variable',system-ui,sans-serif}.ds-route::before{content:'';position:absolute;top:calc(1rem + 1.875rem - 3px);left:2.875rem;right:calc(25% - 1rem);height:6px;border-radius:999px;background:var(--teal,#1f6f73)}.ds-route li{position:relative;z-index:1}.ds-mk{display:grid;width:3.75rem;height:3.75rem;margin-bottom:1rem;place-items:center;border:4px solid var(--aqua-field,#ddf3f1);border-radius:50%;background:var(--ink,#0e2b35);color:var(--brand-aqua,#5fd8d5);font-weight:760;box-sizing:border-box}.ds-route b{color:var(--ink,#0e2b35);font-size:1.25rem;font-weight:720}"
+    },
+    {
+      "name": "Sign Icon",
+      "kind": "custom",
+      "refersTo": "sign-icon",
+      "description": "Icon plate beside benefit and commitment items.",
+      "html": "<span class=\"ds-sign\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z\"/><path d=\"M14 3v6h6\"/></svg></span>",
+      "css": ".ds-sign{display:inline-grid;width:2.75rem;height:2.75rem;place-items:center;border-radius:0.75rem;background:var(--eucalyptus,#e3ece9);color:var(--teal,#1f6f73)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Wayfinding Program",
+    "overview": "**Creative North Star: \"The Wayfinding Program\"**\n\nThe site is a well-signed building. Each section is a zone with one primary sign, the visitor follows a visible route from source file to reported result, and product screens are mounted like plaques on the wall. Deep signage ink carries the high-contrast zones (hero, evidence, contact, footer); mineral white, eucalyptus, and a pale aqua field carry the rest. CareMin aqua is the route colour: it marks the primary action, the route stations, and the current step, and almost nothing else.\n\nType does the signing. One family, Atkinson Hyperlegible Next, runs heavy and tight for signs and regular for reading. Density is calm: generous section padding, ruled lists instead of card grids for ordinary content, and rounded plaques reserved for the things a visitor handles or inspects (product screens, the capability directory, the FAQ, the form, guide destinations).\n\nProduct truth comes first. Real CareMin screens with demonstration data are the main imagery, each captioned as such. No invented interfaces, no decorative filler, and copy that names concrete behaviour rather than generic software claims.",
+    "keyCharacteristics": [
+      "Colour-coded zones alternating white, aqua field, eucalyptus, and ink; never two ink zones adjacent.",
+      "One aqua primary sign per zone; teal for links and secondary marks on light grounds.",
+      "A single hyperlegible family, weight 720 to 780 for signs, 400 for text.",
+      "Plaques: 1rem-rounded panels with a satin edge and an ink title bar.",
+      "The route: a 6px line with circular ink station markers, drawn once on load."
+    ],
+    "rules": [
+      {
+        "name": "The One Route Colour Rule",
+        "body": "Aqua appears only where it directs: the primary action, the route, the current step, focus on ink. It is never used as a decorative fill or a heading colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Zone Rhythm Rule",
+        "body": "Each section takes one zone colour (white, aqua field, eucalyptus, or ink) and changes zone at the section boundary; the colour change is the section divider, not a border or ornament.",
+        "section": "colors"
+      },
+      {
+        "name": "The Sign Weight Rule",
+        "body": "Anything that names a place (headings, door signs, plaque bars, route stations) is set 680 or heavier with negative tracking; anything that explains is 400. Nothing sits in between for emphasis except inline strong at 700.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "Headings, labels, and signs are sentence case. Short uppercase room codes on door signs are the only capitalised device.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mounted Plaque Rule",
+        "body": "Only plaques cast shadows at rest. Ruled lists, notes, and icon plates are flat. Guide cards are flat until hover.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** use genuine CareMin screens with demonstration data, mounted as plaques and captioned \"Real product screen using demonstration data\" or equivalent.",
+      "**Do** give each section one zone colour and one primary sign; keep supporting items quieter.",
+      "**Do** style links with colour and weight (teal 650 on light, aqua on ink), changing colour on hover.",
+      "**Do** set lists of ordinary content as ruled rows rather than boxed cards.",
+      "**Do** keep page copy as approved by the owner; visual work never rewrites it.",
+      "**Do** write concrete product behaviour and outcomes.",
+      "**Do** self-host every font and image; the CSP allows nothing else."
+    ],
+    "donts": [
+      "**Don't** underline links or use underlines as decoration.",
+      "**Don't** use em dashes in any written copy.",
+      "**Don't** add gradient blobs, mesh glows, decorative grid backgrounds, or floating shapes. Gradients are limited to the plaque satin edge, the faint 6% aqua wash at the top of the hero, and the lineage progress track.",
+      "**Don't** italicise fragments inside headings or paragraphs for emphasis.",
+      "**Don't** put an eyebrow, kicker, badge, or category tag above a heading; a label needs a real navigation or status purpose.",
+      "**Don't** use aqua as a heading colour, large decorative fill, or on more than one action per zone.",
+      "**Don't** fabricate customer logos, testimonials, or metrics; backing is Monash University and Fastrack only.",
+      "**Don't** use typed glyphs (arrows, letters) as icons; use inline SVG."
+    ]
+  }
+}
