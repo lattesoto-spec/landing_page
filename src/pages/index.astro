@@ -9,6 +9,7 @@ import fastrackLogo from "../assets/partners/fastrack.svg";
 import monashLogo from "../assets/partners/monash.png";
 import importComplete from "../assets/product/import-complete.png";
 import importUpload from "../assets/product/import-upload.png";
+import teamPhoto from "../assets/team/caremin-team.png";
 
 const benefits = [
   {
@@ -130,6 +131,12 @@ const dataCommitments = [
     title: "Never sold or used for advertising",
     body: "We do not sell personal information or share it for advertising.",
   },
+];
+
+const team = [
+  { code: "AR", name: "Arshia Rana", role: "Strategy & Compliance" },
+  { code: "MR", name: "Mohit Raja", role: "Business & Partnerships" },
+  { code: "ML", name: "Matias Latte", role: "Technology & Product" },
 ];
 
 const faqItems = [
@@ -599,7 +606,49 @@ const faqItems = [
     </div>
   </section>
 
-  <section class="section zone-white" aria-labelledby="data-title">
+  <section id="team" class="section zone-white" aria-labelledby="team-title">
+    <div class="container people">
+      <div class="people-copy">
+        <h2 id="team-title">The team behind CareMin.</h2>
+        <p class="lede">
+          Arshia, Mohit, and Matias lead strategy and compliance, business and partnerships, and
+          technology and product.
+        </p>
+        <a class="people-link" href={site.linkedInUrl} target="_blank" rel="noopener noreferrer">
+          Follow CareMin on LinkedIn
+          <span class="sr-only">(opens in a new tab)</span>
+        </a>
+      </div>
+
+      <figure class="people-figure">
+        <Image
+          src={teamPhoto}
+          alt="Arshia Rana, Mohit Raja, and Matias Latte, the CareMin team"
+          width={773}
+          format="webp"
+          quality={84}
+          loading="lazy"
+        />
+        <figcaption class="people-signs">
+          {
+            team.map((person) => (
+              <span class="person">
+                <span class="door-sign">
+                  <span class="door-code" aria-hidden="true">
+                    {person.code}
+                  </span>
+                  <strong>{person.name}</strong>
+                </span>
+                <span class="person-role">{person.role}</span>
+              </span>
+            ))
+          }
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section zone-eucalyptus" aria-labelledby="data-title">
     <div class="container split">
       <div class="split-heading">
         <h2 id="data-title">Handling of the data you are trusted with.</h2>

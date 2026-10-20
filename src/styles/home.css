@@ -1199,6 +1199,82 @@
   line-height: 1.25;
 }
 
+/* Team: the people behind CareMin, each with a name plate */
+.people {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.people-copy .lede {
+  margin-bottom: 2rem;
+}
+
+.people-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0.7rem 1.35rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink);
+  font-weight: 700;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.people-link:hover {
+  border-color: var(--ink);
+  background: var(--mineral);
+}
+
+.people-figure {
+  margin: 0;
+}
+
+.people-figure img {
+  width: 100%;
+  max-width: 34rem;
+  height: auto;
+  margin-inline: auto;
+}
+
+.people-signs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.person {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.person .door-sign {
+  margin-bottom: 0;
+}
+
+.person .door-sign strong {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.person-role {
+  padding-left: 0.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.zone-eucalyptus .sign-icon,
+.zone-eucalyptus .note {
+  background: #ffffff;
+}
+
 /* Responsive */
 @media (max-width: 1100px) {
   .guide-grid {
@@ -1212,6 +1288,10 @@
 }
 
 @media (max-width: 920px) {
+  .people {
+    grid-template-columns: 1fr;
+  }
+
   .hero .plaque {
     max-width: 44rem;
   }
@@ -1261,6 +1341,10 @@
 }
 
 @media (max-width: 680px) {
+  .people-signs {
+    grid-template-columns: 1fr;
+  }
+
   .backing-logo img {
     height: 2rem;
   }
