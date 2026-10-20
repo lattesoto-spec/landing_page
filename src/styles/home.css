@@ -1235,19 +1235,13 @@
 
 .people-figure {
   margin: 0;
-  padding: clamp(1.75rem, 3.5vw, 2.75rem) clamp(1rem, 2.5vw, 1.75rem) clamp(1rem, 2.5vw, 1.75rem);
-  border-radius: var(--radius-plaque);
-  background:
-    radial-gradient(ellipse 70% 55% at 50% 38%, rgba(255, 255, 255, 0.55), transparent 70%),
-    var(--eucalyptus);
 }
 
 .people-figure img {
   width: 100%;
-  max-width: 32rem;
+  max-width: 34rem;
   height: auto;
   margin-inline: auto;
-  mix-blend-mode: multiply;
 }
 
 .people-signs {
