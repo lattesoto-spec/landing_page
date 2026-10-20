@@ -162,6 +162,7 @@ Type does the signing. One family, Atkinson Hyperlegible Next, runs heavy and ti
 Product truth comes first. Real CareMin screens with demonstration data are the main imagery, each captioned as such. No invented interfaces, no decorative filler, and copy that names concrete behaviour rather than generic software claims.
 
 **Key Characteristics:**
+
 - Colour-coded zones alternating white, aqua field, eucalyptus, and ink; never two ink zones adjacent.
 - One aqua primary sign per zone; teal for links and secondary marks on light grounds.
 - A single hyperlegible family, weight 720 to 780 for signs, 400 for text.
@@ -173,16 +174,19 @@ Product truth comes first. Real CareMin screens with demonstration data are the 
 A cool signage palette: blue-green ink, mineral neutrals, and one luminous aqua that means "this way".
 
 ### Primary
+
 - **Signage Ink** (ink): the ground of the hero, evidence, and contact zones, plaque title bars, door signs, route markers, and every heading on a light ground.
 - **CareMin Aqua** (brand-aqua): the primary button, route station glyphs, the current lineage step, focus rings on ink, text selection. Its scarcity is the wayfinding signal.
 - **Aqua Glow** (brand-aqua-hover): hover state of the primary button only.
 
 ### Secondary
+
 - **Wayfinding Teal** (teal): links on light grounds, the drawn route line, sign-icon glyphs, ring bullets in the directory, focus rings on light grounds, form focus border.
 - **Aqua Field** (aqua-field): the zone background behind the route section. Its muted text pairs at #3f565c for contrast.
 - **Aqua Wash** (brand-aqua-soft): background of regulatory and privacy notes on resource pages, always with a 3px aqua left rule.
 
 ### Neutral
+
 - **Raised Ink** (ink-raised): panels sitting on an ink zone, such as the lineage panel.
 - **Ink Reading Text** (ink-text): body and lede text on ink zones.
 - **Footer Ink** (footer-ink): the footer ground, one step deeper than Signage Ink so the footer reads as the building's base.
@@ -195,6 +199,7 @@ A cool signage palette: blue-green ink, mineral neutrals, and one luminous aqua 
 - **Alert Red** (alert-red, alert-red-soft): calculator validation errors only.
 
 ### Named Rules
+
 **The One Route Colour Rule.** Aqua appears only where it directs: the primary action, the route, the current step, focus on ink. It is never used as a decorative fill or a heading colour.
 
 **The Zone Rhythm Rule.** Each section takes one zone colour (white, aqua field, eucalyptus, or ink) and changes zone at the section boundary; the colour change is the section divider, not a border or ornament.
@@ -207,6 +212,7 @@ A cool signage palette: blue-green ink, mineral neutrals, and one luminous aqua 
 **Character:** A legibility face built for low-vision readers, pushed to heavy weights and tight tracking so headlines read as signs, and left at regular weight for comfortable reading. One family keeps the program coherent.
 
 ### Hierarchy
+
 - **Display** (780, clamp(2.6rem, 5.4vw, 4.5rem), 1.02): the hero headline only, max 18ch, white on ink. Mobile clamp(2.25rem, 10vw, 3.1rem).
 - **Headline** (720, clamp(1.95rem, 3.3vw, 2.9rem), 1.12): one per section, balanced wrapping. Contact heading runs larger at clamp(2.1rem, 3.8vw, 3.25rem).
 - **Figure** (760, clamp(2.75rem, 5vw, 3.75rem), 1, tabular numerals): sourced statistics in the context strip.
@@ -217,9 +223,10 @@ A cool signage palette: blue-green ink, mineral neutrals, and one luminous aqua 
 - **Caption** (400, 0.86rem): plaque captions in slate (#5b6f75).
 
 ### Named Rules
+
 **The Sign Weight Rule.** Anything that names a place (headings, door signs, plaque bars, route stations) is set 680 or heavier with negative tracking; anything that explains is 400. Nothing sits in between for emphasis except inline strong at 700.
 
-**The Sentence Case Rule.** Headings, labels, and signs are sentence case. Short uppercase room codes on door signs are the only capitalised device.
+**The Sentence Case Rule.** Headings, labels, and signs are sentence case. No uppercase codes or initials stand in for icons.
 
 ## Layout
 
@@ -234,12 +241,14 @@ Breakpoints: 1100px (guides drop to two columns, teams to three), 920px (all spl
 Depth is mostly tonal: zone colour changes and raised ink panels. Shadows are soft, ink-tinted, and long, used to mount plaques on the wall rather than to float UI.
 
 ### Shadow Vocabulary
+
 - **Plaque mount** (`box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 18px 40px -18px rgba(14,43,53,0.32)`): directory and FAQ plaques on light zones.
 - **Lift** (`box-shadow: 0 14px 34px -12px rgba(14,43,53,0.22)`): product plaques on light zones, guide card hover, the mobile nav dropdown.
 - **Ink mount** (`box-shadow: 0 30px 60px -24px rgba(0,0,0,0.55)` with a 1px 8% white ring; `0 40px 80px -40px rgba(0,0,0,0.6)` for the form): plaques and panels sitting on ink.
 - **Scrolled header** (`box-shadow: 0 6px 20px -14px rgba(14,43,53,0.35)`): header once the page scrolls.
 
 ### Named Rules
+
 **The Mounted Plaque Rule.** Only plaques cast shadows at rest. Ruled lists, notes, and icon plates are flat. Guide cards are flat until hover.
 
 ## Shapes
@@ -249,7 +258,9 @@ Gently rounded panels (1rem) for plaques, the directory, FAQ, form, and guide ca
 ## Components
 
 ### Buttons
+
 Confident pills that read as the one sign to follow.
+
 - **Shape:** full pill (999px), min height 3.25rem; large variant 3.5rem at 1.05rem.
 - **Primary:** aqua fill with ink text, weight 720, padding 0.8rem 1.5rem.
 - **Hover / Focus:** fill lightens to Aqua Glow over 180ms; active presses down 1px; focus is a 2px ink outline at 3px offset.
@@ -257,33 +268,41 @@ Confident pills that read as the one sign to follow.
 - **Text link action:** on ink, the sign-in link is white 650 with an aqua arrow mark (inline SVG) that slides 3px on hover.
 
 ### Cards / Containers
+
 - **Plaque:** 0.5rem padded satin frame, ink title bar (0.92rem, 680, white) with a 3px aqua ring mark, product screen beneath, caption below stating demonstration data.
 - **Directory and FAQ plaques:** white, 1rem radius, Plaque mount shadow, rows divided by 1px rules.
 - **Guide card:** white, 1px rule border, 1rem radius, 12.5rem min height; hover turns the border teal, adds Lift, rises 2px, and the go-circle flips from eucalyptus/teal to ink/aqua. The index link is a full-width ink variant.
 - **Note:** eucalyptus fill, 0.75rem radius, 1.1rem 1.25rem padding, slate text.
 
 ### Inputs / Fields
+
 - **Style:** white, 1px Strong Rule border, 0.5rem radius, min height 3.1rem; labels 0.95rem 700 in ink above.
 - **Hover:** border darkens to #5b6f75.
 - **Focus:** teal border plus a 3px teal halo at 22% opacity; no outline.
 - **Select:** custom teal chevron. Checkbox uses teal accent colour.
 
 ### Navigation
+
 Sticky white header at 96% opacity with a light blur, 4.75rem tall; a rule and soft shadow appear once scrolled. Nav links are 0.95rem 600 slate pills that fill mineral on hover. Under 920px a bordered hamburger opens a white 0.8rem-rounded dropdown with Lift, links stacked, actions below a rule. Footer sits on Footer Ink with white 720 column labels and links in Ink Reading Text that turn aqua on hover.
 
 ### The Route (signature)
+
 Four stations in a row joined by a 6px rounded line. The grey base line is overdrawn in teal from Import to Export once on load (900ms, cubic-bezier(0.16, 1, 0.3, 1)), and each 3.75rem ink marker with an aqua glyph lights in sequence at 150ms steps. Reduced motion shows the finished state. On mobile the line runs vertically down the marker column.
 
 ### Sign plates and door signs
+
 - **Sign icon:** 2.75rem plate, 0.75rem radius, eucalyptus with teal glyph; ink with aqua glyph inside the directory; aqua with ink glyph on the ink zone. Glyphs are inline SVG.
-- **Door sign:** ink plate with a 2.3rem aqua room-code tile (two-letter uppercase code) and the team name in white 1rem.
+- **Door sign:** ink plate with a 2.3rem outlined aqua line icon and the team name in white 1rem.
+- **Name plate:** ink plate with the aqua ring marker, the person's name in white and their role in muted aqua grey beneath. Used under the team photo.
 
 ### Lineage panel
+
 Raised Ink panel with a 1px 16% aqua-tint border. A 4px vertical track fills aqua to the current station; nodes are 2.2rem circles, the current node aqua with an aqua-tint row highlight, other rows tint on hover.
 
 ## Do's and Don'ts
 
 ### Do:
+
 - **Do** use genuine CareMin screens with demonstration data, mounted as plaques and captioned "Real product screen using demonstration data" or equivalent.
 - **Do** give each section one zone colour and one primary sign; keep supporting items quieter.
 - **Do** style links with colour and weight (teal 650 on light, aqua on ink), changing colour on hover.
@@ -293,6 +312,7 @@ Raised Ink panel with a 1px 16% aqua-tint border. A 4px vertical track fills aqu
 - **Do** self-host every font and image; the CSP allows nothing else.
 
 ### Don't:
+
 - **Don't** underline links or use underlines as decoration.
 - **Don't** use em dashes in any written copy.
 - **Don't** add gradient blobs, mesh glows, decorative grid backgrounds, or floating shapes. Gradients are limited to the plaque satin edge, the faint 6% aqua wash at the top of the hero, and the lineage progress track.

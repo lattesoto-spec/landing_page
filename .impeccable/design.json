@@ -458,9 +458,9 @@
       "name": "Door Sign",
       "kind": "custom",
       "refersTo": "door-sign",
-      "description": "Team sign: aqua room-code tile and white team name on an ink plate.",
-      "html": "<div class=\"ds-door\"><span class=\"ds-door-code\">DN</span><h3>Directors of Nursing</h3></div>",
-      "css": ".ds-door{display:flex;align-items:center;gap:0.7rem;min-height:3.6rem;max-width:16rem;padding:0.5rem 0.9rem 0.5rem 0.5rem;border-radius:0.75rem;background:var(--ink,#0e2b35);font-family:'Atkinson Hyperlegible Next Variable',system-ui,sans-serif}.ds-door-code{display:inline-grid;width:2.3rem;height:2.3rem;place-items:center;border-radius:0.45rem;background:var(--brand-aqua,#5fd8d5);color:var(--ink,#0e2b35);font-size:0.88rem;font-weight:760}.ds-door h3{margin:0;color:#fff;font-size:1rem;font-weight:720;line-height:1.25}"
+      "description": "Team sign: outlined aqua line icon and white team name on an ink plate.",
+      "html": "<div class=\"ds-door\"><span class=\"ds-door-code\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\"><circle cx=\"12\" cy=\"13\" r=\"8\"/><path d=\"M12 9v4l2 2M10 2h4\"/></svg></span><h3>Directors of Nursing</h3></div>",
+      "css": ".ds-door{display:flex;align-items:center;gap:0.7rem;min-height:3.6rem;max-width:16rem;padding:0.5rem 0.9rem 0.5rem 0.5rem;border-radius:0.75rem;background:var(--ink,#0e2b35);font-family:'Atkinson Hyperlegible Next Variable',system-ui,sans-serif}.ds-door-code{display:inline-grid;width:2.3rem;height:2.3rem;place-items:center;border:1px solid rgba(95,216,213,0.35);border-radius:0.45rem;color:var(--brand-aqua,#5fd8d5)}.ds-door h3{margin:0;color:#fff;font-size:1rem;font-weight:720;line-height:1.25}"
     },
     {
       "name": "Route",
@@ -507,7 +507,7 @@
       },
       {
         "name": "The Sentence Case Rule",
-        "body": "Headings, labels, and signs are sentence case. Short uppercase room codes on door signs are the only capitalised device.",
+        "body": "Headings, labels, and signs are sentence case. No uppercase codes or initials stand in for icons.",
         "section": "typography"
       },
       {

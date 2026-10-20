@@ -1167,7 +1167,7 @@
   padding: 1.35rem 1.75rem;
 }
 
-/* Teams: door signs carrying the room code and team name */
+/* Teams: door signs carrying a line icon and the team name */
 .door-sign {
   display: flex;
   align-items: center;
@@ -1179,17 +1179,20 @@
   background: var(--ink);
 }
 
-.door-code {
+.door-icon {
   display: inline-grid;
   flex: 0 0 auto;
   width: 2.3rem;
   height: 2.3rem;
   place-items: center;
+  border: 1px solid rgba(95, 216, 213, 0.35);
   border-radius: 0.45rem;
-  background: var(--brand-aqua);
-  color: var(--ink);
-  font-size: 0.88rem;
-  font-weight: 760;
+  color: var(--brand-aqua);
+}
+
+.door-icon .icon {
+  width: 1.3rem;
+  height: 1.3rem;
 }
 
 .door-sign h3 {
@@ -1248,26 +1251,39 @@
   margin-top: 1.5rem;
 }
 
-.person {
+.name-plate {
+  position: relative;
   display: grid;
-  gap: 0.5rem;
+  align-content: start;
+  gap: 0.2rem;
+  padding: 0.85rem 1rem 0.85rem 2.6rem;
+  border-radius: var(--radius-md);
+  background: var(--ink);
 }
 
-.person .door-sign {
-  margin-bottom: 0;
+.name-plate::before {
+  content: "";
+  position: absolute;
+  top: 1.12rem;
+  left: 1rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border: 3px solid var(--brand-aqua);
+  border-radius: 50%;
+  box-sizing: border-box;
 }
 
-.person .door-sign strong {
+.name-plate strong {
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 1.02rem;
   font-weight: 700;
   line-height: 1.25;
 }
 
-.person-role {
-  padding-left: 0.5rem;
-  color: var(--muted);
-  font-size: 0.95rem;
+.name-plate span {
+  color: #a9c6c8;
+  font-size: 0.9rem;
+  line-height: 1.35;
 }
 
 .zone-eucalyptus .sign-icon,

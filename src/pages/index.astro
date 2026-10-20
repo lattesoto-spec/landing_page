@@ -134,9 +134,9 @@ const dataCommitments = [
 ];
 
 const team = [
-  { code: "AR", name: "Arshia Rana", role: "Strategy & Compliance" },
-  { code: "MR", name: "Mohit Raja", role: "Business & Partnerships" },
-  { code: "ML", name: "Matias Latte", role: "Technology & Product" },
+  { name: "Arshia Rana", role: "Strategy & Compliance" },
+  { name: "Mohit Raja", role: "Business & Partnerships" },
+  { name: "Matias Latte", role: "Technology & Product" },
 ];
 
 const faqItems = [
@@ -544,35 +544,35 @@ const faqItems = [
       <div class="teams">
         <article class="team">
           <div class="door-sign">
-            <span class="door-code" aria-hidden="true">FM</span>
+            <span class="door-icon"><Icon name="monitor" size={22} /></span>
             <h3>Facility managers</h3>
           </div>
           <p>Review daily performance and address staffing variance.</p>
         </article>
         <article class="team">
           <div class="door-sign">
-            <span class="door-code" aria-hidden="true">DN</span>
+            <span class="door-icon"><Icon name="coverage" size={22} /></span>
             <h3>Directors of Nursing</h3>
           </div>
           <p>See RN coverage and care-minute performance together.</p>
         </article>
         <article class="team">
           <div class="door-sign">
-            <span class="door-code" aria-hidden="true">CT</span>
+            <span class="door-icon"><Icon name="shield" size={22} /></span>
             <h3>Compliance teams</h3>
           </div>
           <p>Build reporting evidence as the work happens.</p>
         </article>
         <article class="team">
           <div class="door-sign">
-            <span class="door-code" aria-hidden="true">OL</span>
+            <span class="door-icon"><Icon name="trend" size={22} /></span>
             <h3>Operations leaders</h3>
           </div>
           <p>Compare homes and coordinate support across the organisation.</p>
         </article>
         <article class="team">
           <div class="door-sign">
-            <span class="door-code" aria-hidden="true">FT</span>
+            <span class="door-icon"><Icon name="database" size={22} /></span>
             <h3>Finance teams</h3>
           </div>
           <p>Reconcile hours, costs, and reporting inputs in one place.</p>
@@ -632,14 +632,9 @@ const faqItems = [
         <figcaption class="people-signs">
           {
             team.map((person) => (
-              <span class="person">
-                <span class="door-sign">
-                  <span class="door-code" aria-hidden="true">
-                    {person.code}
-                  </span>
-                  <strong>{person.name}</strong>
-                </span>
-                <span class="person-role">{person.role}</span>
+              <span class="name-plate">
+                <strong>{person.name}</strong>
+                <span>{person.role}</span>
               </span>
             ))
           }
